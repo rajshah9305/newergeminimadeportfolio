@@ -10,7 +10,6 @@ const SOCIAL_LINKS = [
   { href: PERSONAL_INFO.linkedin, label: "LinkedIn Profile", Icon: Linkedin },
 ];
 
-// Animation Variants
 const container = {
   hidden: {},
   show: {
@@ -42,7 +41,7 @@ export function ContactSection() {
         <div className="absolute right-[-120px] top-[-120px] w-[500px] h-[500px] bg-primary opacity-20 blur-[120px]" />
       </div>
 
-      {/* Animated Zap Icon */}
+      {/* Zap Icon */}
       {!shouldReduceMotion && (
         <motion.div
           initial={{ rotate: -15, scale: 0.85, opacity: 0 }}
@@ -62,17 +61,15 @@ export function ContactSection() {
         viewport={{ once: true, margin: "-100px" }}
         className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center"
       >
-        {/* Heading */}
         <motion.h2
           variants={fadeUp}
-          className="text-5xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6 leading-[0.9] transition-colors duration-500 hover:text-primary"
+          className="text-5xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6 leading-[0.9] hover:text-primary transition-colors duration-500"
         >
           Initiate
           <br />
           Protocol
         </motion.h2>
 
-        {/* Subtext */}
         <motion.p
           variants={fadeUp}
           className="text-sm md:text-base text-slate-400 max-w-md mb-12 font-mono uppercase tracking-[0.15em] leading-relaxed"
@@ -82,12 +79,10 @@ export function ContactSection() {
           Let&apos;s build something scalable.
         </motion.p>
 
-        {/* Actions */}
         <motion.div
           variants={fadeUp}
           className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-md justify-center"
         >
-          {/* Email Button */}
           <motion.a
             href={`mailto:${PERSONAL_INFO.email}`}
             whileHover={
@@ -105,7 +100,6 @@ export function ContactSection() {
             Email Me
           </motion.a>
 
-          {/* Social Icons */}
           <div className="flex gap-3">
             {SOCIAL_LINKS.map(({ href, label, Icon }) => (
               <motion.a
@@ -133,5 +127,5 @@ export function ContactSection() {
         </motion.div>
       </motion.div>
     </section>
-  
   );
+}
