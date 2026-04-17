@@ -1,24 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import {
-  BrainCircuit,
-  Cpu,
-  Database,
-  ExternalLink,
-  Github,
-  ArrowRight,
-  Zap,
-  Layers,
-  Code2,
-  Bot,
+  BrainCircuit, Cpu, Database, ExternalLink,
+  Github, ArrowRight, Zap, Layers, Code2, Bot,
 } from "lucide-react";
 import { PROJECTS, PERSONAL_INFO, type Project } from "@/config/portfolio";
 import { SectionHeader } from "./SectionHeader";
 import { BrutalistButton } from "./BrutalistButton";
-import { useInView } from "@/hooks/useInView";
 
-// Render function — never store JSX in module-level objects (breaks SSR)
 function ProjectIcon({ icon }: { icon: Project["icon"] }) {
   const cls = "w-6 h-6";
   switch (icon) {
@@ -32,27 +22,27 @@ function ProjectIcon({ icon }: { icon: Project["icon"] }) {
   }
 }
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 32 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: "easeOut" as const, delay: i * 0.08 },
+  }),
+};
+
 function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const { ref, inView } = useInView();
-  const [hovered, setHovered] = useState(false);
+  const reduce = useReducedMotion();
 
   return (
-    <article
-      ref={ref as React.RefObject<HTMLElement>}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        transitionDelay: `${index * 80}ms`,
-        opacity: inView ? 1 : 0,
-        transform: inView ? "translateY(0)" : "translateY(28px)",
-        transition:
-          "opacity 0.55s ease, transform 0.55s ease, box-shadow 0.25s ease",
-      }}
-      className={`group relative bg-white border-2 border-dark flex flex-col lg:flex-row overflow-hidden ${
-        hovered
-          ? "shadow-[10px_10px_0px_0px_rgba(208,94,53,1)] -translate-y-0.5"
-          : "shadow-[6px_6px_0px_0px_rgba(17,17,17,1)]"
-      }`}
+    <motion.article
+      custom={index}
+      variants={reduce ? undefined : cardVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-60px" }}
+      whileHover={reduce ? {} : { y: -3, boxShadow: "10px 10px 0px 0px rgba(208,94,53,1)" }}
+      className="group relative bg-white border-2 border-dark flex flex-col lg:flex-row overflow-hidden shadow-[6px_6px_0px_0px_rgba(17,17,17,1)] transition-shadow duration-300"
     >
       {/* Featured badge */}
       {project.featured && (
@@ -62,40 +52,32 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       )}
 
       {/* Left panel */}
-      <div
-        className={`lg:w-[42%] shrink-0 border-b-2 lg:border-b-0 lg:border-r-2 border-dark p-8 flex flex-col justify-between relative overflow-hidden min-h-[220px] transition-colors duration-300 ${
-          hovered ? "bg-slate-100" : "bg-slate-50"
-        }`}
-      >
+      <div className="lg:w-[42%] shrink-0 border-b-2 lg:border-b-0 lg:border-r-2 border-dark bg-slate-50 group-hover:bg-slate-100 transition-colors p-8 flex flex-col justify-between relative overflow-hidden min-h-[220px]">
         {/* Ghost number */}
         <div
           className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
           aria-hidden="true"
         >
-          <span
-            className="text-[180px] font-black leading-none text-black transition-opacity duration-300"
-            style={{ opacity: hovered ? 0.06 : 0.04 }}
-          >
+          <span className="text-[180px] font-black leading-none text-black opacity-[0.04] group-hover:opacity-[0.07] transition-opacity duration-300">
             {project.number}
           </span>
         </div>
 
         <div className="relative z-10">
-          {/* Icon box */}
-          <div
-            className="w-14 h-14 bg-dark text-white flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_0px_rgba(208,94,53,1)] mb-6 transition-transform duration-300"
-            style={{ transform: hovered ? "scale(1.08)" : "scale(1)" }}
+          <motion.div
+            whileHover={reduce ? {} : { scale: 1.08 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="w-14 h-14 bg-dark text-white flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_0px_rgba(208,94,53,1)] mb-6"
             aria-hidden="true"
           >
             <ProjectIcon icon={project.icon} />
-          </div>
+          </motion.div>
 
           <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-dark leading-tight break-words">
             {project.title}
           </h3>
         </div>
 
-        {/* Links */}
         <div className="relative z-10 flex gap-5 mt-6">
           {project.links.live && (
             <a
@@ -128,15 +110,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <p className="text-base md:text-lg text-slate-700 leading-relaxed mb-7 font-medium">
             {project.desc}
           </p>
-
           <div className="flex flex-wrap gap-2 mb-8" aria-label="Technologies used">
             {project.tags.map((tag) => (
-              <span
+              <motion.span
                 key={tag}
-                className="px-3 py-1 bg-slate-100 font-mono text-[11px] font-bold tracking-widest uppercase text-dark border border-slate-200 transition-colors duration-200 hover:border-primary/40 hover:bg-primary/5 cursor-default"
+                whileHover={reduce ? {} : { scale: 1.05 }}
+                className="px-3 py-1 bg-slate-100 font-mono text-[11px] font-bold tracking-widest uppercase text-dark border border-slate-200 hover:border-primary/40 hover:bg-primary/5 cursor-default transition-colors duration-200"
               >
                 {tag}
-              </span>
+              </motion.span>
             ))}
           </div>
         </div>
@@ -145,42 +127,39 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <span className="font-mono text-xs font-bold text-primary tracking-widest uppercase">
             STAT: {project.stat}
           </span>
-          <a
+          <motion.a
             href={project.links.live ?? project.links.github}
             target="_blank"
             rel="noreferrer"
             aria-label={`View ${project.title}`}
-            className="w-10 h-10 bg-dark text-white flex items-center justify-center hover:bg-primary active:scale-90 transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0 group/arrow"
+            whileHover={reduce ? {} : { x: 3 }}
+            whileTap={{ scale: 0.92 }}
+            className="w-10 h-10 bg-dark text-white flex items-center justify-center hover:bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0"
           >
-            <ArrowRight
-              className="w-4 h-4 transition-transform duration-200 group-hover/arrow:translate-x-0.5"
-              aria-hidden="true"
-            />
-          </a>
+            <ArrowRight className="w-4 h-4" aria-hidden="true" />
+          </motion.a>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
 export function ProjectsSection() {
-  const { ref: headerRef, inView: headerInView } = useInView();
+  const reduce = useReducedMotion();
 
   return (
     <section id="work" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-28 scroll-mt-24">
-      <div
-        ref={headerRef as React.RefObject<HTMLDivElement>}
-        style={{
-          opacity: headerInView ? 1 : 0,
-          transform: headerInView ? "translateY(0)" : "translateY(20px)",
-          transition: "opacity 0.5s ease, transform 0.5s ease",
-        }}
+      <motion.div
+        initial={reduce ? false : { opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5 }}
       >
         <SectionHeader
           title="Selected Works"
           subtitle="Production-grade systems, AI orchestrations, and open-source contributions."
         />
-      </div>
+      </motion.div>
 
       <div className="flex flex-col gap-8">
         {PROJECTS.map((project, i) => (
