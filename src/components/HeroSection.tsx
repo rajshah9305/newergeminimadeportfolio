@@ -71,11 +71,7 @@ export function HeroSection() {
           style={fadeItem(360)}
           className="text-base md:text-lg text-slate-600 max-w-xl leading-relaxed mb-10 font-medium"
         >
-          {PERSONAL_INFO.bio.split("Next.js")[0]}
-          <span className="text-dark bg-white border-b-2 border-dark px-0.5 font-bold">
-            Next.js, Python
-          </span>
-          {PERSONAL_INFO.bio.split("Python")[1]}
+          {PERSONAL_INFO.bio}
         </p>
 
         {/* CTAs */}
