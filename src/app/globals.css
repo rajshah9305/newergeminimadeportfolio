@@ -30,19 +30,6 @@
     }
   }
 
-  /* Blinking terminal cursor on hero role */
-  .cursor-blink::after {
-    content: "_";
-    animation: blink 1.1s step-end infinite;
-    color: #D05E35;
-    font-weight: 900;
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
-  }
-
   /* Smooth underline hover for nav links */
   .nav-link {
     position: relative;

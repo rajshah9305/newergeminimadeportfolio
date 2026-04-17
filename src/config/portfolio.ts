@@ -1,12 +1,10 @@
 export const PERSONAL_INFO = {
   name: "Raj Shah",
   role: "AI & Full-Stack Engineer",
-  tagline: "Fusing Algorithmic Complexity with Structural Minimalism.",
   bio: "I architect high-performance digital ecosystems and intelligent agents. Specializing in Next.js, Python, and scalable AI infrastructure to deliver software that is fault-tolerant, scalable, and aesthetically absolute.",
   email: "contact@rajai.org",
   github: "https://github.com/rajshah9305",
   linkedin: "https://www.linkedin.com/in/rajshah9305",
-  website: "https://www.rajai.org",
 };
 
 export const SKILLS = [

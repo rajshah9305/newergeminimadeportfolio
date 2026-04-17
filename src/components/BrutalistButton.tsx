@@ -1,4 +1,14 @@
-import { ReactNode, AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
+import { ReactNode } from "react";
+
+interface BrutalistButtonProps {
+  children: ReactNode;
+  primary?: boolean;
+  href?: string;
+  onClick?: () => void;
+  className?: string;
+  ariaLabel?: string;
+  download?: string | boolean;
+}
 
 const BASE =
   "group relative inline-flex items-center justify-center px-6 py-4 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2";
@@ -7,40 +17,19 @@ const PRIMARY =
 const SECONDARY =
   "bg-white text-dark border-2 border-dark shadow-[4px_4px_0px_0px_rgba(17,17,17,1)] hover:shadow-[6px_6px_0px_0px_rgba(208,94,53,1)] hover:-translate-y-[2px] hover:-translate-x-[2px] active:translate-y-[4px] active:translate-x-[4px] active:shadow-none";
 
-type AnchorProps = {
-  href: string;
-  download?: string | boolean;
-  children: ReactNode;
-  primary?: boolean;
-  className?: string;
-  ariaLabel?: string;
-  onClick?: never;
-} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "download" | "className" | "aria-label">;
-
-type ButtonProps = {
-  href?: never;
-  download?: never;
-  children: ReactNode;
-  primary?: boolean;
-  className?: string;
-  ariaLabel?: string;
-  onClick?: () => void;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className" | "aria-label">;
-
-type BrutalistButtonProps = AnchorProps | ButtonProps;
-
 export function BrutalistButton({
   children,
   primary,
+  href,
+  onClick,
   className = "",
   ariaLabel,
-  ...rest
+  download,
 }: BrutalistButtonProps) {
   const cls = `${BASE} ${primary ? PRIMARY : SECONDARY} ${className}`;
   const inner = <span className="relative z-10 flex items-center gap-2">{children}</span>;
 
-  if ("href" in rest && rest.href !== undefined) {
-    const { href, download, onClick: _onClick, ...anchorRest } = rest as AnchorProps;
+  if (href) {
     return (
       <a
         href={href}
@@ -49,22 +38,14 @@ export function BrutalistButton({
         target={href.startsWith("http") ? "_blank" : undefined}
         rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
         className={cls}
-        {...anchorRest}
       >
         {inner}
       </a>
     );
   }
 
-  const { onClick, ...buttonRest } = rest as ButtonProps;
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={ariaLabel}
-      className={cls}
-      {...buttonRest}
-    >
+    <button type="button" onClick={onClick} aria-label={ariaLabel} className={cls}>
       {inner}
     </button>
   );
