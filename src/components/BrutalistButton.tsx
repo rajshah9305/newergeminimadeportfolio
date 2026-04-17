@@ -1,41 +1,71 @@
-import { ReactNode } from 'react';
+import { ReactNode, AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 
-interface BrutalistButtonProps {
+const BASE =
+  "group relative inline-flex items-center justify-center px-6 py-4 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2";
+const PRIMARY =
+  "bg-dark text-white border-2 border-dark hover:bg-primary hover:border-primary shadow-[4px_4px_0px_0px_rgba(208,94,53,1)] hover:shadow-[6px_6px_0px_0px_rgba(17,17,17,1)] hover:-translate-y-[2px] hover:-translate-x-[2px] active:translate-y-[4px] active:translate-x-[4px] active:shadow-none";
+const SECONDARY =
+  "bg-white text-dark border-2 border-dark shadow-[4px_4px_0px_0px_rgba(17,17,17,1)] hover:shadow-[6px_6px_0px_0px_rgba(208,94,53,1)] hover:-translate-y-[2px] hover:-translate-x-[2px] active:translate-y-[4px] active:translate-x-[4px] active:shadow-none";
+
+type AnchorProps = {
+  href: string;
+  download?: string | boolean;
   children: ReactNode;
   primary?: boolean;
-  href?: string;
-  onClick?: () => void;
   className?: string;
-  download?: string | boolean;
   ariaLabel?: string;
-}
+  onClick?: never;
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "download" | "className" | "aria-label">;
 
-export function BrutalistButton({ 
-  children, 
-  primary, 
-  href, 
-  onClick, 
-  className = "", 
-  download, 
-  ariaLabel 
+type ButtonProps = {
+  href?: never;
+  download?: never;
+  children: ReactNode;
+  primary?: boolean;
+  className?: string;
+  ariaLabel?: string;
+  onClick?: () => void;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className" | "aria-label">;
+
+type BrutalistButtonProps = AnchorProps | ButtonProps;
+
+export function BrutalistButton({
+  children,
+  primary,
+  className = "",
+  ariaLabel,
+  ...rest
 }: BrutalistButtonProps) {
-  const baseStyle = "group relative inline-flex items-center justify-center px-6 py-4 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2";
-  const primaryStyle = "bg-dark text-white border-2 border-dark hover:bg-primary hover:border-primary shadow-[4px_4px_0px_0px_rgba(208,94,53,1)] hover:shadow-[6px_6px_0px_0px_rgba(17,17,17,1)] hover:-translate-y-[2px] hover:-translate-x-[2px] active:translate-y-[4px] active:translate-x-[4px] active:shadow-none";
-  const secondaryStyle = "bg-white text-dark border-2 border-dark shadow-[4px_4px_0px_0px_rgba(17,17,17,1)] hover:shadow-[6px_6px_0px_0px_rgba(208,94,53,1)] hover:-translate-y-[2px] hover:-translate-x-[2px] active:translate-y-[4px] active:translate-x-[4px] active:shadow-none";
-  
-  const Component = href ? 'a' : 'button';
-  
+  const cls = `${BASE} ${primary ? PRIMARY : SECONDARY} ${className}`;
+  const inner = <span className="relative z-10 flex items-center gap-2">{children}</span>;
+
+  if ("href" in rest && rest.href !== undefined) {
+    const { href, download, onClick: _onClick, ...anchorRest } = rest as AnchorProps;
+    return (
+      <a
+        href={href}
+        download={download}
+        aria-label={ariaLabel}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+        className={cls}
+        {...anchorRest}
+      >
+        {inner}
+      </a>
+    );
+  }
+
+  const { onClick, ...buttonRest } = rest as ButtonProps;
   return (
-    <Component 
-      href={href}
+    <button
+      type="button"
       onClick={onClick}
-      download={download}
       aria-label={ariaLabel}
-      target={href?.startsWith('http') ? '_blank' : undefined}
-      rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
-      className={`${baseStyle} ${primary ? primaryStyle : secondaryStyle} ${className}`}
+      className={cls}
+      {...buttonRest}
     >
-      <span className="relative z-10 flex items-center gap-2">{children}</span>
-    </Component>
+      {inner}
+    </button>
   );
 }
