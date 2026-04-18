@@ -197,31 +197,31 @@ export function HeroSection() {
           {/* Social proof row */}
           <motion.div
             variants={reduce ? undefined : fadeUp}
-            className="mt-8 flex items-center gap-5 border-t border-slate-200 pt-6"
+            className="mt-8 flex items-center gap-6 border-t border-slate-200 pt-7"
           >
             <a
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1.5 font-mono text-[11px] font-bold tracking-widest uppercase text-slate-400 hover:text-primary transition-colors group"
+              className="flex items-center gap-2 font-mono text-[12px] font-bold tracking-widest uppercase text-slate-400 hover:text-primary transition-colors group"
             >
-              <Github className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" aria-hidden="true" />
+              <Github className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
               rajshah9305
             </a>
-            <span className="w-px h-4 bg-slate-200" aria-hidden="true" />
+            <span className="w-px h-5 bg-slate-200" aria-hidden="true" />
             <a
               href="https://www.rajai.org"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1.5 font-mono text-[11px] font-bold tracking-widest uppercase text-slate-400 hover:text-primary transition-colors group"
+              className="flex items-center gap-2 font-mono text-[12px] font-bold tracking-widest uppercase text-slate-400 hover:text-primary transition-colors group"
             >
-              <ExternalLink className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" aria-hidden="true" />
+              <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
               rajai.org
             </a>
-            <span className="w-px h-4 bg-slate-200" aria-hidden="true" />
-            <div className="flex items-center gap-1.5 text-slate-400">
-              <MapPin className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-              <span className="font-mono text-[11px] font-bold tracking-widest uppercase">Calgary, Canada</span>
+            <span className="w-px h-5 bg-slate-200" aria-hidden="true" />
+            <div className="flex items-center gap-2 text-slate-400">
+              <MapPin className="w-4 h-4 shrink-0" aria-hidden="true" />
+              <span className="font-mono text-[12px] font-bold tracking-widest uppercase">Calgary, Canada</span>
             </div>
           </motion.div>
         </motion.div>
@@ -237,7 +237,7 @@ export function HeroSection() {
           aria-hidden="true"
         >
           {/* Terminal chrome */}
-          <div className="border-2 border-dark bg-[#0D0D0D] shadow-[6px_6px_0px_0px_rgba(17,17,17,1)] overflow-hidden">
+          <div className="border-2 border-dark bg-[#0D0D0D] shadow-[6px_6px_0px_0px_rgba(17,17,17,1),0_0_40px_rgba(0,0,0,0.18),0_0_0_1px_rgba(255,255,255,0.04)] overflow-hidden">
 
             {/* Title bar */}
             <div className="flex items-center gap-2 px-4 py-2.5 bg-[#181818] border-b border-white/[0.06]">
