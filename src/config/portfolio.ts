@@ -25,11 +25,12 @@ export type Project = {
   icon: "brain" | "cpu" | "database" | "zap" | "layers" | "code" | "bot";
   featured?: boolean;
 };
+
 export const PROJECTS: Project[] = [
   {
     id: "p1",
     number: "01",
-    title: "RAJ_AI PLATFORM",
+    title: "RAJ AI PLATFORM",
     desc: "Flagship Generative AI platform integrating multi-modal LLMs. Features real-time RAG (Retrieval-Augmented Generation), custom agent workflows, and a brutalist highly-responsive UI.",
     tags: ["NEXT.JS", "PYTHON", "LANGCHAIN", "PINECONE"],
     stat: "10K+ INFERENCES",
@@ -43,7 +44,7 @@ export const PROJECTS: Project[] = [
   {
     id: "p2",
     number: "02",
-    title: "AI AGENT ORCHESTRATOR",
+    title: "AI AGENT ORCHESTRATION PLATFORM",
     desc: "Ultra-fast AI agent management platform with Cerebras integration. Features real-time 3D dashboard via Three.js, multi-framework support (AutoGen, CrewAI, LangGraph), WebSocket live updates, and background job processing with Bull + Redis.",
     tags: ["TYPESCRIPT", "NEXT.JS", "THREE.JS", "CEREBRAS", "REDIS", "WEBSOCKETS"],
     stat: "5 AI FRAMEWORKS",
@@ -57,7 +58,7 @@ export const PROJECTS: Project[] = [
     id: "p3",
     number: "03",
     title: "AI APP BUILDER",
-    desc: "No-code AI application builder that generates complete React apps from natural language prompts using Cerebras Llama-4. Includes Monaco Editor, JWT auth, real-time preview, and one-click Vercel deployment.",
+    desc: "Enterprise-grade platform that converts natural language into production-ready React apps using Cerebras GPT-OSS-120B. Features real-time streaming, Monaco Editor, AI personalization engine, JWT auth, and one-click Vercel deployment.",
     tags: ["NEXT.JS", "CEREBRAS", "LLAMA-4", "PRISMA", "POSTGRESQL"],
     stat: "ZERO-CODE DEPLOY",
     links: {
@@ -69,18 +70,31 @@ export const PROJECTS: Project[] = [
   {
     id: "p4",
     number: "04",
-    title: "AUTONOMOUS_AGENT_GPT",
-    desc: "Autonomous recursive agent orchestrator capable of self-prompting, task decomposition, and multi-agent coordination for complex software development tasks.",
-    tags: ["TYPESCRIPT", "OPENAI API", "WEBSOCKETS"],
-    stat: "99.9% UPTIME",
+    title: "RAJ AI UI COMPONENT ENGINE",
+    desc: "Turn plain English into production-ready UI components with five unique design variations instantly. Supports OpenAI, Anthropic, Groq, and any OpenAI-compatible API. Features live iframe preview, code export, and a Three.js GLSL shader background.",
+    tags: ["REACT", "TYPESCRIPT", "THREE.JS", "OPENAI API", "VITE"],
+    stat: "5 DESIGN VARIANTS",
     links: {
-      github: "https://github.com/rajshah9305/autonomous-agent-gpt",
+      github: "https://github.com/rajshah9305/AIpreviewwindow",
     },
-    icon: "cpu",
+    icon: "zap",
+    featured: true,
   },
   {
     id: "p5",
     number: "05",
+    title: "CREW AI AGENT PLATFORM",
+    desc: "Enterprise-grade AI agent orchestration platform powered by Google Gemini 2.5 Flash. Features drag-and-drop agent management, real-time execution monitoring, rate limiting, and a 100% type-safe TypeScript codebase with PostgreSQL persistence.",
+    tags: ["TYPESCRIPT", "REACT", "GEMINI", "POSTGRESQL", "DRIZZLE ORM"],
+    stat: "ENTERPRISE GRADE",
+    links: {
+      github: "https://github.com/rajshah9305/Crewsaisingle",
+    },
+    icon: "cpu",
+  },
+  {
+    id: "p6",
+    number: "06",
     title: "SCIVIZ DESIGN SYSTEM",
     desc: "Production-ready design system for scientific visualization applications. Redefines portal navigation with scientific-themed UI components, dark/light theming, and a high-performance React + TypeScript component library.",
     tags: ["REACT", "TYPESCRIPT", "TAILWIND CSS", "POSTGRESQL"],
@@ -91,9 +105,21 @@ export const PROJECTS: Project[] = [
     icon: "layers",
   },
   {
-    id: "p6",
-    number: "06",
-    title: "DISTRIBUTED_SYSTEMS_API",
+    id: "p7",
+    number: "07",
+    title: "AGENT ORCHESTRA",
+    desc: "Modern, production-ready AI agent orchestration platform with a beautiful web UI. Supports AutoGen, CrewAI, and custom agents with real-time monitoring, visual workflow builder, drag-and-drop interface, and JWT authentication.",
+    tags: ["PYTHON", "FLASK", "REACT", "WEBSOCKETS", "TAILWIND CSS"],
+    stat: "VISUAL WORKFLOW",
+    links: {
+      github: "https://github.com/rajshah9305/aIagenter",
+    },
+    icon: "bot",
+  },
+  {
+    id: "p8",
+    number: "08",
+    title: "DISTRIBUTED SYSTEMS API",
     desc: "High-throughput microservices architecture built to handle real-time data streaming and processing with sub-millisecond latency.",
     tags: ["RUST", "GRPC", "POSTGRESQL", "KAFKA"],
     stat: "<1MS LATENCY",
@@ -107,23 +133,26 @@ export const PROJECTS: Project[] = [
 export const EXPERIENCE = [
   {
     id: "e1",
-    year: "2023 - PRESENT",
+    year: "2023 — PRESENT",
     role: "Senior Software Engineer",
     company: "Nexus AI Systems",
     desc: "Led the transition from a monolithic architecture to a microservices ecosystem, improving deployment speed by 40%. Spearheaded enterprise AI integration using LLMs for internal automation pipelines.",
+    skills: ["LLMs", "Microservices", "CI/CD", "Python"],
   },
   {
     id: "e2",
-    year: "2021 - 2023",
+    year: "2021 — 2023",
     role: "Full-Stack Developer",
     company: "Elevate Digital Labs",
     desc: "Architected and maintained 15+ high-traffic Next.js applications serving millions of global requests. Optimized underlying PostgreSQL queries, effectively reducing core database load times by 60%.",
+    skills: ["Next.js", "PostgreSQL", "React", "Node.js"],
   },
   {
     id: "e3",
-    year: "2017 - 2021",
+    year: "2017 — 2021",
     role: "B.S. Computer Science",
     company: "Georgia Institute of Technology",
     desc: "Concentration in Intelligence (AI) and Systems/Architecture. Contributed to open-source distributed computing research and graduated with High Honors.",
+    skills: ["AI/ML", "Systems", "Research", "Algorithms"],
   },
 ];
