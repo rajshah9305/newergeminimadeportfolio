@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: "#expertise", label: "Expertise" },
   { href: "#work",      label: "Work" },
   { href: "#experience",label: "Experience" },
+  { href: "#contact",   label: "Contact" },
 ];
 
 function Branding() {
@@ -61,7 +62,7 @@ export function Navigation() {
             </a>
           ))}
           <BrutalistButton
-            href={`mailto:${PERSONAL_INFO.email}`}
+            href="#contact"
             primary
             className="!px-5 !py-2.5 !text-[11px]"
           >
