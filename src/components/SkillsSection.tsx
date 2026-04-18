@@ -43,14 +43,14 @@ export function SkillsSection() {
             whileHover={reduce ? {} : { y: -4, boxShadow: "8px 8px 0px 0px rgba(208,94,53,1)" }}
             className="bg-white border-2 border-dark p-6 shadow-[4px_4px_0px_0px_rgba(17,17,17,1)] flex flex-col transition-shadow duration-250"
           >
-            <h3 className="font-mono text-[10px] font-bold text-primary mb-5 tracking-[0.2em] uppercase border-b border-slate-100 pb-3">
+            <h3 className="font-mono text-[11px] font-bold text-primary mb-5 tracking-[0.18em] uppercase border-b border-slate-100 pb-3">
               {`// ${group.category}`}
             </h3>
             <ul className="flex flex-col gap-3 flex-1">
               {group.items.map((item, i) => (
                 <li
                   key={i}
-                  className="text-[15px] font-semibold flex items-center gap-2.5 text-slate-800 group/item"
+                  className="text-[15px] font-semibold flex items-center gap-2.5 text-slate-700 group/item"
                 >
                   <Blocks
                     className="w-3.5 h-3.5 text-slate-300 group-hover/item:text-primary transition-colors shrink-0"

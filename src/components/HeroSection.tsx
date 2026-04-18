@@ -133,28 +133,28 @@ export function HeroSection() {
           {/* Status pill */}
           <motion.div
             variants={reduce ? undefined : fadeUp}
-            className="inline-flex items-center gap-2 mb-9 px-3 py-1.5 border border-slate-200 bg-white/70 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 mb-9 px-3.5 py-2 border border-slate-200 bg-white/70 backdrop-blur-sm"
           >
             <span
-              className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_5px_rgba(34,197,94,0.9)]"
+              className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_5px_rgba(34,197,94,0.9)]"
               aria-hidden="true"
             />
-            <span className="font-mono text-[10px] font-bold tracking-[0.24em] uppercase text-slate-500">
+            <span className="font-mono text-[11px] font-bold tracking-[0.22em] uppercase text-slate-500">
               Available for hire
             </span>
           </motion.div>
 
           {/* Name */}
-          <h1 className="font-black uppercase tracking-tighter leading-[0.86] mb-5">
+          <h1 className="font-black uppercase tracking-tighter leading-[0.9] mb-6">
             <motion.span
               variants={reduce ? undefined : fadeUp}
-              className="block text-[clamp(4rem,11vw,8rem)] text-dark"
+              className="block text-[clamp(4.5rem,11vw,8.5rem)] text-dark"
             >
               {firstName}
             </motion.span>
             <motion.span
               variants={reduce ? undefined : fadeUp}
-              className="block text-[clamp(4rem,11vw,8rem)] text-outline"
+              className="block text-[clamp(4.5rem,11vw,8.5rem)] text-outline"
             >
               {lastName}
             </motion.span>
@@ -163,10 +163,10 @@ export function HeroSection() {
           {/* Role */}
           <motion.h2
             variants={reduce ? undefined : fadeUp}
-            className="text-base sm:text-lg md:text-xl font-bold tracking-tight text-dark mb-5 uppercase flex items-center gap-2 flex-wrap"
+            className="text-lg sm:text-xl md:text-2xl font-black tracking-tight text-dark mb-5 uppercase flex items-center gap-2.5 flex-wrap"
           >
             {PERSONAL_INFO.role}
-            <span className="text-primary font-mono font-black text-lg leading-none" aria-hidden="true">
+            <span className="text-primary font-mono font-black text-xl leading-none" aria-hidden="true">
               &gt;_
             </span>
           </motion.h2>
@@ -174,7 +174,7 @@ export function HeroSection() {
           {/* Bio */}
           <motion.p
             variants={reduce ? undefined : fadeUp}
-            className="text-[14.5px] text-slate-600 max-w-[420px] leading-[1.82] mb-9 font-normal"
+            className="text-[15.5px] text-slate-600 max-w-[440px] leading-[1.85] mb-9 font-normal"
           >
             {PERSONAL_INFO.bio}
           </motion.p>
@@ -244,13 +244,13 @@ export function HeroSection() {
               <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
-              <span className="ml-auto font-mono text-[10px] text-slate-500 tracking-[0.18em]">
+              <span className="ml-auto font-mono text-[11px] text-slate-400 tracking-[0.18em]">
                 engineer.ts
               </span>
             </div>
 
             {/* Code area */}
-            <div className="px-5 pt-5 pb-4 font-mono text-[12.5px] leading-[1.9] select-none overflow-x-auto">
+            <div className="px-5 pt-5 pb-4 font-mono text-[13px] leading-[1.9] select-none overflow-x-auto">
               {CODE_LINES.map((line, i) => (
                 <motion.div
                   key={i}
@@ -260,7 +260,7 @@ export function HeroSection() {
                   className="flex gap-4 min-w-0"
                 >
                   {/* Line number */}
-                  <span className="text-slate-600 w-5 shrink-0 text-right text-[11px] leading-[1.9]">
+                  <span className="text-slate-600 w-5 shrink-0 text-right text-[12px] leading-[1.9]">
                     {i + 1}
                   </span>
                   {/* Code */}
@@ -288,7 +288,7 @@ export function HeroSection() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.3 }}
               >
-                <span className="text-slate-600 w-5 shrink-0 text-right text-[11px] leading-[1.9]">
+                <span className="text-slate-600 w-5 shrink-0 text-right text-[12px] leading-[1.9]">
                   {CODE_LINES.length + 1}
                 </span>
                 <span>
@@ -306,7 +306,7 @@ export function HeroSection() {
               {/* Language indicator */}
               <div className="flex items-center gap-2 shrink-0">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                <span className="font-mono text-[10px] text-slate-500 tracking-[0.16em] uppercase">
+                <span className="font-mono text-[11px] text-slate-400 tracking-[0.16em] uppercase">
                   TypeScript
                 </span>
               </div>

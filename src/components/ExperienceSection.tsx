@@ -62,22 +62,22 @@ export function ExperienceSection() {
               >
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-2">
-                  <h3 className="text-lg md:text-xl font-black uppercase text-dark flex items-center gap-2.5 leading-tight">
-                    <Icon className="w-[18px] h-[18px] text-primary shrink-0" aria-hidden="true" />
+                  <h3 className="text-xl md:text-2xl font-black uppercase text-dark flex items-center gap-2.5 leading-tight">
+                    <Icon className="w-5 h-5 text-primary shrink-0" aria-hidden="true" />
                     {exp.role}
                   </h3>
-                  <span className="font-mono text-[10px] font-bold text-white bg-dark px-3 py-1.5 inline-block whitespace-nowrap shadow-[2px_2px_0px_0px_rgba(208,94,53,1)] self-start shrink-0">
+                  <span className="font-mono text-[11px] font-bold text-white bg-dark px-3 py-1.5 inline-block whitespace-nowrap shadow-[2px_2px_0px_0px_rgba(208,94,53,1)] self-start shrink-0">
                     {exp.year}
                   </span>
                 </div>
 
                 {/* Company */}
-                <p className="text-sm font-bold text-primary mb-3 tracking-wide">
+                <p className="text-[15px] font-bold text-primary mb-3 tracking-wide">
                   {exp.company}
                 </p>
 
                 {/* Description */}
-                <p className="text-[14px] text-slate-600 leading-[1.75] font-normal">
+                <p className="text-[15px] text-slate-600 leading-[1.78] font-normal">
                   {exp.desc}
                 </p>
               </motion.div>

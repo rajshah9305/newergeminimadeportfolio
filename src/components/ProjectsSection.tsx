@@ -91,9 +91,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.links.live}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase text-dark/60 hover:text-primary transition-colors focus:outline-none focus:text-primary group/link"
+              className="flex items-center gap-1.5 font-mono text-[12px] font-bold uppercase text-dark/60 hover:text-primary transition-colors focus:outline-none focus:text-primary group/link"
             >
-              <ExternalLink className="w-3.5 h-3.5 group-hover/link:rotate-12 transition-transform" aria-hidden="true" />
+              <ExternalLink className="w-4 h-4 group-hover/link:rotate-12 transition-transform" aria-hidden="true" />
               Live App
             </a>
           )}
@@ -102,9 +102,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.links.github}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase text-dark/60 hover:text-primary transition-colors focus:outline-none focus:text-primary group/link"
+              className="flex items-center gap-1.5 font-mono text-[12px] font-bold uppercase text-dark/60 hover:text-primary transition-colors focus:outline-none focus:text-primary group/link"
             >
-              <Github className="w-3.5 h-3.5 group-hover/link:rotate-12 transition-transform" aria-hidden="true" />
+              <Github className="w-4 h-4 group-hover/link:rotate-12 transition-transform" aria-hidden="true" />
               Source
             </a>
           )}
@@ -122,7 +122,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2.5 py-1 bg-slate-100 font-mono text-[10px] font-bold tracking-[0.15em] uppercase text-slate-700 border border-slate-200 hover:border-primary/30 hover:bg-primary/5 cursor-default transition-colors duration-200"
+                className="px-2.5 py-1 bg-slate-100 font-mono text-[11px] font-bold tracking-[0.12em] uppercase text-slate-700 border border-slate-200 hover:border-primary/30 hover:bg-primary/5 cursor-default transition-colors duration-200"
               >
                 {tag}
               </span>
@@ -131,7 +131,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </div>
 
         <div className="flex justify-between items-center border-t border-slate-100 pt-5">
-          <span className="font-mono text-[11px] font-bold text-primary tracking-[0.15em] uppercase">
+          <span className="font-mono text-[12px] font-bold text-primary tracking-[0.15em] uppercase">
             STAT: {project.stat}
           </span>
           <motion.a

@@ -15,6 +15,15 @@
     --color-dark: #111111;
     --color-light: #F9F9F6;
   }
+
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
 }
 
 @layer utilities {

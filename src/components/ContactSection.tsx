@@ -68,7 +68,7 @@ export function ContactSection() {
 
         <motion.p
           variants={reduce ? undefined : fadeUp}
-          className="text-[13px] text-slate-400 max-w-xs mb-12 font-mono uppercase tracking-[0.18em] leading-[1.9]"
+          className="text-[14px] text-slate-300 max-w-xs mb-12 font-mono uppercase tracking-[0.18em] leading-[1.9]"
         >
           Currently accepting new opportunities.
           <br />
@@ -83,7 +83,7 @@ export function ContactSection() {
           {/* Email CTA */}
           <a
             href={`mailto:${PERSONAL_INFO.email}`}
-            className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-primary text-white px-7 py-4 font-mono text-[12px] font-bold uppercase tracking-[0.15em] border-2 border-transparent hover:bg-white hover:text-dark hover:border-dark shadow-[4px_4px_0px_0px_rgba(255,255,255,0.12)] hover:shadow-[6px_6px_0px_0px_rgba(208,94,53,1)] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-dark group"
+            className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-primary text-white px-7 py-4 font-mono text-[13px] font-bold uppercase tracking-[0.15em] border-2 border-transparent hover:bg-white hover:text-dark hover:border-dark shadow-[4px_4px_0px_0px_rgba(255,255,255,0.12)] hover:shadow-[6px_6px_0px_0px_rgba(208,94,53,1)] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-dark group"
           >
             <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
             Email Me

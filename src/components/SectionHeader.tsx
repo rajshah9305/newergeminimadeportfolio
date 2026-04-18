@@ -10,7 +10,7 @@ export function SectionHeader({ title, subtitle }: SectionHeaderProps) {
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 text-base text-slate-500 max-w-xl font-normal leading-relaxed">
+        <p className="mt-3 text-[15px] text-slate-600 max-w-xl font-normal leading-relaxed">
           {subtitle}
         </p>
       )}

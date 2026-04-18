@@ -22,7 +22,7 @@ function Branding() {
       <div className="bg-primary text-white font-black w-8 h-8 flex items-center justify-center text-[11px] tracking-tight shadow-[2px_2px_0px_0px_rgba(17,17,17,1)] group-hover:bg-dark transition-colors duration-200">
         RS
       </div>
-      <span className="font-black tracking-[0.14em] text-[13px] uppercase text-dark group-hover:text-primary transition-colors duration-200">
+      <span className="font-black tracking-[0.14em] text-[14px] uppercase text-dark group-hover:text-primary transition-colors duration-200">
         {PERSONAL_INFO.name}
       </span>
     </a>
@@ -58,7 +58,7 @@ export function Navigation() {
             <a
               key={link.href}
               href={link.href}
-              className="nav-link font-mono text-[11px] font-bold tracking-[0.16em] uppercase text-dark hover:text-primary transition-colors focus:outline-none focus:text-primary"
+              className="nav-link font-mono text-[12px] font-bold tracking-[0.16em] uppercase text-dark hover:text-primary transition-colors focus:outline-none focus:text-primary"
             >
               {link.label}
             </a>
@@ -126,7 +126,7 @@ export function Navigation() {
                 initial={reduce ? {} : { opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.055, duration: 0.2 }}
-                className="py-4 border-b border-dark/8 flex justify-between items-center text-[12px] group focus:outline-none focus:text-primary"
+                className="py-4 border-b border-dark/8 flex justify-between items-center text-[13px] group focus:outline-none focus:text-primary"
               >
                 {link.label}
                 <ArrowRight className="w-4 h-4 group-hover:text-primary transition-colors" />
