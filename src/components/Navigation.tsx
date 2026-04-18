@@ -22,9 +22,6 @@ function Branding() {
       <div className="bg-primary text-white font-black w-8 h-8 flex items-center justify-center text-[11px] tracking-tight shadow-[2px_2px_0px_0px_rgba(17,17,17,1)] group-hover:bg-dark transition-colors duration-200">
         RS
       </div>
-      <span className="font-black tracking-[0.14em] text-[14px] uppercase text-dark group-hover:text-primary transition-colors duration-200">
-        {PERSONAL_INFO.name}
-      </span>
     </a>
   );
 }
