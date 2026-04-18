@@ -51,7 +51,7 @@ const CODE_LINES: CodeLine[] = [
     tokens: [
       { t: "location", c: "text-sky-300" },
       { t: ": ", c: "text-slate-400" },
-      { t: '"Calgary, CA"', c: "text-emerald-400" },
+      { t: '`"${PERSONAL_INFO.location}"`', c: "text-emerald-400" },
       { t: ",", c: "text-slate-400" },
     ],
   },
@@ -184,7 +184,7 @@ export function HeroSection() {
             variants={reduce ? undefined : fadeUp}
             className="flex flex-col sm:flex-row gap-3"
           >
-            <BrutalistButton primary href={`mailto:${PERSONAL_INFO.email}`}>
+            <BrutalistButton primary href="#contact">
               <Mail className="w-4 h-4" aria-hidden="true" />
               Initialize Contact
             </BrutalistButton>
@@ -210,18 +210,18 @@ export function HeroSection() {
             </a>
             <span className="w-px h-5 bg-slate-200" aria-hidden="true" />
             <a
-              href="https://www.rajai.org"
+              href={PERSONAL_INFO.website}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 font-mono text-[12px] font-bold tracking-widest uppercase text-slate-400 hover:text-primary transition-colors group"
             >
               <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
-              rajai.org
+              {PERSONAL_INFO.website.replace("https://", "")}
             </a>
             <span className="w-px h-5 bg-slate-200" aria-hidden="true" />
             <div className="flex items-center gap-2 text-slate-400">
               <MapPin className="w-4 h-4 shrink-0" aria-hidden="true" />
-              <span className="font-mono text-[12px] font-bold tracking-widest uppercase">Calgary, Canada</span>
+              <span className="font-mono text-[12px] font-bold tracking-widest uppercase">{PERSONAL_INFO.location}</span>
             </div>
           </motion.div>
         </motion.div>

@@ -68,3 +68,12 @@
     width: 100%;
   }
 }
+
+@keyframes grid-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 44px 44px; }
+}
+
+.bg-grid-pattern {
+  animation: grid-drift 20s linear infinite;
+}

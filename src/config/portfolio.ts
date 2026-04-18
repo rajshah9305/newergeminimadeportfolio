@@ -5,6 +5,8 @@ export const PERSONAL_INFO = {
   email: "contact@rajai.org",
   github: "https://github.com/rajshah9305",
   linkedin: "https://www.linkedin.com/in/rajshah9305",
+  location: "Calgary, Canada",
+  website: "https://www.rajai.org",
 };
 
 export const SKILLS = [
