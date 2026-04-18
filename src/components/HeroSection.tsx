@@ -171,15 +171,6 @@ export function HeroSection() {
             </span>
           </motion.h2>
 
-          {/* Location */}
-          <motion.div
-            variants={reduce ? undefined : fadeUp}
-            className="flex items-center gap-1.5 mb-5 text-slate-400"
-          >
-            <MapPin className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-            <span className="font-mono text-[11px] tracking-widest uppercase">Calgary, Canada</span>
-          </motion.div>
-
           {/* Bio */}
           <motion.p
             variants={reduce ? undefined : fadeUp}
@@ -227,6 +218,11 @@ export function HeroSection() {
               <ExternalLink className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" aria-hidden="true" />
               rajai.org
             </a>
+            <span className="w-px h-4 bg-slate-200" aria-hidden="true" />
+            <div className="flex items-center gap-1.5 text-slate-400">
+              <MapPin className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+              <span className="font-mono text-[11px] font-bold tracking-widest uppercase">Calgary, Canada</span>
+            </div>
           </motion.div>
         </motion.div>
 
