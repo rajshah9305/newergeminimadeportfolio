@@ -108,11 +108,7 @@ const CODE_LINES: CodeLine[] = [
   },
 ];
 
-const STATS = [
-  { value: "6+",   label: "Projects" },
-  { value: "2.9K", label: "Commits" },
-  { value: "5",    label: "AI Frameworks" },
-];
+
 
 export function HeroSection() {
   const reduce = useReducedMotion();
@@ -319,40 +315,11 @@ export function HeroSection() {
                 </span>
               </div>
 
-              {/* Stats */}
-              <div className="flex items-center gap-5">
-                {STATS.map(({ value, label }, i) => (
-                  <motion.div
-                    key={label}
-                    initial={reduce ? false : { opacity: 0, y: 4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.5 + i * 0.08, duration: 0.3 }}
-                    className="flex flex-col items-center"
-                  >
-                    <span className="font-black text-white text-[13px] leading-none">{value}</span>
-                    <span className="font-mono text-[9px] text-slate-500 tracking-[0.14em] uppercase mt-0.5">
-                      {label}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
+    
             </div>
           </div>
 
-          {/* Floating tag strip — replaces the removed accent bars */}
-          <div className="mt-3 flex items-center gap-2 flex-wrap">
-            {["Next.js", "Python", "LangChain", "Rust", "Docker", "AWS"].map((tag, i) => (
-              <motion.span
-                key={tag}
-                initial={reduce ? false : { opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.6 + i * 0.06, duration: 0.28 }}
-                className="px-2.5 py-1 bg-white border border-slate-200 font-mono text-[10px] font-bold tracking-[0.14em] uppercase text-slate-500 hover:border-primary hover:text-primary transition-colors cursor-default"
-              >
-                {tag}
-              </motion.span>
-            ))}
-          </div>
+
         </motion.div>
 
       </div>
