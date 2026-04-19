@@ -108,7 +108,7 @@ export function HeroSection() {
   return (
     <section
       aria-label="Introduction"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-80px)] flex items-center py-16"
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-80px)] flex items-center py-24 md:py-32"
     >
       <div className="w-full grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-10 xl:gap-16 items-center">
 

@@ -5,7 +5,7 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ title, subtitle }: SectionHeaderProps) {
   return (
-    <header className="mb-12 md:mb-16 border-l-[6px] border-primary pl-5 md:pl-7">
+    <header className="mb-20 md:mb-24 border-l-[6px] border-primary pl-5 md:pl-7">
       <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter leading-[0.95] text-dark">
         {title}
       </h2>

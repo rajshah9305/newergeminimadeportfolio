@@ -35,7 +35,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="bg-dark text-white py-32 md:py-40 relative overflow-hidden scroll-mt-20"
+      className="bg-dark text-white py-48 md:py-64 relative overflow-hidden scroll-mt-20"
     >
       {/* Soft radial glow — subtle, not brown */}
       <div

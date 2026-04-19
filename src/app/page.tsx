@@ -32,7 +32,7 @@ export default function Home() {
 
         {/* Divider */}
         <div
-          className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12"
+          className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32"
           aria-hidden="true"
         >
           <div className="w-full h-px bg-dark/15 relative">

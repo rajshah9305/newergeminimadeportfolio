@@ -155,7 +155,7 @@ export function ProjectsSection() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="work" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32 scroll-mt-24">
+    <section id="work" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-48 md:mb-64 scroll-mt-24">
       <motion.div
         initial={reduce ? false : { opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -168,7 +168,7 @@ export function ProjectsSection() {
         />
       </motion.div>
 
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-16 md:gap-24">
         {PROJECTS.map((project, i) => (
           <ProjectCard key={project.id} project={project} index={i} />
         ))}
