@@ -42,7 +42,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-50px" }}
-      whileHover={reduce ? {} : { y: -2, boxShadow: "8px 8px 0px 0px rgba(208,94,53,1)" }}
+      whileHover={reduce ? {} : { y: -4, x: -2, boxShadow: "10px 10px 0px 0px rgba(208,94,53,1)" }}
       className="group relative bg-white border-2 border-dark flex flex-col lg:flex-row overflow-hidden shadow-[5px_5px_0px_0px_rgba(17,17,17,1)] transition-shadow duration-250"
     >
       {/* Featured badge */}

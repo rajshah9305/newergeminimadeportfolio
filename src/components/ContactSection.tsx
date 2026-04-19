@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Mail, Github, Linkedin, Zap } from "lucide-react";
+import { Mail, Github, Linkedin, Zap, Check, Copy } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
 
 const SOCIAL_LINKS = [
@@ -21,6 +22,15 @@ const fadeUp = {
 
 export function ContactSection() {
   const reduce = useReducedMotion();
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    if (typeof navigator !== "undefined") {
+      navigator.clipboard.writeText(PERSONAL_INFO.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   return (
     <section
@@ -81,13 +91,23 @@ export function ContactSection() {
           className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-sm justify-center"
         >
           {/* Email CTA */}
-          <a
-            href={`mailto:${PERSONAL_INFO.email}`}
-            className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-primary text-white px-7 py-4 font-mono text-[13px] font-bold uppercase tracking-[0.15em] border-2 border-transparent hover:bg-white hover:text-dark hover:border-dark shadow-[4px_4px_0px_0px_rgba(255,255,255,0.12)] hover:shadow-[6px_6px_0px_0px_rgba(208,94,53,1)] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-dark group"
-          >
-            <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
-            Email Me
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <a
+              href={`mailto:${PERSONAL_INFO.email}`}
+              className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-primary text-white px-7 py-4 font-mono text-[13px] font-bold uppercase tracking-[0.15em] border-2 border-transparent hover:bg-white hover:text-dark hover:border-dark shadow-[4px_4px_0px_0px_rgba(255,255,255,0.12)] hover:shadow-[6px_6px_0px_0px_rgba(208,94,53,1)] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-dark group"
+            >
+              <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
+              Email Me
+            </a>
+
+            <button
+              onClick={copyEmail}
+              className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-white/10 text-white px-7 py-4 font-mono text-[13px] font-bold uppercase tracking-[0.15em] border-2 border-white/20 hover:bg-white hover:text-dark hover:border-dark hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-dark group"
+            >
+              {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+              {copied ? "Copied" : "Copy Address"}
+            </button>
+          </div>
 
           {/* Social icons */}
           <div className="flex gap-3">

@@ -1,31 +1,34 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Mail, Github, MapPin, ExternalLink } from "lucide-react";
+import { Mail, Github, ExternalLink, MapPin } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
 import { BrutalistButton } from "./BrutalistButton";
 
-/* ── Animation variants ── */
 const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.04 } },
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    },
+  },
 };
+
 const fadeUp = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.52, ease: "easeOut" as const } },
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
-/* ── Syntax-highlighted code lines ── */
-type Token = { t: string; c: string };
-type CodeLine = { indent: number; tokens: Token[] };
-
-const CODE_LINES: CodeLine[] = [
+const CODE_LINES = [
   {
     indent: 0,
     tokens: [
-      { t: "const ", c: "text-violet-400" },
-      { t: "engineer", c: "text-white" },
-      { t: " = {", c: "text-slate-400" },
+      { t: "const", c: "text-purple-400" },
+      { t: " engineer", c: "text-sky-300" },
+      { t: " = ", c: "text-slate-400" },
+      { t: "{", c: "text-slate-400" },
     ],
   },
   {
@@ -40,22 +43,11 @@ const CODE_LINES: CodeLine[] = [
   {
     indent: 1,
     tokens: [
-      { t: "role", c: "text-sky-300" },
+      { t: "stack", c: "text-sky-300" },
       { t: ": ", c: "text-slate-400" },
-      { t: '"AI & Full-Stack Engineer"', c: "text-emerald-400" },
-      { t: ",", c: "text-slate-400" },
+      { t: "[", c: "text-slate-400" },
     ],
   },
-  {
-    indent: 1,
-    tokens: [
-      { t: "location", c: "text-sky-300" },
-      { t: ": ", c: "text-slate-400" },
-      { t: '`"${PERSONAL_INFO.location}"`', c: "text-emerald-400" },
-      { t: ",", c: "text-slate-400" },
-    ],
-  },
-  { indent: 1, tokens: [{ t: "stack", c: "text-sky-300" }, { t: ": [", c: "text-slate-400" }] },
   {
     indent: 2,
     tokens: [
@@ -108,8 +100,6 @@ const CODE_LINES: CodeLine[] = [
   },
 ];
 
-
-
 export function HeroSection() {
   const reduce = useReducedMotion();
   const [firstName, ...rest] = PERSONAL_INFO.name.split(" ");
@@ -122,9 +112,7 @@ export function HeroSection() {
     >
       <div className="w-full grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-10 xl:gap-16 items-center">
 
-        {/* ════════════════════════════════
-            LEFT — identity & CTAs
-        ════════════════════════════════ */}
+        {/* LEFT — identity & CTAs */}
         <motion.div
           variants={reduce ? undefined : container}
           initial="hidden"
@@ -197,7 +185,7 @@ export function HeroSection() {
           {/* Social proof row */}
           <motion.div
             variants={reduce ? undefined : fadeUp}
-            className="mt-8 flex items-center gap-6 border-t border-slate-200 pt-7"
+            className="mt-8 flex items-center gap-6 border-t border-slate-200 pt-7 flex-wrap"
           >
             <a
               href={PERSONAL_INFO.github}
@@ -208,7 +196,7 @@ export function HeroSection() {
               <Github className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
               rajshah9305
             </a>
-            <span className="w-px h-5 bg-slate-200" aria-hidden="true" />
+            <span className="hidden sm:block w-px h-5 bg-slate-200" aria-hidden="true" />
             <a
               href={PERSONAL_INFO.website}
               target="_blank"
@@ -218,7 +206,7 @@ export function HeroSection() {
               <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
               {PERSONAL_INFO.website.replace("https://", "")}
             </a>
-            <span className="w-px h-5 bg-slate-200" aria-hidden="true" />
+            <span className="hidden sm:block w-px h-5 bg-slate-200" aria-hidden="true" />
             <div className="flex items-center gap-2 text-slate-400">
               <MapPin className="w-4 h-4 shrink-0" aria-hidden="true" />
               <span className="font-mono text-[12px] font-bold tracking-widest uppercase">{PERSONAL_INFO.location}</span>
@@ -226,21 +214,22 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
 
-        {/* ════════════════════════════════
-            RIGHT — terminal panel
-        ════════════════════════════════ */}
+        {/* RIGHT — terminal panel */}
         <motion.div
           initial={reduce ? false : { opacity: 0, x: 28 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.65, delay: 0.25, ease: "easeOut" as const }}
-          className="hidden lg:flex flex-col"
+          className="flex flex-col relative terminal-flicker"
           aria-hidden="true"
         >
           {/* Terminal chrome */}
-          <div className="border-2 border-dark bg-[#0D0D0D] shadow-[6px_6px_0px_0px_rgba(17,17,17,1),0_0_40px_rgba(0,0,0,0.18),0_0_0_1px_rgba(255,255,255,0.04)] overflow-hidden">
+          <div className="border-2 border-dark bg-[#0D0D0D] shadow-[6px_6px_0px_0px_rgba(17,17,17,1),0_0_40px_rgba(0,0,0,0.18),0_0_0_1px_rgba(255,255,255,0.04)] overflow-hidden relative">
+
+            {/* Scanline Effect */}
+            <div className="absolute inset-0 pointer-events-none z-10 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_4px,3px_100%]" />
 
             {/* Title bar */}
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-[#181818] border-b border-white/[0.06]">
+            <div className="flex items-center gap-2 px-4 py-2.5 bg-[#181818] border-b border-white/[0.06] relative z-20">
               <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
@@ -250,7 +239,7 @@ export function HeroSection() {
             </div>
 
             {/* Code area */}
-            <div className="px-5 pt-5 pb-4 font-mono text-[13px] leading-[1.9] select-none overflow-x-auto">
+            <div className="px-5 pt-5 pb-4 font-mono text-[13px] leading-[1.9] select-none overflow-x-auto relative z-20">
               {CODE_LINES.map((line, i) => (
                 <motion.div
                   key={i}
@@ -259,11 +248,9 @@ export function HeroSection() {
                   transition={{ delay: 0.45 + i * 0.055, duration: 0.25 }}
                   className="flex gap-4 min-w-0"
                 >
-                  {/* Line number */}
                   <span className="text-slate-600 w-5 shrink-0 text-right text-[12px] leading-[1.9]">
                     {i + 1}
                   </span>
-                  {/* Code */}
                   <span className="whitespace-pre">
                     {line.tokens.length === 0 ? (
                       "\u00A0"
@@ -302,20 +289,15 @@ export function HeroSection() {
             </div>
 
             {/* Status bar */}
-            <div className="border-t border-white/[0.06] bg-[#181818] px-5 py-2.5 flex items-center justify-between gap-4">
-              {/* Language indicator */}
+            <div className="border-t border-white/[0.06] bg-[#181818] px-5 py-2.5 flex items-center justify-between gap-4 relative z-20">
               <div className="flex items-center gap-2 shrink-0">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
                 <span className="font-mono text-[11px] text-slate-400 tracking-[0.16em] uppercase">
                   TypeScript
                 </span>
               </div>
-
-    
             </div>
           </div>
-
-
         </motion.div>
 
       </div>

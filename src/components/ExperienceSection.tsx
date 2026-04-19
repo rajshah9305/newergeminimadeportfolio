@@ -47,7 +47,7 @@ export function ExperienceSection() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-60px" }}
-        className="grid grid-cols-1 lg:grid-cols-3 gap-0 border-2 border-dark shadow-[6px_6px_0px_0px_rgba(17,17,17,1)]"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-2 border-dark shadow-[6px_6px_0px_0px_rgba(17,17,17,1)]"
       >
         {EXPERIENCE.map((exp, idx) => {
           const isLast = idx === EXPERIENCE.length - 1;
@@ -61,8 +61,8 @@ export function ExperienceSection() {
               variants={reduce ? undefined : cardVariants}
               className={[
                 "group relative flex flex-col bg-white overflow-hidden",
-                "border-b-2 lg:border-b-0 border-dark",
-                !isLast ? "lg:border-r-2 lg:border-dark" : "",
+                "border-b-2 md:border-b-0 lg:border-b-0 border-dark",
+                !isLast ? "md:border-r-2 lg:border-r-2 lg:border-dark" : "",
               ].join(" ")}
             >
               {/* Top accent bar */}

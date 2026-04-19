@@ -24,6 +24,7 @@ export default function Home() {
         aria-hidden="true"
       />
 
+      <div className="noise-overlay" aria-hidden="true" />
       <Navigation />
 
       <main className="relative z-10 pt-20">

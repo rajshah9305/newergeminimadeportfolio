@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Menu, X, Github, Linkedin, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { Menu, X, Github, Linkedin, ArrowRight, Check, Copy } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
 import { BrutalistButton } from "./BrutalistButton";
 
@@ -36,13 +36,29 @@ function Branding({ isScrolled }: { isScrolled: boolean }) {
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
   const reduce = useReducedMotion();
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const copyEmail = () => {
+    if (typeof navigator !== "undefined") {
+      navigator.clipboard.writeText(PERSONAL_INFO.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   return (
     <nav
@@ -58,6 +74,14 @@ export function Navigation() {
           : "bg-transparent py-5"
       }`}
     >
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className={`absolute bottom-0 left-0 right-0 h-[3px] origin-left z-[60] ${
+          isScrolled ? "bg-white" : "bg-primary"
+        }`}
+        style={{ scaleX }}
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <Branding isScrolled={isScrolled} />
 
@@ -76,15 +100,28 @@ export function Navigation() {
               {link.label}
             </a>
           ))}
-          <BrutalistButton
-            href="#contact"
-            primary
-            className={`!px-5 !py-2.5 !text-[11px] ${
-              isScrolled ? "!shadow-[4px_4px_0px_0px_#111]" : ""
-            }`}
-          >
-            Hire Me
-          </BrutalistButton>
+          <div className="flex items-center gap-3">
+             <button
+              onClick={copyEmail}
+              className={`flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 border-2 transition-all ${
+                isScrolled
+                ? "bg-white text-dark border-white hover:bg-dark hover:text-white"
+                : "bg-dark text-white border-dark hover:bg-primary hover:border-primary"
+              }`}
+            >
+              {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? "Copied" : "Email"}
+            </button>
+            <BrutalistButton
+              href="#contact"
+              primary
+              className={`!px-5 !py-2.5 !text-[11px] ${
+                isScrolled ? "!shadow-[4px_4px_0px_0px_#111]" : ""
+              }`}
+            >
+              Hire Me
+            </BrutalistButton>
+          </div>
         </div>
 
         {/* Mobile toggle */}
@@ -163,22 +200,33 @@ export function Navigation() {
                 />
               </motion.a>
             ))}
-            <div className="pt-5 flex gap-3">
-              {[
-                { href: PERSONAL_INFO.github,   label: "GitHub Profile",   Icon: Github },
-                { href: PERSONAL_INFO.linkedin, label: "LinkedIn Profile", Icon: Linkedin },
-              ].map(({ href, label, Icon }) => (
-                <a
-                  key={label}
-                  aria-label={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-dark text-white p-3 hover:bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
+            <div className="pt-5 flex flex-col gap-4">
+               <button
+                onClick={copyEmail}
+                className={`flex items-center justify-between py-4 border-b font-mono text-[13px] font-bold uppercase ${
+                   isScrolled ? "text-white border-white/10" : "text-dark border-dark/8"
+                }`}
+              >
+                <span>{copied ? "Copied to Clipboard" : "Copy Email"}</span>
+                {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+              </button>
+              <div className="flex gap-3">
+                {[
+                  { href: PERSONAL_INFO.github,   label: "GitHub Profile",   Icon: Github },
+                  { href: PERSONAL_INFO.linkedin, label: "LinkedIn Profile", Icon: Linkedin },
+                ].map(({ href, label, Icon }) => (
+                  <a
+                    key={label}
+                    aria-label={label}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-dark text-white p-3 hover:bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}

@@ -40,7 +40,7 @@ export function SkillsSection() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-50px" }}
-            whileHover={reduce ? {} : { y: -4, boxShadow: "8px 8px 0px 0px rgba(208,94,53,1)" }}
+            whileHover={reduce ? {} : { y: -6, x: -2, boxShadow: "10px 10px 0px 0px rgba(208,94,53,1)" }}
             className="bg-white border-2 border-dark p-6 shadow-[4px_4px_0px_0px_rgba(17,17,17,1)] flex flex-col transition-shadow duration-250"
           >
             <h3 className="font-mono text-[11px] font-bold text-primary mb-5 tracking-[0.18em] uppercase border-b border-slate-100 pb-3">
