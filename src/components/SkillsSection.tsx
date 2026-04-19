@@ -10,7 +10,12 @@ const cardVariants = {
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.48, ease: "easeOut" as const, delay: i * 0.08 },
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const,
+      delay: i * 0.1,
+      staggerChildren: 0.1
+    },
   }),
 };
 
@@ -40,7 +45,12 @@ export function SkillsSection() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-50px" }}
-            whileHover={reduce ? {} : { y: -6, x: -2, boxShadow: "10px 10px 0px 0px rgba(208,94,53,1)" }}
+            whileHover={reduce ? {} : {
+              y: -8,
+              x: -4,
+              boxShadow: "12px 12px 0px 0px rgba(208,94,53,1)",
+              transition: { type: "spring", stiffness: 300, damping: 20 }
+            }}
             className="bg-white border-2 border-dark p-6 shadow-[4px_4px_0px_0px_rgba(17,17,17,1)] flex flex-col transition-shadow duration-250"
           >
             <h3 className="font-mono text-[11px] font-bold text-primary mb-5 tracking-[0.18em] uppercase border-b border-slate-100 pb-3">
@@ -56,7 +66,7 @@ export function SkillsSection() {
                     className="w-3.5 h-3.5 text-slate-300 group-hover/item:text-primary transition-colors shrink-0"
                     aria-hidden="true"
                   />
-                  <span className="group-hover/item:translate-x-0.5 transition-transform duration-150 leading-snug">
+                  <span className="group-hover/item:translate-x-1 transition-transform duration-200 leading-snug">
                     {item}
                   </span>
                 </li>

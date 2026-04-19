@@ -9,6 +9,7 @@ import {
 import { PROJECTS, PERSONAL_INFO, type Project } from "@/config/portfolio";
 import { SectionHeader } from "./SectionHeader";
 import { BrutalistButton } from "./BrutalistButton";
+import { Magnetic } from "./Magnetic";
 
 function ProjectIcon({ icon }: { icon: Project["icon"] }) {
   const cls = "w-5 h-5";
@@ -24,11 +25,11 @@ function ProjectIcon({ icon }: { icon: Project["icon"] }) {
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 30 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.52, ease: "easeOut" as const, delay: i * 0.07 },
+    transition: { duration: 0.6, ease: "easeOut" as const, delay: i * 0.1 },
   }),
 };
 
@@ -42,7 +43,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-50px" }}
-      whileHover={reduce ? {} : { y: -4, x: -2, boxShadow: "10px 10px 0px 0px rgba(208,94,53,1)" }}
+      whileHover={reduce ? {} : {
+        y: -6,
+        x: -4,
+        boxShadow: "14px 14px 0px 0px rgba(208,94,53,1)",
+        transition: { type: "spring", stiffness: 300, damping: 20 }
+      }}
       className="group relative bg-white border-2 border-dark flex flex-col lg:flex-row overflow-hidden shadow-[5px_5px_0px_0px_rgba(17,17,17,1)] transition-shadow duration-250"
     >
       {/* Featured badge */}
@@ -69,14 +75,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
         <div className="relative z-10">
           {/* Icon */}
-          <motion.div
-            whileHover={reduce ? {} : { scale: 1.06 }}
-            transition={{ type: "spring", stiffness: 320, damping: 22 }}
-            className="w-12 h-12 bg-dark text-white flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_0px_rgba(208,94,53,1)] mb-5"
-            aria-hidden="true"
-          >
-            <ProjectIcon icon={project.icon} />
-          </motion.div>
+          <Magnetic strength={0.2}>
+            <div
+              className="w-12 h-12 bg-dark text-white flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_0px_rgba(208,94,53,1)] mb-5"
+              aria-hidden="true"
+            >
+              <ProjectIcon icon={project.icon} />
+            </div>
+          </Magnetic>
 
           {/* Title */}
           <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-dark leading-tight break-words">
@@ -134,17 +140,17 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <span className="font-mono text-[12px] font-bold text-primary tracking-[0.15em] uppercase">
             STAT: {project.stat}
           </span>
-          <motion.a
-            href={project.links.live ?? project.links.github}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`View ${project.title}`}
-            whileHover={reduce ? {} : { x: 2 }}
-            whileTap={{ scale: 0.9 }}
-            className="w-9 h-9 bg-dark text-white flex items-center justify-center hover:bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0"
-          >
-            <ArrowRight className="w-4 h-4" aria-hidden="true" />
-          </motion.a>
+          <Magnetic strength={0.3}>
+            <a
+              href={project.links.live ?? project.links.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`View ${project.title}`}
+              className="w-10 h-10 bg-dark text-white flex items-center justify-center hover:bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0 shadow-[2px_2px_0px_0px_rgba(208,94,53,1)] hover:shadow-none"
+            >
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </a>
+          </Magnetic>
         </div>
       </div>
     </motion.article>
