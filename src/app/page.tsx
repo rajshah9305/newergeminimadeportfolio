@@ -1,11 +1,22 @@
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
+import { Marquee } from "@/components/Marquee";
 import { SkillsSection } from "@/components/SkillsSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
+
+const MARQUEE_ITEMS = [
+  "AI INFRASTRUCTURE",
+  "FULL-STACK SYSTEMS",
+  "AGENT ORCHESTRATION",
+  "REAL-TIME RAG",
+  "EDGE DEPLOYMENT",
+  "SCALABLE BACKENDS",
+  "DESIGN ENGINEERING"
+];
 
 export default function Home() {
   return (
@@ -29,6 +40,8 @@ export default function Home() {
 
       <main className="relative z-10 pt-20">
         <HeroSection />
+
+        <Marquee items={MARQUEE_ITEMS} />
 
         {/* Divider */}
         <div

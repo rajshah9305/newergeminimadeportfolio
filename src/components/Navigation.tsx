@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
-import { motion, AnimatePresence, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
-import { Menu, X, Github, Linkedin, ArrowRight, Check, Copy } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence, useScroll, useSpring, useReducedMotion } from "framer-motion";
+import { Menu, X, ArrowRight, Github, Linkedin, Mail, Copy, Check } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
 import { BrutalistButton } from "./BrutalistButton";
 import { Magnetic } from "./Magnetic";
@@ -18,23 +18,37 @@ function Branding({ isScrolled }: { isScrolled: boolean }) {
   const reduce = useReducedMotion();
 
   return (
-    <a
-      href="#top"
-      className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-light"
-      aria-label="Back to top"
-    >
-      <motion.div
-        whileHover={reduce ? {} : { scale: 1.1, rotate: 5 }}
-        whileTap={reduce ? {} : { scale: 0.95 }}
-        className={`font-black w-8 h-8 flex items-center justify-center text-[11px] tracking-tight shadow-[2px_2px_0px_0px_rgba(17,17,17,1)] transition-colors duration-200 ${
-          isScrolled
-            ? "bg-dark text-white group-hover:bg-white group-hover:text-dark"
-            : "bg-primary text-white group-hover:bg-dark"
-        }`}
+    <div className="flex items-center gap-6">
+      <a
+        href="#top"
+        className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-light"
+        aria-label="Back to top"
       >
-        RS
-      </motion.div>
-    </a>
+        <motion.div
+          whileHover={reduce ? {} : { scale: 1.1, rotate: 5 }}
+          whileTap={reduce ? {} : { scale: 0.95 }}
+          className={`font-black w-8 h-8 flex items-center justify-center text-[11px] tracking-tight shadow-[2px_2px_0px_0px_rgba(17,17,17,1)] transition-colors duration-200 ${
+            isScrolled
+              ? "bg-dark text-white group-hover:bg-white group-hover:text-dark"
+              : "bg-primary text-white group-hover:bg-dark"
+          }`}
+        >
+          RS
+        </motion.div>
+      </a>
+
+      <div className="hidden lg:flex flex-col gap-0.5 pointer-events-none select-none">
+        <span className={`font-mono text-[9px] font-bold tracking-widest uppercase ${isScrolled ? "text-white/60" : "text-dark/40"}`}>
+          {PERSONAL_INFO.coordinates}
+        </span>
+        <div className="flex items-center gap-2">
+           <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+           <span className={`font-mono text-[9px] font-bold tracking-widest uppercase ${isScrolled ? "text-white" : "text-dark"}`}>
+            {PERSONAL_INFO.availability}
+          </span>
+        </div>
+      </div>
+    </div>
   );
 }
 

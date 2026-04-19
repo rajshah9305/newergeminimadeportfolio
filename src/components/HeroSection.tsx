@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useReducedMotion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Mail, Github, ExternalLink, MapPin } from "lucide-react";
+import { Github, Mail, ExternalLink, MapPin } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
 import { BrutalistButton } from "./BrutalistButton";
 import { GlitchText } from "./GlitchText";
@@ -20,83 +19,79 @@ const container = {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const,
+    },
+  },
 };
 
 const CODE_LINES = [
   {
     indent: 0,
     tokens: [
-      { t: "const", c: "text-purple-400" },
-      { t: " engineer", c: "text-sky-300" },
-      { t: " = ", c: "text-slate-400" },
-      { t: "{", c: "text-slate-400" },
+      { t: "class", c: "text-purple-400" },
+      { t: " Engineer", c: "text-blue-400" },
+      { t: " {", c: "text-slate-400" },
     ],
   },
   {
     indent: 1,
     tokens: [
-      { t: "name", c: "text-sky-300" },
-      { t: ": ", c: "text-slate-400" },
-      { t: '"Raj Shah"', c: "text-emerald-400" },
-      { t: ",", c: "text-slate-400" },
-    ],
-  },
-  {
-    indent: 1,
-    tokens: [
-      { t: "stack", c: "text-sky-300" },
-      { t: ": ", c: "text-slate-400" },
-      { t: "[", c: "text-slate-400" },
+      { t: "constructor", c: "text-purple-400" },
+      { t: "() {", c: "text-slate-400" },
     ],
   },
   {
     indent: 2,
     tokens: [
-      { t: '"Next.js"', c: "text-emerald-400" },
-      { t: ", ", c: "text-slate-400" },
-      { t: '"Python"', c: "text-emerald-400" },
-      { t: ", ", c: "text-slate-400" },
-      { t: '"Rust"', c: "text-emerald-400" },
-      { t: ",", c: "text-slate-400" },
+      { t: "this", c: "text-red-400" },
+      { t: ".name ", c: "text-slate-200" },
+      { t: "=", c: "text-emerald-400" },
+      { t: " \"Raj Shah\"", c: "text-amber-200" },
+      { t: ";", c: "text-slate-400" },
     ],
   },
   {
     indent: 2,
     tokens: [
-      { t: '"LangChain"', c: "text-emerald-400" },
+      { t: "this", c: "text-red-400" },
+      { t: ".focus ", c: "text-slate-200" },
+      { t: "=", c: "text-emerald-400" },
+      { t: " [", c: "text-slate-400" },
+      { t: "\"AI\"", c: "text-amber-200" },
       { t: ", ", c: "text-slate-400" },
-      { t: '"PyTorch"', c: "text-emerald-400" },
-      { t: ", ", c: "text-slate-400" },
-      { t: '"Docker"', c: "text-emerald-400" },
-      { t: ",", c: "text-slate-400" },
+      { t: "\"Systems\"", c: "text-amber-200" },
+      { t: "]", c: "text-slate-400" },
+      { t: ";", c: "text-slate-400" },
     ],
   },
-  { indent: 1, tokens: [{ t: "],", c: "text-slate-400" }] },
-  {
-    indent: 1,
-    tokens: [
-      { t: "openToWork", c: "text-sky-300" },
-      { t: ": ", c: "text-slate-400" },
-      { t: "true", c: "text-[#D05E35]" },
-      { t: ",", c: "text-slate-400" },
-    ],
-  },
-  { indent: 0, tokens: [{ t: "};", c: "text-slate-400" }] },
+  { indent: 1, tokens: [{ t: "}", c: "text-slate-400" }] },
   { indent: 0, tokens: [] },
   {
-    indent: 0,
+    indent: 1,
     tokens: [
-      { t: "// ", c: "text-slate-500" },
-      { t: "2,900+ GitHub contributions · 6 production projects", c: "text-slate-500" },
+      { t: "async", c: "text-purple-400" },
+      { t: " deploy", c: "text-blue-400" },
+      { t: "(", c: "text-slate-400" },
+      { t: "app", c: "text-orange-300" },
+      { t: ") {", c: "text-slate-400" },
     ],
   },
   {
-    indent: 0,
+    indent: 2,
     tokens: [
-      { t: "engineer", c: "text-white" },
-      { t: ".deploy(", c: "text-slate-400" },
-      { t: '"production"', c: "text-emerald-400" },
+      { t: "await", c: "text-purple-400" },
+      { t: " app.scale", c: "text-blue-400" },
+      { t: "(", c: "text-slate-400" },
+      { t: "{", c: "text-slate-400" },
+      { t: " edge", c: "text-emerald-400" },
+      { t: ":", c: "text-slate-400" },
+      { t: " true ", c: "text-orange-400" },
+      { t: "}", c: "text-slate-400" },
       { t: ");", c: "text-slate-400" },
     ],
   },
@@ -133,7 +128,7 @@ export function HeroSection() {
   return (
     <section
       aria-label="Introduction"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-80px)] flex items-center py-24 md:py-32"
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-80px)] flex flex-col justify-center py-24 md:py-32"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -145,18 +140,26 @@ export function HeroSection() {
           initial="hidden"
           animate="show"
         >
-          {/* Status pill */}
-          <motion.div
-            variants={reduce ? undefined : fadeUp}
-            className="inline-flex items-center gap-2 mb-9 px-3.5 py-2 border border-slate-200 bg-white/70 backdrop-blur-sm"
-          >
-            <span
-              className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_5px_rgba(34,197,94,0.9)]"
-              aria-hidden="true"
-            />
-            <span className="font-mono text-[11px] font-bold tracking-[0.22em] uppercase text-slate-500">
-              Available for hire
-            </span>
+          {/* Header Row */}
+          <motion.div variants={fadeUp} className="flex items-center justify-between mb-9">
+             <div className="flex flex-col gap-1">
+                <span className="font-mono text-[10px] font-bold tracking-[0.25em] uppercase text-primary">
+                  PORTFOLIO · {PERSONAL_INFO.version}
+                </span>
+                <span className="font-mono text-[10px] font-bold tracking-[0.25em] uppercase text-slate-400">
+                  ENGINEER · BUILDER · OPERATOR
+                </span>
+             </div>
+             <div className="h-px flex-1 bg-slate-200 mx-6 hidden sm:block" />
+             <div className="inline-flex items-center gap-2 px-3.5 py-2 border border-slate-200 bg-white/70 backdrop-blur-sm">
+                <span
+                  className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_5px_rgba(34,197,94,0.9)]"
+                  aria-hidden="true"
+                />
+                <span className="font-mono text-[11px] font-bold tracking-[0.22em] uppercase text-slate-500">
+                  {PERSONAL_INFO.availability.split(" / ")[0]}
+                </span>
+              </div>
           </motion.div>
 
           {/* Name */}
@@ -182,7 +185,7 @@ export function HeroSection() {
           >
             {PERSONAL_INFO.role}
             <span className="text-primary font-mono font-black text-xl leading-none" aria-hidden="true">
-              &gt;_
+              / EST. 2017
             </span>
           </motion.h2>
 
@@ -207,37 +210,6 @@ export function HeroSection() {
               <Github className="w-4 h-4" aria-hidden="true" />
               View Github
             </BrutalistButton>
-          </motion.div>
-
-          {/* Social proof row */}
-          <motion.div
-            variants={reduce ? undefined : fadeUp}
-            className="mt-8 flex items-center gap-6 border-t border-slate-200 pt-7 flex-wrap"
-          >
-            <a
-              href={PERSONAL_INFO.github}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 font-mono text-[12px] font-bold tracking-widest uppercase text-slate-400 hover:text-primary transition-colors group"
-            >
-              <Github className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
-              rajshah9305
-            </a>
-            <span className="hidden sm:block w-px h-5 bg-slate-200" aria-hidden="true" />
-            <a
-              href={PERSONAL_INFO.website}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 font-mono text-[12px] font-bold tracking-widest uppercase text-slate-400 hover:text-primary transition-colors group"
-            >
-              <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
-              {PERSONAL_INFO.website.replace("https://", "")}
-            </a>
-            <span className="hidden sm:block w-px h-5 bg-slate-200" aria-hidden="true" />
-            <div className="flex items-center gap-2 text-slate-400">
-              <MapPin className="w-4 h-4 shrink-0" aria-hidden="true" />
-              <span className="font-mono text-[12px] font-bold tracking-widest uppercase">{PERSONAL_INFO.location}</span>
-            </div>
           </motion.div>
         </motion.div>
 
@@ -335,6 +307,25 @@ export function HeroSection() {
         </motion.div>
 
       </div>
+
+      {/* Metrics Row */}
+      <motion.div
+        initial={reduce ? false : { opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
+        className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 pt-12 border-t border-slate-200"
+      >
+        {PERSONAL_INFO.stats.map((stat, i) => (
+          <div key={i} className="flex flex-col">
+            <span className="font-black text-4xl md:text-5xl text-dark tracking-tighter mb-1">
+              {stat.value}
+            </span>
+            <span className="font-mono text-[10px] font-bold tracking-[0.15em] uppercase text-slate-500">
+              {stat.label}
+            </span>
+          </div>
+        ))}
+      </motion.div>
     </section>
   );
 }

@@ -6,7 +6,16 @@ export const PERSONAL_INFO = {
   github: "https://github.com/rajshah9305",
   linkedin: "https://www.linkedin.com/in/rajshah9305",
   location: "Calgary, Canada",
+  coordinates: "LAT 51.0447° N / LON 114.0719° W",
+  availability: "AVAILABLE / Q1—Q2",
+  version: "V.04 · 2026",
   website: "https://www.rajai.org",
+  stats: [
+    { label: "YEARS SHIPPING", value: "8+" },
+    { label: "PRODUCTION SYSTEMS", value: "40+" },
+    { label: "AI INFERENCES/DAY", value: "10K+" },
+    { label: "UPTIME SLA", value: "99.9%" },
+  ],
 };
 
 export const SKILLS = [
