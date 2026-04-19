@@ -10,3 +10,4 @@ export * from './SectionHeader';
 export * from './BrutalistButton';
 export * from './Magnetic';
 export * from './GlitchText';
+export * from './Marquee';
