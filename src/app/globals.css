@@ -60,7 +60,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--color-primary);
+    background: var(--nav-underline, var(--color-primary));
     transition: width 0.22s ease;
   }
   .nav-link:hover::after,
