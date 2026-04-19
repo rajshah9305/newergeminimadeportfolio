@@ -19,10 +19,10 @@ export const PERSONAL_INFO = {
 };
 
 export const SKILLS = [
-  { category: "Languages", items: ["TypeScript", "Python", "Rust", "SQL", "HTML/CSS"] },
-  { category: "Frontend", items: ["React", "Next.js 14", "Tailwind CSS", "Three.js", "Framer Motion"] },
-  { category: "Backend & AI", items: ["Node.js", "Django", "FastAPI", "LangChain", "PyTorch", "OpenAI API"] },
-  { category: "Infrastructure", items: ["AWS", "Docker", "PostgreSQL", "Vercel", "CI/CD"] },
+  { category: "Core Languages", items: ["TypeScript", "Python", "Rust", "Go", "SQL", "C++"] },
+  { category: "Frontend Engine", items: ["React 19", "Next.js 15", "Tailwind CSS", "Three.js", "Framer Motion", "WebGPU"] },
+  { category: "Backend & AI", items: ["FastAPI", "Node.js", "LangChain", "PyTorch", "TensorFlow", "Vector DBs (Pinecone/Weaviate)"] },
+  { category: "Systems & Infra", items: ["AWS (EKS/Lambda)", "Docker/K8s", "Terraform", "PostgreSQL", "Redis", "CI/CD Pipelines"] },
 ];
 
 export type Project = {
@@ -42,9 +42,9 @@ export const PROJECTS: Project[] = [
     id: "p1",
     number: "01",
     title: "RAJ AI PLATFORM",
-    desc: "Flagship Generative AI platform integrating multi-modal LLMs. Features real-time RAG (Retrieval-Augmented Generation), custom agent workflows, and a brutalist highly-responsive UI.",
-    tags: ["NEXT.JS", "PYTHON", "LANGCHAIN", "PINECONE"],
-    stat: "10K+ INFERENCES",
+    desc: "A mission-critical AI operating system integrating multi-modal LLMs with sub-100ms latency. Implemented a custom RAG engine using hybrid search (semantic + keyword) and high-performance streaming via Server-Sent Events (SSE). The architecture handles massive state synchronization across edge nodes.",
+    tags: ["NEXT.JS 15", "PYTHON", "LANGCHAIN", "PINECONE", "REDIS"],
+    stat: "10K+ INFERENCES/DAY",
     links: {
       live: "https://www.rajai.org",
       github: "https://github.com/rajshah9305/raj-ai-platform",
@@ -55,10 +55,10 @@ export const PROJECTS: Project[] = [
   {
     id: "p2",
     number: "02",
-    title: "AI AGENT ORCHESTRATION PLATFORM",
-    desc: "Ultra-fast AI agent management platform with Cerebras integration. Features real-time 3D dashboard via Three.js, multi-framework support (AutoGen, CrewAI, LangGraph), WebSocket live updates, and background job processing with Bull + Redis.",
-    tags: ["TYPESCRIPT", "NEXT.JS", "THREE.JS", "CEREBRAS", "REDIS", "WEBSOCKETS"],
-    stat: "5 AI FRAMEWORKS",
+    title: "AGENT ORCHESTRATION",
+    desc: "Enterprise-scale management for autonomous AI agents using Cerebras for ultra-low latency inference. Built a real-time 3D monitoring dashboard with Three.js/React Three Fiber. Orchestrates AutoGen and CrewAI frameworks with a custom WebSocket-based state machine for fault-tolerant task execution.",
+    tags: ["TYPESCRIPT", "THREE.JS", "CEREBRAS", "WEBSOCKETS", "BULLMQ"],
+    stat: "5 FRAMEWORKS SYNCED",
     links: {
       github: "https://github.com/rajshah9305/AIAgentOrchestrationPlatform",
     },
@@ -68,9 +68,9 @@ export const PROJECTS: Project[] = [
   {
     id: "p3",
     number: "03",
-    title: "AI APP BUILDER",
-    desc: "Enterprise-grade platform that converts natural language into production-ready React apps using Cerebras GPT-OSS-120B. Features real-time streaming, Monaco Editor, AI personalization engine, JWT auth, and one-click Vercel deployment.",
-    tags: ["NEXT.JS", "CEREBRAS", "LLAMA-4", "PRISMA", "POSTGRESQL"],
+    title: "AI APP ARCHITECT",
+    desc: "Zero-code deployment engine translating natural language into production-grade React/Next.js applications. Leverages Cerebras GPT-OSS-120B for high-fidelity code generation. Features a custom Monaco Editor integration for real-time AI-assisted debugging and one-click Vercel integration.",
+    tags: ["NEXT.JS", "CEREBRAS", "MONACO", "PRISMA", "POSTGRESQL"],
     stat: "ZERO-CODE DEPLOY",
     links: {
       github: "https://github.com/rajshah9305/AIAppBuilder-CerebrasAI-llama-4",
@@ -81,9 +81,9 @@ export const PROJECTS: Project[] = [
   {
     id: "p4",
     number: "04",
-    title: "RAJ AI UI COMPONENT ENGINE",
-    desc: "Turn plain English into production-ready UI components with five unique design variations instantly. Supports OpenAI, Anthropic, Groq, and any OpenAI-compatible API. Features live iframe preview, code export, and a Three.js GLSL shader background.",
-    tags: ["REACT", "TYPESCRIPT", "THREE.JS", "OPENAI API", "VITE"],
+    title: "UI COMPONENT ENGINE",
+    desc: "A design-to-code engine generating five unique brutalist UI variants from a single prompt. Utilizes custom GLSL shaders for high-performance background animations. Integrated with OpenAI and Anthropic APIs for intelligent layout reasoning and component styling.",
+    tags: ["REACT", "TYPESCRIPT", "GLSL", "OPENAI API", "VITE"],
     stat: "5 DESIGN VARIANTS",
     links: {
       github: "https://github.com/rajshah9305/AIpreviewwindow",
@@ -94,9 +94,9 @@ export const PROJECTS: Project[] = [
   {
     id: "p5",
     number: "05",
-    title: "CREW AI AGENT PLATFORM",
-    desc: "Enterprise-grade AI agent orchestration platform powered by Google Gemini 2.5 Flash. Features drag-and-drop agent management, real-time execution monitoring, rate limiting, and a 100% type-safe TypeScript codebase with PostgreSQL persistence.",
-    tags: ["TYPESCRIPT", "REACT", "GEMINI", "POSTGRESQL", "DRIZZLE ORM"],
+    title: "CREW AI PLATFORM",
+    desc: "Production-grade agent management system optimized for Google Gemini 2.5 Flash. Features a robust Drizzle ORM layer for PostgreSQL persistence, complex rate-limiting algorithms, and a type-safe drag-and-drop workflow builder for agent multi-tasking.",
+    tags: ["TYPESCRIPT", "REACT", "GEMINI", "DRIZZLE", "POSTGRESQL"],
     stat: "ENTERPRISE GRADE",
     links: {
       github: "https://github.com/rajshah9305/Crewsaisingle",
@@ -107,37 +107,13 @@ export const PROJECTS: Project[] = [
     id: "p6",
     number: "06",
     title: "SCIVIZ DESIGN SYSTEM",
-    desc: "Production-ready design system for scientific visualization applications. Redefines portal navigation with scientific-themed UI components, dark/light theming, and a high-performance React + TypeScript component library.",
-    tags: ["REACT", "TYPESCRIPT", "TAILWIND CSS", "POSTGRESQL"],
+    desc: "Scientific visualization component library for high-density data environments. Redefines portal navigation with modular React components, custom CSS variables for theme switching, and optimized rendering for large datasets using React's useDeferredValue.",
+    tags: ["REACT", "TYPESCRIPT", "TAILWIND", "RADIX UI"],
     stat: "FULL DESIGN SYSTEM",
     links: {
       github: "https://github.com/rajshah9305/SciViz-Design-System",
     },
     icon: "layers",
-  },
-  {
-    id: "p7",
-    number: "07",
-    title: "AGENT ORCHESTRA",
-    desc: "Modern, production-ready AI agent orchestration platform with a beautiful web UI. Supports AutoGen, CrewAI, and custom agents with real-time monitoring, visual workflow builder, drag-and-drop interface, and JWT authentication.",
-    tags: ["PYTHON", "FLASK", "REACT", "WEBSOCKETS", "TAILWIND CSS"],
-    stat: "VISUAL WORKFLOW",
-    links: {
-      github: "https://github.com/rajshah9305/aIagenter",
-    },
-    icon: "bot",
-  },
-  {
-    id: "p8",
-    number: "08",
-    title: "DISTRIBUTED SYSTEMS API",
-    desc: "High-throughput microservices architecture built to handle real-time data streaming and processing with sub-millisecond latency.",
-    tags: ["RUST", "GRPC", "POSTGRESQL", "KAFKA"],
-    stat: "<1MS LATENCY",
-    links: {
-      github: "https://github.com/rajshah9305/distributed-systems-api",
-    },
-    icon: "database",
   },
 ];
 
@@ -147,23 +123,70 @@ export const EXPERIENCE = [
     year: "2023 — PRESENT",
     role: "Senior Software Engineer",
     company: "Nexus AI Systems",
-    desc: "Led the transition from a monolithic architecture to a microservices ecosystem, improving deployment speed by 40%. Spearheaded enterprise AI integration using LLMs for internal automation pipelines.",
-    skills: ["LLMs", "Microservices", "CI/CD", "Python"],
+    desc: "Architected a high-throughput microservices ecosystem, migrating from legacy monoliths to a K8s-based architecture. Developed internal AI agents that reduced dev-ops cycle time by 35% through automated pipeline monitoring.",
+    skills: ["LLMs", "Kubernetes", "Architecture", "Python"],
   },
   {
     id: "e2",
     year: "2021 — 2023",
     role: "Full-Stack Developer",
     company: "Elevate Digital Labs",
-    desc: "Architected and maintained 15+ high-traffic Next.js applications serving millions of global requests. Optimized underlying PostgreSQL queries, effectively reducing core database load times by 60%.",
-    skills: ["Next.js", "PostgreSQL", "React", "Node.js"],
+    desc: "Built and scaled React-based consumer platforms serving 2M+ monthly active users. Implemented advanced PostgreSQL indexing strategies and Redis caching layers, reducing API response times by 250ms on average.",
+    skills: ["Next.js", "PostgreSQL", "Redis", "Node.js"],
   },
   {
     id: "e3",
     year: "2017 — 2021",
     role: "B.S. Computer Science",
     company: "Georgia Institute of Technology",
-    desc: "Concentration in Intelligence (AI) and Systems/Architecture. Contributed to open-source distributed computing research and graduated with High Honors.",
+    desc: "Specialized in Artificial Intelligence and Distributed Systems. Research assistant in the Distributed Computing Lab, focusing on low-latency consensus algorithms.",
     skills: ["AI/ML", "Systems", "Research", "Algorithms"],
   },
+];
+
+export const TESTIMONIALS = [
+  {
+    id: "t1",
+    quote: "Raj doesn't just write code; he builds digital fortresses. His approach to AI integration is the most rigorous I've seen in a decade.",
+    author: "Dr. Aris Thorne",
+    role: "CTO @ Nexus AI",
+    avatar: "AT"
+  },
+  {
+    id: "t2",
+    quote: "The speed at which he delivered our orchestration platform was only surpassed by the absolute stability of the system under load.",
+    author: "Sarah Chen",
+    role: "VP Engineering @ Elevate",
+    avatar: "SC"
+  },
+  {
+    id: "t3",
+    quote: "A rare engineer who understands both the deep mathematical underpinnings of LLMs and the aesthetic demands of modern UI.",
+    author: "Marcus Vane",
+    role: "Lead Designer @ SciViz",
+    avatar: "MV"
+  }
+];
+
+export const PROCESS = [
+  {
+    step: "01",
+    title: "DISCOVERY & ANALYSIS",
+    desc: "Deep-dive into system requirements, bottleneck identification, and feasibility studies for AI integration."
+  },
+  {
+    step: "02",
+    title: "ARCHITECTURAL BLUEPRINT",
+    desc: "Designing fault-tolerant microservices, choosing the right vector databases, and defining API contracts."
+  },
+  {
+    step: "03",
+    title: "HIGH-FIDELITY DEV",
+    desc: "Clean, type-safe implementation with a focus on performance, scalability, and brutalist design principles."
+  },
+  {
+    step: "04",
+    title: "STRESS TEST & DEPLOY",
+    desc: "Rigorous load testing, CI/CD automation, and deployment to high-availability edge infrastructure."
+  }
 ];
