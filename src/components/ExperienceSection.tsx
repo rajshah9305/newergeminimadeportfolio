@@ -27,7 +27,7 @@ export function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32 scroll-mt-24"
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-48 md:mb-64 scroll-mt-24"
     >
       <motion.div
         initial={reduce ? false : { opacity: 0, y: 16 }}

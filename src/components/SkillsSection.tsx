@@ -18,7 +18,7 @@ export function SkillsSection() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="expertise" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32 scroll-mt-24">
+    <section id="expertise" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-48 md:mb-64 scroll-mt-24">
       <motion.div
         initial={reduce ? false : { opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -31,7 +31,7 @@ export function SkillsSection() {
         />
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         {SKILLS.map((group, idx) => (
           <motion.article
             key={idx}
