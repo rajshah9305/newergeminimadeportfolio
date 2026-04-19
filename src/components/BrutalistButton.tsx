@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Magnetic } from "./Magnetic";
 
 interface BrutalistButtonProps {
   children: ReactNode;
@@ -29,24 +30,22 @@ export function BrutalistButton({
   const cls = `${BASE} ${primary ? PRIMARY : SECONDARY} ${className}`;
   const inner = <span className="relative z-10 flex items-center gap-2">{children}</span>;
 
-  if (href) {
-    return (
-      <a
-        href={href}
-        download={download}
-        aria-label={ariaLabel}
-        target={href.startsWith("http") ? "_blank" : undefined}
-        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-        className={cls}
-      >
-        {inner}
-      </a>
-    );
-  }
-
-  return (
+  const content = href ? (
+    <a
+      href={href}
+      download={download}
+      aria-label={ariaLabel}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+      className={cls}
+    >
+      {inner}
+    </a>
+  ) : (
     <button type="button" onClick={onClick} aria-label={ariaLabel} className={cls}>
       {inner}
     </button>
   );
+
+  return <Magnetic strength={0.15}>{content}</Magnetic>;
 }

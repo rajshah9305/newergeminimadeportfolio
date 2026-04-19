@@ -1,9 +1,11 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Mail, Github, ExternalLink, MapPin } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
 import { BrutalistButton } from "./BrutalistButton";
+import { GlitchText } from "./GlitchText";
 
 const container = {
   hidden: { opacity: 0 },
@@ -105,10 +107,35 @@ export function HeroSection() {
   const [firstName, ...rest] = PERSONAL_INFO.name.split(" ");
   const lastName = rest.join(" ");
 
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
+
+  const rotateX = useTransform(springY, [-300, 300], [10, -10]);
+  const rotateY = useTransform(springX, [-300, 300], [-10, 10]);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (reduce) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
   return (
     <section
       aria-label="Introduction"
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-80px)] flex items-center py-24 md:py-32"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
       <div className="w-full grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-10 xl:gap-16 items-center">
 
@@ -138,13 +165,13 @@ export function HeroSection() {
               variants={reduce ? undefined : fadeUp}
               className="block text-[clamp(4.5rem,11vw,8.5rem)] text-dark"
             >
-              {firstName}
+              <GlitchText text={firstName} />
             </motion.span>
             <motion.span
               variants={reduce ? undefined : fadeUp}
               className="block text-[clamp(4.5rem,11vw,8.5rem)] text-outline"
             >
-              {lastName}
+              <GlitchText text={lastName} />
             </motion.span>
           </h1>
 
@@ -216,6 +243,7 @@ export function HeroSection() {
 
         {/* RIGHT — terminal panel */}
         <motion.div
+          style={{ rotateX, rotateY, perspective: 1000 }}
           initial={reduce ? false : { opacity: 0, x: 28 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.65, delay: 0.25, ease: "easeOut" as const }}
@@ -243,9 +271,9 @@ export function HeroSection() {
               {CODE_LINES.map((line, i) => (
                 <motion.div
                   key={i}
-                  initial={reduce ? false : { opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.45 + i * 0.055, duration: 0.25 }}
+                  initial={reduce ? false : { opacity: 0, x: -5 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.45 + i * 0.12, duration: 0.3 }}
                   className="flex gap-4 min-w-0"
                 >
                   <span className="text-slate-600 w-5 shrink-0 text-right text-[12px] leading-[1.9]">
@@ -258,9 +286,15 @@ export function HeroSection() {
                       <>
                         {"  ".repeat(line.indent)}
                         {line.tokens.map((tok, j) => (
-                          <span key={j} className={tok.c}>
+                          <motion.span
+                            key={j}
+                            className={tok.c}
+                            initial={reduce ? false : { opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.6 + i * 0.12 + j * 0.05 }}
+                          >
                             {tok.t}
-                          </span>
+                          </motion.span>
                         ))}
                       </>
                     )}
@@ -273,7 +307,7 @@ export function HeroSection() {
                 className="flex gap-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1.3 }}
+                transition={{ delay: 1.8 }}
               >
                 <span className="text-slate-600 w-5 shrink-0 text-right text-[12px] leading-[1.9]">
                   {CODE_LINES.length + 1}

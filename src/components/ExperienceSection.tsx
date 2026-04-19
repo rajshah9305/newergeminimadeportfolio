@@ -17,7 +17,7 @@ const cardVariants = {
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: "easeOut" as const, delay: i * 0.1 },
+    transition: { duration: 0.55, ease: "easeOut" as const as const, delay: i * 0.1 },
   }),
 };
 
@@ -173,7 +173,7 @@ export function ExperienceSection() {
         initial={reduce ? false : { scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+        transition={{ duration: 0.6, ease: "easeOut" as const, delay: 0.4 }}
         style={{ originX: 0 }}
         className="h-[3px] bg-gradient-to-r from-dark via-primary to-dark/20 mt-0"
         aria-hidden="true"

@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { useState, useEffect, useMemo } from "react";
+import { motion, AnimatePresence, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { Menu, X, Github, Linkedin, ArrowRight, Check, Copy } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
 import { BrutalistButton } from "./BrutalistButton";
+import { Magnetic } from "./Magnetic";
 
 const NAV_LINKS = [
   { href: "#expertise", label: "Expertise" },
@@ -14,13 +15,17 @@ const NAV_LINKS = [
 ];
 
 function Branding({ isScrolled }: { isScrolled: boolean }) {
+  const reduce = useReducedMotion();
+
   return (
     <a
       href="#top"
       className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-light"
       aria-label="Back to top"
     >
-      <div
+      <motion.div
+        whileHover={reduce ? {} : { scale: 1.1, rotate: 5 }}
+        whileTap={reduce ? {} : { scale: 0.95 }}
         className={`font-black w-8 h-8 flex items-center justify-center text-[11px] tracking-tight shadow-[2px_2px_0px_0px_rgba(17,17,17,1)] transition-colors duration-200 ${
           isScrolled
             ? "bg-dark text-white group-hover:bg-white group-hover:text-dark"
@@ -28,7 +33,7 @@ function Branding({ isScrolled }: { isScrolled: boolean }) {
         }`}
       >
         RS
-      </div>
+      </motion.div>
     </a>
   );
 }
@@ -37,6 +42,7 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [scrollPercent, setScrollPercent] = useState(0);
   const reduce = useReducedMotion();
 
   const { scrollYProgress } = useScroll();
@@ -47,7 +53,13 @@ export function Navigation() {
   });
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 40);
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      setScrollPercent(Math.round(scrolled));
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -82,6 +94,20 @@ export function Navigation() {
         style={{ scaleX }}
       />
 
+      {/* Scroll percentage indicator */}
+      <AnimatePresence>
+        {isScrolled && (
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            className="absolute bottom-4 right-8 font-mono text-[9px] font-bold text-white/40 tracking-widest hidden lg:block"
+          >
+            {scrollPercent}%
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <Branding isScrolled={isScrolled} />
 
@@ -101,17 +127,19 @@ export function Navigation() {
             </a>
           ))}
           <div className="flex items-center gap-3">
-             <button
-              onClick={copyEmail}
-              className={`flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 border-2 transition-all ${
-                isScrolled
-                ? "bg-white text-dark border-white hover:bg-dark hover:text-white"
-                : "bg-dark text-white border-dark hover:bg-primary hover:border-primary"
-              }`}
-            >
-              {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-              {copied ? "Copied" : "Email"}
-            </button>
+             <Magnetic strength={0.2}>
+               <button
+                onClick={copyEmail}
+                className={`flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 border-2 transition-all ${
+                  isScrolled
+                  ? "bg-white text-dark border-white hover:bg-dark hover:text-white"
+                  : "bg-dark text-white border-dark hover:bg-primary hover:border-primary"
+                }`}
+              >
+                {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                {copied ? "Copied" : "Email"}
+              </button>
+            </Magnetic>
             <BrutalistButton
               href="#contact"
               primary
@@ -170,7 +198,7 @@ export function Navigation() {
             initial={reduce ? {} : { opacity: 0, scaleY: 0.94, y: -6 }}
             animate={{ opacity: 1, scaleY: 1, y: 0 }}
             exit={reduce ? {} : { opacity: 0, scaleY: 0.94, y: -6 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.2, ease: "easeOut" as const }}
             style={{ transformOrigin: "top" }}
             className={`absolute top-full left-0 w-full border-b-2 flex flex-col px-6 pb-6 pt-4 shadow-xl md:hidden font-mono font-bold uppercase z-40 ${
               isScrolled ? "bg-primary border-white/20" : "bg-light border-dark"
