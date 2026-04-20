@@ -11,7 +11,7 @@ export function Marquee({ items, reverse = false }: MarqueeProps) {
   const doubled = [...items, ...items];
 
   return (
-    <div className="w-full overflow-hidden bg-dark select-none" style={{ borderTop: "3px solid #E8622A", borderBottom: "3px solid #111" }}>
+    <div className="w-full overflow-hidden bg-dark select-none" style={{ borderTop: "3px solid #FF4D00", borderBottom: "3px solid #000" }}>
       <div className="flex whitespace-nowrap py-3.5">
         <motion.div
           animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}

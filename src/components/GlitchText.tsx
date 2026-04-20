@@ -18,7 +18,7 @@ export function GlitchText({ text, className = "" }: GlitchTextProps) {
         {text}
       </span>
       <span
-        className="absolute top-0 left-0 -z-10 text-cyan-400 opacity-0 group-hover:opacity-70 group-hover:animate-glitch-2 pointer-events-none"
+        className="absolute top-0 left-0 -z-10 text-dark opacity-0 group-hover:opacity-30 group-hover:animate-glitch-2 pointer-events-none"
         aria-hidden="true"
       >
         {text}

@@ -7,14 +7,14 @@ import { Marquee } from "./Marquee";
 import { GLSLHills } from "./GLSLHills";
 
 const CODE_LINES = [
-  { indent: 0, tokens: [{ t: "class",       c: "text-purple-400" }, { t: " Engineer", c: "text-blue-400"   }, { t: " {",  c: "text-slate-500" }] },
-  { indent: 1, tokens: [{ t: "constructor", c: "text-yellow-300" }, { t: "() {",      c: "text-slate-500"  }] },
-  { indent: 2, tokens: [{ t: "this",        c: "text-red-400"    }, { t: ".name ",    c: "text-slate-200"  }, { t: "=",   c: "text-emerald-400" }, { t: ' "Raj Shah"', c: "text-amber-200" }, { t: ";", c: "text-slate-500" }] },
-  { indent: 2, tokens: [{ t: "this",        c: "text-red-400"    }, { t: ".focus ",   c: "text-slate-200"  }, { t: "=",   c: "text-emerald-400" }, { t: " [",          c: "text-slate-500" }, { t: '"AI"',     c: "text-amber-200" }, { t: ", ", c: "text-slate-500" }, { t: '"Systems"', c: "text-amber-200" }, { t: "];", c: "text-slate-500" }] },
-  { indent: 1, tokens: [{ t: "}",           c: "text-slate-500"  }] },
+  { indent: 0, tokens: [{ t: "class",       c: "text-primary" }, { t: " Engineer", c: "text-white"   }, { t: " {",  c: "text-white/40" }] },
+  { indent: 1, tokens: [{ t: "constructor", c: "text-primary" }, { t: "() {",      c: "text-white/40"  }] },
+  { indent: 2, tokens: [{ t: "this",        c: "text-primary"    }, { t: ".name ",    c: "text-white"  }, { t: "=",   c: "text-primary" }, { t: ' "Raj Shah"', c: "text-white/80" }, { t: ";", c: "text-white/40" }] },
+  { indent: 2, tokens: [{ t: "this",        c: "text-primary"    }, { t: ".focus ",   c: "text-white"  }, { t: "=",   c: "text-primary" }, { t: " [",          c: "text-white/40" }, { t: '"AI"',     c: "text-white/80" }, { t: ", ", c: "text-white/40" }, { t: '"Systems"', c: "text-white/80" }, { t: "];", c: "text-white/40" }] },
+  { indent: 1, tokens: [{ t: "}",           c: "text-white/40"  }] },
   { indent: 0, tokens: [] },
-  { indent: 1, tokens: [{ t: "async",       c: "text-purple-400" }, { t: " deploy",   c: "text-blue-400"   }, { t: "(",   c: "text-slate-500"  }, { t: "app",         c: "text-orange-300" }, { t: ") {", c: "text-slate-500" }] },
-  { indent: 2, tokens: [{ t: "await",       c: "text-purple-400" }, { t: " app",      c: "text-blue-400"   }, { t: ".",   c: "text-slate-500"  }, { t: "scale",       c: "text-yellow-300" }, { t: "({ edge: ", c: "text-slate-400" }, { t: "true", c: "text-orange-400" }, { t: " });", c: "text-slate-500" }] },
+  { indent: 1, tokens: [{ t: "async",       c: "text-primary" }, { t: " deploy",   c: "text-white"   }, { t: "(",   c: "text-white/40"  }, { t: "app",         c: "text-orange-300" }, { t: ") {", c: "text-white/40" }] },
+  { indent: 2, tokens: [{ t: "await",       c: "text-primary" }, { t: " app",      c: "text-white"   }, { t: ".",   c: "text-white/40"  }, { t: "scale",       c: "text-primary" }, { t: "({ edge: ", c: "text-white/40" }, { t: "true", c: "text-primary" }, { t: " });", c: "text-white/40" }] },
 ];
 
 const STATS = [
@@ -78,7 +78,7 @@ export function HeroSection() {
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" aria-hidden="true" />
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" aria-hidden="true" />
               <span className="font-mono text-[10px] font-bold tracking-[0.22em] uppercase text-dark/40">
                 Available
               </span>
@@ -129,7 +129,7 @@ export function HeroSection() {
               </div>
 
               <div className="border-2 border-dark bg-[#0C0C0C]"
-                style={{ boxShadow: "6px 6px 0 0 #E8622A, 12px 12px 0 0 rgba(232,98,42,0.15)" }}>
+                style={{ boxShadow: "6px 6px 0 0 #FF4D00, 12px 12px 0 0 rgba(255,77,0,0.15)" }}>
 
                 {/* Titlebar */}
                 <div className="flex items-center gap-1.5 px-4 py-2.5 bg-[#161616] border-b border-white/[0.06]">
@@ -137,9 +137,9 @@ export function HeroSection() {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
                   <div className="ml-auto flex items-center gap-3">
-                    <span className="font-mono text-[10px] text-slate-600 tracking-widest">TS</span>
+                    <span className="font-mono text-[10px] text-white/30 tracking-widest">TS</span>
                     <span className="w-px h-3 bg-white/10" />
-                    <span className="font-mono text-[10px] text-slate-500 tracking-[0.14em]">engineer.ts</span>
+                    <span className="font-mono text-[10px] text-white/40 tracking-[0.14em]">engineer.ts</span>
                   </div>
                 </div>
 
@@ -147,7 +147,7 @@ export function HeroSection() {
                 <div className="px-4 pt-4 pb-3 font-mono text-[12.5px] leading-[1.85] select-none">
                   {CODE_LINES.map((line, i) => (
                     <div key={i} className="flex gap-3.5">
-                      <span className="text-slate-700 w-4 shrink-0 text-right text-[11px] leading-[1.85] select-none">
+                      <span className="text-white/20 w-4 shrink-0 text-right text-[11px] leading-[1.85] select-none">
                         {i + 1}
                       </span>
                       <span className="whitespace-pre">
@@ -164,7 +164,7 @@ export function HeroSection() {
                   ))}
                   {/* cursor */}
                   <div className="flex gap-3.5">
-                    <span className="text-slate-700 w-4 shrink-0 text-right text-[11px] leading-[1.85]">
+                    <span className="text-white/20 w-4 shrink-0 text-right text-[11px] leading-[1.85]">
                       {CODE_LINES.length + 1}
                     </span>
                     <span className="cursor-blink inline-block w-[6px] h-[13px] bg-primary align-middle mt-[5px]" />
@@ -174,11 +174,11 @@ export function HeroSection() {
                 {/* Status bar */}
                 <div className="border-t border-white/[0.06] bg-[#161616] px-4 py-2 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                    <span className="font-mono text-[10px] text-slate-500 tracking-[0.16em] uppercase">TypeScript</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    <span className="font-mono text-[10px] text-white/40 tracking-[0.16em] uppercase">TypeScript</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-[10px] text-slate-700">UTF-8</span>
+                    <span className="font-mono text-[10px] text-white/20">UTF-8</span>
                     <span className="font-mono text-[10px] text-primary tracking-[0.12em]">● LIVE</span>
                   </div>
                 </div>
@@ -192,7 +192,7 @@ export function HeroSection() {
 
               {/* Bio + CTAs */}
               <div className="flex flex-col gap-6 max-w-[480px]">
-                <p className="text-[15px] text-dark/55 leading-[1.85]">
+                <p className="text-[14px] sm:text-[15px] text-dark/55 leading-[1.85]">
                   {PERSONAL_INFO.bio}
                 </p>
                 <div className="flex flex-wrap gap-3">
@@ -212,11 +212,11 @@ export function HeroSection() {
                 {STATS.map((s, i) => (
                   <div
                     key={s.label}
-                    className={`flex flex-col items-center px-6 py-4 ${
+                    className={`flex flex-col items-center px-4 py-3 sm:px-6 sm:py-4 ${
                       i < STATS.length - 1 ? "border-r-2 border-dark/10" : ""
                     }`}
                   >
-                    <span className="font-black text-[2rem] leading-none tracking-tighter text-dark tabular-nums">
+                    <span className="font-black text-[1.5rem] sm:text-[2rem] leading-none tracking-tighter text-dark tabular-nums">
                       {s.value}
                     </span>
                     <span className="font-mono text-[9px] font-bold tracking-[0.2em] uppercase text-dark/35 mt-1">
