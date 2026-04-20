@@ -13,3 +13,4 @@ export * from './GlitchText';
 export * from './Marquee';
 export * from './TestimonialSection';
 export * from './ProcessSection';
+export * from './WireframeCube';
