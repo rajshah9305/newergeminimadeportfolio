@@ -4,7 +4,7 @@ A modern, brutalist-inspired portfolio showcasing AI & Full-Stack engineering ex
 
 ## 🚀 Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js 15 (App Router)
 - **Styling:** Tailwind CSS
 - **Icons:** Lucide React
 - **Language:** TypeScript
@@ -51,4 +51,4 @@ Edit `src/config/portfolio.ts` to update:
 
 ## 📄 License
 
-© 2026 Raj Shah. All rights reserved.
+© 2025 Raj Shah. All rights reserved.

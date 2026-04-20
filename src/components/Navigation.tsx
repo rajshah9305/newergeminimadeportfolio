@@ -2,17 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useSpring, useReducedMotion } from "framer-motion";
-import { Menu, X, Github, Linkedin, Mail, ArrowRight, Check, Copy } from "lucide-react";
-import { PERSONAL_INFO } from "@/config/portfolio";
+import { Menu, X, Github, Linkedin, ArrowRight, Check, Copy } from "lucide-react";
+import { PERSONAL_INFO, NAV_LINKS } from "@/config/portfolio";
 import { BrutalistButton } from "./BrutalistButton";
 import { Magnetic } from "./Magnetic";
-
-const NAV_LINKS = [
-  { label: "Work", href: "#work" },
-  { label: "Expertise", href: "#expertise" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
-];
 
 function Branding({ isScrolled }: { isScrolled: boolean }) {
   const reduce = useReducedMotion();
@@ -55,7 +48,7 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [scrollPercent, setScrollPercent] = useState(0);
+  const [, setScrollPercent] = useState(0);
   const reduce = useReducedMotion();
 
   const { scrollYProgress } = useScroll();
