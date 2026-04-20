@@ -11,8 +11,8 @@ export function Marquee({ items, reverse = false }: MarqueeProps) {
   const doubled = [...items, ...items];
 
   return (
-    <div className="w-full overflow-hidden bg-dark select-none" style={{ borderTop: "3px solid #FF4D00", borderBottom: "3px solid #000" }}>
-      <div className="flex whitespace-nowrap py-3.5">
+    <div className="w-full overflow-hidden bg-white select-none border-y-2 border-dark">
+      <div className="flex whitespace-nowrap py-4">
         <motion.div
           animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
           transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
@@ -20,7 +20,7 @@ export function Marquee({ items, reverse = false }: MarqueeProps) {
         >
           {doubled.map((item, i) => (
             <div key={i} className="flex items-center">
-              <span className="font-mono font-black text-[13px] tracking-[0.3em] uppercase text-white px-6">
+              <span className="font-mono font-black text-[13px] tracking-[0.3em] uppercase text-dark px-6">
                 {item}
               </span>
               <span className="text-primary font-black text-[10px]" aria-hidden="true">◆</span>

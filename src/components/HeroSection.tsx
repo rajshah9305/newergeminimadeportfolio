@@ -7,14 +7,14 @@ import { Marquee } from "./Marquee";
 import { GLSLHills } from "./GLSLHills";
 
 const CODE_LINES = [
-  { indent: 0, tokens: [{ t: "class",       c: "text-primary" }, { t: " Engineer", c: "text-white"   }, { t: " {",  c: "text-white/40" }] },
-  { indent: 1, tokens: [{ t: "constructor", c: "text-primary" }, { t: "() {",      c: "text-white/40"  }] },
-  { indent: 2, tokens: [{ t: "this",        c: "text-primary"    }, { t: ".name ",    c: "text-white"  }, { t: "=",   c: "text-primary" }, { t: ' "Raj Shah"', c: "text-white/80" }, { t: ";", c: "text-white/40" }] },
-  { indent: 2, tokens: [{ t: "this",        c: "text-primary"    }, { t: ".focus ",   c: "text-white"  }, { t: "=",   c: "text-primary" }, { t: " [",          c: "text-white/40" }, { t: '"AI"',     c: "text-white/80" }, { t: ", ", c: "text-white/40" }, { t: '"Systems"', c: "text-white/80" }, { t: "];", c: "text-white/40" }] },
-  { indent: 1, tokens: [{ t: "}",           c: "text-white/40"  }] },
+  { indent: 0, tokens: [{ t: "class",       c: "text-primary font-bold" }, { t: " Engineer", c: "text-dark"   }, { t: " {",  c: "text-dark/40" }] },
+  { indent: 1, tokens: [{ t: "constructor", c: "text-primary font-bold" }, { t: "() {",      c: "text-dark/40"  }] },
+  { indent: 2, tokens: [{ t: "this",        c: "text-primary"    }, { t: ".name ",    c: "text-dark"  }, { t: "=",   c: "text-primary" }, { t: ' "Raj Shah"', c: "text-blue-600" }, { t: ";", c: "text-dark/40" }] },
+  { indent: 2, tokens: [{ t: "this",        c: "text-primary"    }, { t: ".focus ",   c: "text-dark"  }, { t: "=",   c: "text-primary" }, { t: " [",          c: "text-dark/40" }, { t: '"AI"',     c: "text-blue-600" }, { t: ", ", c: "text-dark/40" }, { t: '"Systems"', c: "text-blue-600" }, { t: "];", c: "text-dark/40" }] },
+  { indent: 1, tokens: [{ t: "}",           c: "text-dark/40"  }] },
   { indent: 0, tokens: [] },
-  { indent: 1, tokens: [{ t: "async",       c: "text-primary" }, { t: " deploy",   c: "text-white"   }, { t: "(",   c: "text-white/40"  }, { t: "app",         c: "text-orange-300" }, { t: ") {", c: "text-white/40" }] },
-  { indent: 2, tokens: [{ t: "await",       c: "text-primary" }, { t: " app",      c: "text-white"   }, { t: ".",   c: "text-white/40"  }, { t: "scale",       c: "text-primary" }, { t: "({ edge: ", c: "text-white/40" }, { t: "true", c: "text-primary" }, { t: " });", c: "text-white/40" }] },
+  { indent: 1, tokens: [{ t: "async",       c: "text-primary font-bold" }, { t: " deploy",   c: "text-dark"   }, { t: "(",   c: "text-dark/40"  }, { t: "app",         c: "text-orange-600" }, { t: ") {", c: "text-dark/40" }] },
+  { indent: 2, tokens: [{ t: "await",       c: "text-primary font-bold" }, { t: " app",      c: "text-dark"   }, { t: ".",   c: "text-dark/40"  }, { t: "scale",       c: "text-primary" }, { t: "({ edge: ", c: "text-dark/40" }, { t: "true", c: "text-primary" }, { t: " });", c: "text-dark/40" }] },
 ];
 
 const STATS = [
@@ -49,7 +49,7 @@ export function HeroSection() {
           aria-hidden="true"
           style={{
             background:
-              "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 12%, rgba(255,255,255,0.92) 26%, white 38%, white 62%, rgba(255,255,255,0.92) 74%, rgba(255,255,255,0.15) 88%, transparent 100%)",
+              "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 12%, rgba(255,255,255,0.85) 26%, white 38%, white 62%, rgba(255,255,255,0.85) 74%, rgba(255,255,255,0.1) 88%, transparent 100%)",
           }}
         />
         {/* top + bottom white fades */}
@@ -62,9 +62,6 @@ export function HeroSection() {
 
         {/* ══════════════════════════════════════════
             LAYOUT: 3-row stack
-            Row 1 — top bar (role tag + status)
-            Row 2 — name + terminal side by side
-            Row 3 — bio + CTAs + stats
         ══════════════════════════════════════════ */}
         <div className="relative z-10 w-full h-full flex flex-col"
           style={{ minHeight: "calc(100vh - 72px)" }}>
@@ -115,7 +112,7 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* TERMINAL — floats right, slightly elevated */}
+            {/* TERMINAL — Light Theme IDE style */}
             <div
               className="w-full lg:w-[440px] xl:w-[480px] shrink-0 lg:ml-12 xl:ml-20
                          lg:-translate-y-6"
@@ -123,31 +120,31 @@ export function HeroSection() {
             >
               {/* Corner accent */}
               <div className="flex justify-end mb-2 pr-1">
-                <span className="font-mono text-[9px] font-bold tracking-[0.24em] uppercase text-primary/60">
+                <span className="font-mono text-[9px] font-bold tracking-[0.24em] uppercase text-dark/40">
                   engineer.ts
                 </span>
               </div>
 
-              <div className="border-2 border-dark bg-[#0C0C0C]"
-                style={{ boxShadow: "6px 6px 0 0 #FF4D00, 12px 12px 0 0 rgba(255,77,0,0.15)" }}>
+              <div className="border-2 border-dark bg-[#FAFAFA]"
+                style={{ boxShadow: "6px 6px 0 0 #000000, 12px 12px 0 0 rgba(0,0,0,0.05)" }}>
 
                 {/* Titlebar */}
-                <div className="flex items-center gap-1.5 px-4 py-2.5 bg-[#161616] border-b border-white/[0.06]">
+                <div className="flex items-center gap-1.5 px-4 py-2.5 bg-white border-b-2 border-dark/10">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
                   <div className="ml-auto flex items-center gap-3">
-                    <span className="font-mono text-[10px] text-white/30 tracking-widest">TS</span>
-                    <span className="w-px h-3 bg-white/10" />
-                    <span className="font-mono text-[10px] text-white/40 tracking-[0.14em]">engineer.ts</span>
+                    <span className="font-mono text-[10px] text-dark/30 tracking-widest">TS</span>
+                    <span className="w-px h-3 bg-dark/10" />
+                    <span className="font-mono text-[10px] text-dark/40 tracking-[0.14em]">engineer.ts</span>
                   </div>
                 </div>
 
                 {/* Code body */}
-                <div className="px-4 pt-4 pb-3 font-mono text-[12.5px] leading-[1.85] select-none">
+                <div className="px-4 pt-4 pb-3 font-mono text-[12.5px] leading-[1.85] select-none text-dark">
                   {CODE_LINES.map((line, i) => (
                     <div key={i} className="flex gap-3.5">
-                      <span className="text-white/20 w-4 shrink-0 text-right text-[11px] leading-[1.85] select-none">
+                      <span className="text-dark/20 w-4 shrink-0 text-right text-[11px] leading-[1.85] select-none">
                         {i + 1}
                       </span>
                       <span className="whitespace-pre">
@@ -164,7 +161,7 @@ export function HeroSection() {
                   ))}
                   {/* cursor */}
                   <div className="flex gap-3.5">
-                    <span className="text-white/20 w-4 shrink-0 text-right text-[11px] leading-[1.85]">
+                    <span className="text-dark/20 w-4 shrink-0 text-right text-[11px] leading-[1.85]">
                       {CODE_LINES.length + 1}
                     </span>
                     <span className="cursor-blink inline-block w-[6px] h-[13px] bg-primary align-middle mt-[5px]" />
@@ -172,14 +169,14 @@ export function HeroSection() {
                 </div>
 
                 {/* Status bar */}
-                <div className="border-t border-white/[0.06] bg-[#161616] px-4 py-2 flex items-center justify-between">
+                <div className="border-t-2 border-dark/10 bg-white px-4 py-2 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    <span className="font-mono text-[10px] text-white/40 tracking-[0.16em] uppercase">TypeScript</span>
+                    <span className="font-mono text-[10px] text-dark/40 tracking-[0.16em] uppercase">TypeScript</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-[10px] text-white/20">UTF-8</span>
-                    <span className="font-mono text-[10px] text-primary tracking-[0.12em]">● LIVE</span>
+                    <span className="font-mono text-[10px] text-dark/20">UTF-8</span>
+                    <span className="font-mono text-[10px] text-primary font-bold tracking-[0.12em]">● LIVE</span>
                   </div>
                 </div>
               </div>

@@ -21,7 +21,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: [0.33, 1, 0.68, 1] as any as any,
+      ease: [0.33, 1, 0.68, 1] as any,
     },
   },
 };
@@ -49,7 +49,7 @@ export function SkillsSection() {
             <motion.article
               key={idx}
               variants={itemVariants}
-              className={`flex flex-col p-8 bg-white hover:bg-dark group transition-colors duration-300 ${
+              className={`flex flex-col p-8 bg-white hover:bg-primary/[0.03] group transition-colors duration-300 ${
                 idx < SKILLS.length - 1 ? "border-b-2 lg:border-b-0 lg:border-r-2 border-dark" : ""
               } ${idx % 2 === 0 ? "sm:border-r-2 lg:border-r-2" : "sm:border-r-0 lg:border-r-2"} ${idx === 1 ? "lg:border-r-2" : ""} ${idx === 2 ? "sm:border-b-0" : ""}`}
             >
@@ -60,7 +60,7 @@ export function SkillsSection() {
                 {group.items.map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
                     <span className="w-1.5 h-1.5 bg-primary shrink-0 rotate-45 group-hover:rotate-0 transition-transform duration-300" aria-hidden="true" />
-                    <span className="text-[14px] font-bold text-dark group-hover:text-white transition-colors duration-300 tracking-tight">
+                    <span className="text-[14px] font-bold text-dark transition-colors duration-300 tracking-tight">
                       {item}
                     </span>
                   </li>

@@ -32,7 +32,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] as any, delay: index * 0.05 }}
-      className="group grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] border-b-2 border-dark last:border-b-0 hover:bg-dark transition-colors duration-300"
+      className="group grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] border-b-2 border-dark last:border-b-0 hover:bg-primary/[0.03] transition-colors duration-300"
     >
       {/* Left panel */}
       <div className={`flex flex-col justify-between p-8 md:p-12 border-b-2 lg:border-b-0 lg:border-r-2 border-dark ${isEven ? "lg:order-1" : "lg:order-2"}`}>
@@ -50,12 +50,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </div>
 
           {/* Icon */}
-          <div className="w-12 h-12 bg-dark group-hover:bg-primary text-white flex items-center justify-center border-2 border-dark group-hover:border-primary mb-6 transition-all duration-300 transform group-hover:scale-110 group-hover:-rotate-3" aria-hidden="true">
+          <div className="w-12 h-12 bg-white text-dark flex items-center justify-center border-2 border-dark group-hover:border-primary group-hover:text-primary mb-6 transition-all duration-300 transform group-hover:scale-110 group-hover:-rotate-3" aria-hidden="true">
             <ProjectIcon icon={project.icon} />
           </div>
 
           {/* Title */}
-          <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-dark group-hover:text-white leading-tight mb-3 transition-colors duration-300">
+          <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-dark leading-tight mb-3 transition-colors duration-300">
             {project.title}
           </h3>
 
@@ -69,14 +69,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <div className="flex items-center gap-6 mt-10">
           {project.links.live && (
             <a href={project.links.live} target="_blank" rel="noreferrer"
-              className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase text-dark/40 group-hover:text-white/40 hover:!text-primary transition-colors focus:outline-none">
+              className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase text-dark/40 hover:text-primary transition-colors focus:outline-none">
               <ExternalLink className="w-4 h-4" aria-hidden="true" />
               Live
             </a>
           )}
           {project.links.github && (
             <a href={project.links.github} target="_blank" rel="noreferrer"
-              className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase text-dark/40 group-hover:text-white/40 hover:!text-primary transition-colors focus:outline-none">
+              className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase text-dark/40 hover:text-primary transition-colors focus:outline-none">
               <Github className="w-4 h-4" aria-hidden="true" />
               Source
             </a>
@@ -86,14 +86,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       {/* Right panel */}
       <div className={`flex flex-col justify-between p-8 md:p-12 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
-        <p className="text-[16px] text-dark/60 group-hover:text-white/70 leading-[1.8] mb-8 transition-colors duration-300">
+        <p className="text-[16px] text-dark/60 leading-[1.8] mb-8 transition-colors duration-300">
           {project.desc}
         </p>
 
         <div className="flex flex-wrap gap-2.5 mb-10" aria-label="Technologies used">
           {project.tags.map((tag) => (
             <span key={tag}
-              className="px-3 py-1.5 font-mono text-[10px] font-bold tracking-[0.15em] uppercase text-dark/50 group-hover:text-white/50 border border-dark/20 group-hover:border-white/20 bg-transparent transition-colors duration-300">
+              className="px-3 py-1.5 font-mono text-[10px] font-bold tracking-[0.15em] uppercase text-dark/50 border border-dark/20 bg-white transition-colors duration-300">
               {tag}
             </span>
           ))}
@@ -105,7 +105,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             target="_blank"
             rel="noreferrer"
             aria-label={`View ${project.title}`}
-            className="w-12 h-12 bg-dark group-hover:bg-primary text-white flex items-center justify-center border-2 border-dark group-hover:border-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:translate-x-1 hover:-translate-y-1"
+            className="w-12 h-12 bg-white text-dark flex items-center justify-center border-2 border-dark group-hover:border-primary group-hover:text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:translate-x-1 hover:-translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none"
           >
             <ArrowUpRight className="w-5 h-5" aria-hidden="true" />
           </a>
@@ -127,7 +127,7 @@ export function ProjectsSection() {
           index="// 02 — WORK"
         />
 
-        <div className="border-2 border-dark overflow-hidden">
+        <div className="border-2 border-dark overflow-hidden bg-white">
           {PROJECTS.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}

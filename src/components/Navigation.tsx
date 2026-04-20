@@ -6,26 +6,25 @@ import { Menu, X, ArrowRight, Github, Linkedin } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
 
 const NAV_LINKS = [
-  { href: "#expertise",  label: "Expertise" },
-  { href: "#work",       label: "Work" },
+  { href: "#expertise", label: "Expertise" },
+  { href: "#work",      label: "Work"      },
   { href: "#experience", label: "Experience" },
-  { href: "#contact",    label: "Contact" },
 ];
 
 export function Navigation() {
-  const [scrolled, setScrolled]     = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [progress, setProgress]     = useState(0);
   const reduce = useReducedMotion();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const onScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setScrolled(scrollTop > 20);
-      setProgress(docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0);
+      setScrolled(window.scrollY > 20);
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      if (total > 0) setProgress(window.scrollY / total);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -33,8 +32,8 @@ export function Navigation() {
     <nav
       aria-label="Main Navigation"
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/90 backdrop-blur-md h-[64px]" : "bg-white h-[80px]"
-      } border-b-4 border-black`}
+        scrolled ? "bg-white/95 backdrop-blur-md h-[64px] border-b-2" : "bg-white h-[80px] border-b-4"
+      } border-black`}
     >
       {/* Scroll progress bar */}
       <div
@@ -137,7 +136,7 @@ export function Navigation() {
                 { href: PERSONAL_INFO.linkedin, label: "LinkedIn", Icon: Linkedin },
               ].map(({ href, label, Icon }) => (
                 <a key={label} href={href} aria-label={label} target="_blank" rel="noreferrer"
-                  className="flex-1 flex items-center justify-center py-4 bg-black text-white border-2 border-black hover:bg-primary transition-colors focus:outline-none">
+                  className="flex-1 flex items-center justify-center py-4 bg-white text-black border-2 border-black hover:bg-black hover:text-white transition-colors focus:outline-none">
                   <Icon className="w-5 h-5" />
                 </a>
               ))}

@@ -53,7 +53,7 @@ export function ContactSection() {
             {/* Email Link */}
             <a
               href={`mailto:${PERSONAL_INFO.email}`}
-              className="group flex items-center justify-between px-8 py-8 bg-black text-white border-4 border-black hover:bg-primary hover:border-primary shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-300 focus:outline-none"
+              className="group flex items-center justify-between px-8 py-8 bg-black text-white border-4 border-black hover:bg-primary hover:border-primary shadow-[8px_8px_0px_0px_#FF4D00] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-300 focus:outline-none"
             >
               <div className="flex flex-col gap-1">
                 <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 group-hover:text-white/70">Send Message</span>
@@ -68,20 +68,20 @@ export function ContactSection() {
               {/* Copy Button */}
               <button
                 onClick={copyEmail}
-                className="flex items-center justify-between px-6 py-5 bg-white text-black border-4 border-black hover:bg-black hover:text-white transition-all duration-300 focus:outline-none group"
+                className="flex items-center justify-between px-6 py-5 bg-white text-black border-4 border-black hover:bg-primary hover:border-primary hover:text-white transition-all duration-300 focus:outline-none group shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
               >
                 <span className="font-mono text-[11px] font-black uppercase tracking-[0.2em]">
                   {copied ? "Copied!" : "Copy Email"}
                 </span>
-                {copied ? <Check className="w-5 h-5 shrink-0 text-primary" /> : <Copy className="w-5 h-5 shrink-0" />}
+                {copied ? <Check className="w-5 h-5 shrink-0 text-white" /> : <Copy className="w-5 h-5 shrink-0" />}
               </button>
 
-              {/* Resume/GitHub Link */}
+              {/* GitHub Link */}
               <a
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-between px-6 py-5 bg-white text-black border-4 border-black hover:bg-black hover:text-white transition-all duration-300 focus:outline-none group"
+                className="flex items-center justify-between px-6 py-5 bg-white text-black border-4 border-black hover:bg-black hover:text-white transition-all duration-300 focus:outline-none group shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
               >
                 <span className="font-mono text-[11px] font-black uppercase tracking-[0.2em]">View GitHub</span>
                 <Github className="w-5 h-5" />
