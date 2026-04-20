@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Mail, Github, Linkedin, Zap, Check, Copy } from "lucide-react";
+import { Mail, Github, Linkedin, Check, Copy } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
 
 const SOCIAL_LINKS = [
@@ -16,8 +16,8 @@ const container = {
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
+  hidden: { opacity: 0, y: 15 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 export function ContactSection() {
@@ -35,54 +35,35 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="bg-dark text-white py-48 md:py-64 relative overflow-hidden scroll-mt-20"
+      className="bg-white text-dark py-40 md:py-56 relative overflow-hidden border-t border-slate-100 scroll-mt-20"
     >
-      {/* Soft radial glow — subtle, not brown */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-      >
-        <div className="absolute right-[-80px] top-[-80px] w-[480px] h-[480px] rounded-full bg-primary/15 blur-[100px]" />
-      </div>
-
-      {/* Decorative Zap — very faint */}
-      {!reduce && (
-        <motion.div
-          initial={{ rotate: -12, scale: 0.8, opacity: 0 }}
-          whileInView={{ rotate: 0, scale: 1, opacity: 0.05 }}
-          transition={{ duration: 1.4, ease: "easeOut" as const }}
-          viewport={{ once: true }}
-          className="absolute -right-20 -top-20 pointer-events-none select-none text-white"
-          aria-hidden="true"
-        >
-          <Zap className="w-[400px] h-[400px] md:w-[520px] md:h-[520px]" />
-        </motion.div>
-      )}
-
       <motion.div
         variants={reduce ? undefined : container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-80px" }}
-        className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center"
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center"
       >
-        {/* Heading — white, hover turns primary */}
+        <motion.div variants={fadeUp} className="mb-6">
+           <span className="font-mono text-[10px] font-bold tracking-[0.2em] uppercase text-primary border border-primary/20 px-3 py-1 rounded-full">
+             Available for work
+           </span>
+        </motion.div>
+
         <motion.h2
           variants={reduce ? undefined : fadeUp}
-          className="text-6xl sm:text-7xl md:text-[7rem] font-black uppercase tracking-tighter leading-[0.88] mb-6 text-white hover:text-primary transition-colors duration-500 cursor-default"
+          className="text-6xl sm:text-7xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-10 text-dark"
         >
-          Initiate
+          Let&apos;s build
           <br />
-          Protocol
+          together.
         </motion.h2>
 
         <motion.p
           variants={reduce ? undefined : fadeUp}
-          className="text-[14px] text-slate-300 max-w-xs mb-12 font-mono uppercase tracking-[0.18em] leading-[1.9]"
+          className="text-[15px] text-slate-500 max-w-md mb-12 leading-relaxed"
         >
-          Currently accepting new opportunities.
-          <br />
-          Let&apos;s build something scalable.
+          Currently accepting new opportunities. Whether you have a specific project in mind or just want to say hi, my inbox is always open.
         </motion.p>
 
         {/* Actions */}
@@ -90,26 +71,24 @@ export function ContactSection() {
           variants={reduce ? undefined : fadeUp}
           className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-sm justify-center"
         >
-          {/* Email CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <a
               href={`mailto:${PERSONAL_INFO.email}`}
-              className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-primary text-white px-7 py-4 font-mono text-[13px] font-bold uppercase tracking-[0.15em] border-2 border-transparent hover:bg-white hover:text-dark hover:border-dark shadow-[4px_4px_0px_0px_rgba(255,255,255,0.12)] hover:shadow-[6px_6px_0px_0px_rgba(208,94,53,1)] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-dark group"
+              className="flex items-center justify-center gap-2.5 bg-dark text-white px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-wider rounded-xl hover:bg-primary transition-all shadow-sm"
             >
-              <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
+              <Mail className="w-4 h-4" />
               Email Me
             </a>
 
             <button
               onClick={copyEmail}
-              className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-white/10 text-white px-7 py-4 font-mono text-[13px] font-bold uppercase tracking-[0.15em] border-2 border-white/20 hover:bg-white hover:text-dark hover:border-dark hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-dark group"
+              className="flex items-center justify-center gap-2.5 bg-slate-50 text-dark px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-wider rounded-xl border border-slate-100 hover:border-dark/10 transition-all"
             >
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-              {copied ? "Copied" : "Copy Address"}
+              {copied ? "Copied" : "Copy Email"}
             </button>
           </div>
 
-          {/* Social icons */}
           <div className="flex gap-3">
             {SOCIAL_LINKS.map(({ href, label, Icon }) => (
               <a
@@ -118,9 +97,9 @@ export function ContactSection() {
                 aria-label={label}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-[52px] h-[52px] flex items-center justify-center bg-white/8 text-white border-2 border-white/12 hover:bg-white hover:text-dark hover:border-dark hover:-translate-y-0.5 hover:shadow-[4px_4px_0px_0px_rgba(208,94,53,1)] active:translate-y-0.5 active:shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-dark group"
+                className="w-14 h-14 flex items-center justify-center bg-slate-50 text-dark border border-slate-100 rounded-xl hover:border-dark/10 transition-all"
               >
-                <Icon className="w-5 h-5 group-hover:scale-110 transition-transform" aria-hidden="true" />
+                <Icon className="w-5 h-5" />
               </a>
             ))}
           </div>

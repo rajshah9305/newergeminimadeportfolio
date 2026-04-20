@@ -2,35 +2,34 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useSpring, useReducedMotion } from "framer-motion";
-import { Menu, X, ArrowRight, Github, Linkedin, Mail, Copy, Check } from "lucide-react";
+import { Menu, X, Github, Linkedin, Mail, ArrowRight, Check, Copy } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
 import { BrutalistButton } from "./BrutalistButton";
 import { Magnetic } from "./Magnetic";
 
 const NAV_LINKS = [
-  { href: "#expertise", label: "Expertise" },
-  { href: "#work",      label: "Work" },
-  { href: "#experience",label: "Experience" },
-  { href: "#contact",   label: "Contact" },
+  { label: "Work", href: "#work" },
+  { label: "Expertise", href: "#expertise" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
 ];
 
 function Branding({ isScrolled }: { isScrolled: boolean }) {
   const reduce = useReducedMotion();
-
   return (
-    <div className="flex items-center gap-6">
+    <div className="flex items-center gap-4">
       <a
         href="#top"
-        className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-light"
+        className="group relative flex items-center justify-center focus:outline-none"
         aria-label="Back to top"
       >
         <motion.div
-          whileHover={reduce ? {} : { scale: 1.1, rotate: 5 }}
+          whileHover={reduce ? {} : { scale: 1.05 }}
           whileTap={reduce ? {} : { scale: 0.95 }}
-          className={`font-black w-8 h-8 flex items-center justify-center text-[11px] tracking-tight shadow-[2px_2px_0px_0px_rgba(17,17,17,1)] transition-colors duration-200 ${
+          className={`font-black w-8 h-8 flex items-center justify-center text-[11px] tracking-tight border border-dark transition-colors duration-200 ${
             isScrolled
-              ? "bg-dark text-white group-hover:bg-white group-hover:text-dark"
-              : "bg-primary text-white group-hover:bg-dark"
+              ? "bg-dark text-white"
+              : "bg-white text-dark"
           }`}
         >
           RS
@@ -38,12 +37,12 @@ function Branding({ isScrolled }: { isScrolled: boolean }) {
       </a>
 
       <div className="hidden lg:flex flex-col gap-0.5 pointer-events-none select-none">
-        <span className={`font-mono text-[9px] font-bold tracking-widest uppercase ${isScrolled ? "text-white/60" : "text-dark/40"}`}>
+        <span className={`font-mono text-[9px] font-bold tracking-widest uppercase ${isScrolled ? "text-dark/40" : "text-dark/40"}`}>
           {PERSONAL_INFO.coordinates}
         </span>
         <div className="flex items-center gap-2">
-           <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-           <span className={`font-mono text-[9px] font-bold tracking-widest uppercase ${isScrolled ? "text-white" : "text-dark"}`}>
+           <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+           <span className={`font-mono text-[9px] font-bold tracking-widest uppercase text-dark`}>
             {PERSONAL_INFO.availability}
           </span>
         </div>
@@ -91,36 +90,20 @@ export function Navigation() {
       aria-label="Main Navigation"
       style={
         {
-          "--nav-underline": isScrolled ? "white" : "var(--color-primary)",
+          "--nav-underline": "var(--color-primary)",
         } as React.CSSProperties
       }
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-primary border-b border-white/10 py-3 shadow-sm"
+          ? "bg-white/90 backdrop-blur-md border-b border-dark/5 py-3"
           : "bg-transparent py-5"
       }`}
     >
       {/* Scroll Progress Bar */}
       <motion.div
-        className={`absolute bottom-0 left-0 right-0 h-[3px] origin-left z-[60] ${
-          isScrolled ? "bg-white" : "bg-primary"
-        }`}
+        className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary origin-left z-[60]"
         style={{ scaleX }}
       />
-
-      {/* Scroll percentage indicator */}
-      <AnimatePresence>
-        {isScrolled && (
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 20 }}
-            className="absolute bottom-4 right-8 font-mono text-[9px] font-bold text-white/40 tracking-widest hidden lg:block"
-          >
-            {scrollPercent}%
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <Branding isScrolled={isScrolled} />
@@ -131,24 +114,16 @@ export function Navigation() {
             <a
               key={link.href}
               href={link.href}
-              className={`nav-link font-mono text-[12px] font-bold tracking-[0.16em] uppercase transition-colors focus:outline-none ${
-                isScrolled
-                  ? "text-white hover:text-dark focus:text-dark"
-                  : "text-dark hover:text-primary focus:text-primary"
-              }`}
+              className="nav-link font-mono text-[12px] font-bold tracking-[0.16em] uppercase text-dark hover:text-primary transition-colors focus:outline-none"
             >
               {link.label}
             </a>
           ))}
           <div className="flex items-center gap-3">
-             <Magnetic strength={0.2}>
+             <Magnetic strength={0.1}>
                <button
                 onClick={copyEmail}
-                className={`flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 border-2 transition-all ${
-                  isScrolled
-                  ? "bg-white text-dark border-white hover:bg-dark hover:text-white"
-                  : "bg-dark text-white border-dark hover:bg-primary hover:border-primary"
-                }`}
+                className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 border border-dark/10 hover:border-dark transition-all text-dark bg-white"
               >
                 {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                 {copied ? "Copied" : "Email"}
@@ -157,9 +132,7 @@ export function Navigation() {
             <BrutalistButton
               href="#contact"
               primary
-              className={`!px-5 !py-2.5 !text-[11px] ${
-                isScrolled ? "!shadow-[4px_4px_0px_0px_#111]" : ""
-              }`}
+              className="!px-5 !py-2.5 !text-[11px] !shadow-none border !border-dark !bg-dark !text-white hover:!bg-primary hover:!border-primary"
             >
               Hire Me
             </BrutalistButton>
@@ -170,11 +143,7 @@ export function Navigation() {
         <button
           aria-expanded={mobileOpen}
           aria-label="Toggle Navigation Menu"
-          className={`md:hidden p-2 border-2 transition-all focus:outline-none focus:ring-2 focus:ring-primary ${
-            isScrolled
-              ? "bg-dark text-white border-white shadow-[2px_2px_0px_0px_#fff]"
-              : "bg-white text-dark border-dark shadow-[2px_2px_0px_0px_rgba(17,17,17,1)]"
-          } active:shadow-none active:translate-y-px active:translate-x-px`}
+          className="md:hidden p-2 border border-dark transition-all focus:outline-none bg-white text-dark"
           onClick={() => setMobileOpen((v) => !v)}
         >
           <AnimatePresence mode="wait" initial={false}>
@@ -209,14 +178,11 @@ export function Navigation() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={reduce ? {} : { opacity: 0, scaleY: 0.94, y: -6 }}
-            animate={{ opacity: 1, scaleY: 1, y: 0 }}
-            exit={reduce ? {} : { opacity: 0, scaleY: 0.94, y: -6 }}
+            initial={reduce ? {} : { opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduce ? {} : { opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: "easeOut" as const }}
-            style={{ transformOrigin: "top" }}
-            className={`absolute top-full left-0 w-full border-b-2 flex flex-col px-6 pb-6 pt-4 shadow-xl md:hidden font-mono font-bold uppercase z-40 ${
-              isScrolled ? "bg-primary border-white/20" : "bg-light border-dark"
-            }`}
+            className="absolute top-full left-0 w-full border-b border-dark/10 flex flex-col px-6 pb-6 pt-4 bg-white/95 backdrop-blur-lg md:hidden font-mono font-bold uppercase z-40"
           >
             {NAV_LINKS.map((link, i) => (
               <motion.a
@@ -225,31 +191,19 @@ export function Navigation() {
                 onClick={() => setMobileOpen(false)}
                 initial={reduce ? {} : { opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.055, duration: 0.2 }}
-                className={`py-4 border-b flex justify-between items-center text-[13px] group focus:outline-none ${
-                  isScrolled
-                    ? "text-white border-white/10 focus:text-dark"
-                    : "text-dark border-dark/8 focus:text-primary"
-                }`}
+                transition={{ delay: i * 0.05, duration: 0.2 }}
+                className="py-4 border-b border-dark/5 flex justify-between items-center text-[13px] group focus:outline-none text-dark hover:text-primary"
               >
                 {link.label}
-                <ArrowRight
-                  className={`w-4 h-4 transition-colors ${
-                    isScrolled
-                      ? "group-hover:text-dark"
-                      : "group-hover:text-primary"
-                  }`}
-                />
+                <ArrowRight className="w-4 h-4" />
               </motion.a>
             ))}
             <div className="pt-5 flex flex-col gap-4">
                <button
                 onClick={copyEmail}
-                className={`flex items-center justify-between py-4 border-b font-mono text-[13px] font-bold uppercase ${
-                   isScrolled ? "text-white border-white/10" : "text-dark border-dark/8"
-                }`}
+                className="flex items-center justify-between py-4 border-b border-dark/5 font-mono text-[13px] font-bold uppercase text-dark"
               >
-                <span>{copied ? "Copied to Clipboard" : "Copy Email"}</span>
+                <span>{copied ? "Copied" : "Copy Email"}</span>
                 {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               </button>
               <div className="flex gap-3">
@@ -263,7 +217,7 @@ export function Navigation() {
                     href={href}
                     target="_blank"
                     rel="noreferrer"
-                    className="bg-dark text-white p-3 hover:bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    className="border border-dark/10 p-3 hover:bg-dark hover:text-white transition-colors focus:outline-none"
                   >
                     <Icon className="w-5 h-5" />
                   </a>

@@ -2,19 +2,24 @@ import { PERSONAL_INFO } from "@/config/portfolio";
 
 export function Footer() {
   return (
-    <footer className="bg-dark text-white border-t-[5px] border-primary py-5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <footer className="bg-white text-dark border-t border-slate-100 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-6">
         <div
-          className="bg-primary text-white font-black w-7 h-7 flex items-center justify-center text-[11px] tracking-tight shrink-0"
+          className="border border-dark text-dark font-black w-8 h-8 flex items-center justify-center text-[11px] tracking-tight shrink-0"
           aria-hidden="true"
         >
           RS
         </div>
-        <p className="font-mono text-[10px] text-slate-500 tracking-[0.14em] uppercase text-center">
-          SYSTEM_STATUS: ONLINE &mdash; &copy; {new Date().getFullYear()}{" "}
-          {PERSONAL_INFO.name.toUpperCase()} &mdash; ALL RIGHTS RESERVED
-        </p>
-        <div className="w-7 hidden sm:block" aria-hidden="true" />
+
+        <div className="flex flex-col items-center gap-2">
+          <p className="font-mono text-[9px] text-slate-400 tracking-[0.14em] uppercase text-center">
+            &copy; {new Date().getFullYear()} {PERSONAL_INFO.name.toUpperCase()} &mdash; ALL RIGHTS RESERVED
+          </p>
+          <div className="flex items-center gap-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <span className="font-mono text-[9px] text-slate-300 tracking-widest uppercase">System Status: Online</span>
+          </div>
+        </div>
       </div>
     </footer>
   );
