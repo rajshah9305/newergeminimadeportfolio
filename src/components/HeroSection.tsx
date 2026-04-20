@@ -1,90 +1,99 @@
 "use client";
 
-import { motion, useReducedMotion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Github, Mail, ExternalLink, MapPin } from "lucide-react";
+import React from "react";
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
+import { Github, Mail } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
-import { BrutalistButton } from "./BrutalistButton";
 import { GlitchText } from "./GlitchText";
+import { BrutalistButton } from "./BrutalistButton";
 
 const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
   },
 };
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut" as const,
-    },
-  },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
 const CODE_LINES = [
   {
     indent: 0,
     tokens: [
-      { t: "class", c: "text-purple-400" },
-      { t: " Engineer", c: "text-blue-400" },
-      { t: " {", c: "text-slate-400" },
+      { t: "import", c: "text-purple-400" },
+      { t: " { ", c: "text-slate-400" },
+      { t: "System", c: "text-blue-400" },
+      { t: " } ", c: "text-slate-400" },
+      { t: "from", c: "text-purple-400" },
+      { t: " \"@raj/core\"", c: "text-emerald-400" },
+      { t: ";", c: "text-slate-400" },
     ],
   },
   {
-    indent: 1,
+    indent: 0,
     tokens: [
-      { t: "constructor", c: "text-purple-400" },
+      { t: "const", c: "text-purple-400" },
+      { t: " app ", c: "text-blue-400" },
+      { t: "=", c: "text-slate-400" },
+      { t: " new ", c: "text-purple-400" },
+      { t: "System", c: "text-blue-400" },
+      { t: "(", c: "text-slate-400" },
+      { t: "config", c: "text-orange-400" },
+      { t: ");", c: "text-slate-400" },
+    ],
+  },
+  { indent: 0, tokens: [] },
+  {
+    indent: 0,
+    tokens: [
+      { t: "async", c: "text-purple-400" },
+      { t: " function ", c: "text-purple-400" },
+      { t: "deploy", c: "text-blue-400" },
       { t: "() {", c: "text-slate-400" },
     ],
   },
   {
-    indent: 2,
+    indent: 1,
     tokens: [
-      { t: "this", c: "text-red-400" },
-      { t: ".name ", c: "text-slate-200" },
-      { t: "=", c: "text-emerald-400" },
-      { t: " \"Raj Shah\"", c: "text-amber-200" },
-      { t: ";", c: "text-slate-400" },
+      { t: "await", c: "text-purple-400" },
+      { t: " app.initialize", c: "text-blue-400" },
+      { t: "(", c: "text-slate-400" },
+      { t: "{", c: "text-slate-400" },
     ],
   },
   {
     indent: 2,
     tokens: [
-      { t: "this", c: "text-red-400" },
-      { t: ".focus ", c: "text-slate-200" },
-      { t: "=", c: "text-emerald-400" },
-      { t: " [", c: "text-slate-400" },
-      { t: "\"AI\"", c: "text-amber-200" },
-      { t: ", ", c: "text-slate-400" },
-      { t: "\"Systems\"", c: "text-amber-200" },
-      { t: "]", c: "text-slate-400" },
-      { t: ";", c: "text-slate-400" },
+      { t: "ai", c: "text-blue-400" },
+      { t: ":", c: "text-slate-400" },
+      { t: " true", c: "text-orange-400" },
+      { t: ",", c: "text-slate-400" },
     ],
   },
-  { indent: 1, tokens: [{ t: "}", c: "text-slate-400" }] },
-  { indent: 0, tokens: [] },
+  {
+    indent: 2,
+    tokens: [
+      { t: "redundancy", c: "text-blue-400" },
+      { t: ":", c: "text-slate-400" },
+      { t: " \"multi-region\"", c: "text-emerald-400" },
+      { t: ",", c: "text-slate-400" },
+    ],
+  },
   {
     indent: 1,
     tokens: [
-      { t: "async", c: "text-purple-400" },
-      { t: " deploy", c: "text-blue-400" },
-      { t: "(", c: "text-slate-400" },
-      { t: "app", c: "text-orange-300" },
-      { t: ") {", c: "text-slate-400" },
+      { t: "}", c: "text-slate-400" },
+      { t: ");", c: "text-slate-400" },
     ],
   },
   {
-    indent: 2,
+    indent: 1,
     tokens: [
-      { t: "await", c: "text-purple-400" },
+      { t: "return", c: "text-purple-400" },
       { t: " app.scale", c: "text-blue-400" },
       { t: "(", c: "text-slate-400" },
       { t: "{", c: "text-slate-400" },
@@ -93,6 +102,12 @@ const CODE_LINES = [
       { t: " true ", c: "text-orange-400" },
       { t: "}", c: "text-slate-400" },
       { t: ");", c: "text-slate-400" },
+    ],
+  },
+  {
+    indent: 0,
+    tokens: [
+      { t: "}", c: "text-slate-400" },
     ],
   },
 ];
