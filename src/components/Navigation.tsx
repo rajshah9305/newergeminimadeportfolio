@@ -34,7 +34,7 @@ function Branding({ isScrolled }: { isScrolled: boolean }) {
           {PERSONAL_INFO.coordinates}
         </span>
         <div className="flex items-center gap-2">
-           <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+           <span className="w-1.5 h-1.5 rounded-full bg-primary" />
            <span className={`font-mono text-[9px] font-bold tracking-widest uppercase text-dark`}>
             {PERSONAL_INFO.availability}
           </span>

@@ -40,16 +40,16 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-100px" }}
-      className="group relative grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] bg-white border border-slate-100 overflow-hidden rounded-2xl hover:border-dark/10 transition-colors"
+      className="group relative grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] bg-white border border-dark overflow-hidden rounded-2xl hover:border-dark/10 transition-colors"
     >
       {/* ── Left panel ── */}
-      <div className="p-8 md:p-10 flex flex-col justify-between bg-slate-50/50 border-b lg:border-b-0 lg:border-r border-slate-100">
+      <div className="p-8 md:p-10 flex flex-col justify-between bg-dark/50 border-b lg:border-b-0 lg:border-r border-dark">
         <div>
           <div className="flex items-center justify-between mb-8">
-            <span className="font-mono text-[10px] font-bold tracking-widest text-slate-400 uppercase">
+            <span className="font-mono text-[10px] font-bold tracking-widest text-dark uppercase">
               Project {project.number}
             </span>
-            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-dark border border-slate-100 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-dark border border-dark group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-colors">
               <Icon className="w-5 h-5" />
             </div>
           </div>
@@ -77,7 +77,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       {/* ── Right panel ── */}
       <div className="p-8 md:p-10 flex flex-col justify-between gap-8">
         <div className="space-y-6">
-          <p className="text-[15px] text-slate-500 leading-relaxed font-normal">
+          <p className="text-[15px] text-dark leading-relaxed font-normal">
             {project.desc}
           </p>
 
@@ -85,7 +85,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2.5 py-1 bg-white font-mono text-[10px] font-bold tracking-wider uppercase text-slate-500 border border-slate-100 rounded-md"
+                className="px-2.5 py-1 bg-white font-mono text-[10px] font-bold tracking-wider uppercase text-dark border border-dark rounded-md"
               >
                 {tag}
               </span>
@@ -93,9 +93,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </div>
         </div>
 
-        <div className="flex justify-between items-center pt-6 border-t border-slate-50">
+        <div className="flex justify-between items-center pt-6 border-t border-dark">
           <div className="flex flex-col gap-0.5">
-             <span className="font-mono text-[9px] font-bold text-slate-300 uppercase tracking-widest">Performance</span>
+             <span className="font-mono text-[9px] font-bold text-dark uppercase tracking-widest">Performance</span>
              <span className="font-mono text-[11px] font-bold text-primary uppercase tracking-wider">
                {project.stat}
              </span>

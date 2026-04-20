@@ -35,7 +35,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="bg-white text-dark py-40 md:py-56 relative overflow-hidden border-t border-slate-100 scroll-mt-24"
+      className="bg-white text-dark py-40 md:py-56 relative overflow-hidden border-t border-dark scroll-mt-24"
     >
       <motion.div
         variants={reduce ? undefined : container}
@@ -61,7 +61,7 @@ export function ContactSection() {
 
         <motion.p
           variants={reduce ? undefined : fadeUp}
-          className="text-[15px] text-slate-500 max-w-md mb-12 leading-relaxed"
+          className="text-[15px] text-dark max-w-md mb-12 leading-relaxed"
         >
           Currently accepting new opportunities. Whether you have a specific project in mind or just want to say hi, my inbox is always open.
         </motion.p>
@@ -82,7 +82,7 @@ export function ContactSection() {
 
             <button
               onClick={copyEmail}
-              className="flex items-center justify-center gap-2.5 bg-slate-50 text-dark px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-wider rounded-xl border border-slate-100 hover:border-dark/10 transition-all"
+              className="flex items-center justify-center gap-2.5 bg-white text-dark px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-wider rounded-xl border border-dark hover:bg-dark hover:text-white transition-all"
             >
               {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               {copied ? "Copied" : "Copy Email"}
@@ -97,7 +97,7 @@ export function ContactSection() {
                 aria-label={label}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-14 h-14 flex items-center justify-center bg-slate-50 text-dark border border-slate-100 rounded-xl hover:border-dark/10 transition-all"
+                className="w-14 h-14 flex items-center justify-center bg-white text-dark border border-dark rounded-xl hover:bg-dark hover:text-white transition-all"
               >
                 <Icon className="w-5 h-5" />
               </a>

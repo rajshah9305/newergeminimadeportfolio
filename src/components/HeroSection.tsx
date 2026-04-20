@@ -30,45 +30,45 @@ const CODE_LINES = [
   {
     indent: 0,
     tokens: [
-      { t: "async ", c: "text-blue-400" },
-      { t: "function ", c: "text-blue-400" },
-      { t: "initialize", c: "text-yellow-400" },
-      { t: "() {", c: "text-slate-400" },
+      { t: "async ", c: "text-primary" },
+      { t: "function ", c: "text-primary" },
+      { t: "initialize", c: "text-primary" },
+      { t: "() {", c: "text-dark" },
     ],
   },
   {
     indent: 1,
     tokens: [
-      { t: "const ", c: "text-purple-400" },
-      { t: "system ", c: "text-slate-200" },
-      { t: "= ", c: "text-slate-400" },
-      { t: "await ", c: "text-purple-400" },
-      { t: "Core", c: "text-emerald-400" },
-      { t: ".", c: "text-slate-400" },
-      { t: "boot", c: "text-yellow-400" },
-      { t: "();", c: "text-slate-400" },
+      { t: "const ", c: "text-primary" },
+      { t: "system ", c: "text-dark" },
+      { t: "= ", c: "text-dark" },
+      { t: "await ", c: "text-primary" },
+      { t: "Core", c: "text-primary" },
+      { t: ".", c: "text-dark" },
+      { t: "boot", c: "text-primary" },
+      { t: "();", c: "text-dark" },
     ],
   },
   {
     indent: 1,
     tokens: [
-      { t: "return ", c: "text-purple-400" },
-      { t: "system", c: "text-slate-200" },
-      { t: ".", c: "text-slate-400" },
-      { t: "scale", c: "text-yellow-400" },
-      { t: "(", c: "text-slate-400" },
-      { t: "{", c: "text-slate-400" },
-      { t: " edge", c: "text-emerald-400" },
-      { t: ":", c: "text-slate-400" },
-      { t: " true ", c: "text-orange-400" },
-      { t: "}", c: "text-slate-400" },
-      { t: ");", c: "text-slate-400" },
+      { t: "return ", c: "text-primary" },
+      { t: "system", c: "text-dark" },
+      { t: ".", c: "text-dark" },
+      { t: "scale", c: "text-primary" },
+      { t: "(", c: "text-dark" },
+      { t: "{", c: "text-dark" },
+      { t: " edge", c: "text-primary" },
+      { t: ":", c: "text-dark" },
+      { t: " true ", c: "text-primary" },
+      { t: "}", c: "text-dark" },
+      { t: ");", c: "text-dark" },
     ],
   },
   {
     indent: 0,
     tokens: [
-      { t: "}", c: "text-slate-400" },
+      { t: "}", c: "text-dark" },
     ],
   },
 ];
@@ -122,17 +122,17 @@ export function HeroSection() {
                 <span className="font-mono text-[9px] font-bold tracking-[0.2em] uppercase text-primary">
                   PORTFOLIO · {PERSONAL_INFO.version}
                 </span>
-                <span className="font-mono text-[9px] font-bold tracking-[0.2em] uppercase text-slate-400">
+                <span className="font-mono text-[9px] font-bold tracking-[0.2em] uppercase text-dark">
                   {PERSONAL_INFO.role.toUpperCase()}
                 </span>
              </div>
-             <div className="h-px flex-1 bg-slate-100 hidden sm:block" />
-             <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-slate-100 bg-white/50 backdrop-blur-sm">
+             <div className="h-px flex-1 bg-dark hidden sm:block" />
+             <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-dark bg-white/50 backdrop-blur-sm">
                 <span
-                  className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"
+                  className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"
                   aria-hidden="true"
                 />
-                <span className="font-mono text-[10px] font-bold tracking-[0.15em] uppercase text-slate-500">
+                <span className="font-mono text-[10px] font-bold tracking-[0.15em] uppercase text-dark">
                   {PERSONAL_INFO.availability.split(" / ")[0]}
                 </span>
               </div>
@@ -157,7 +157,7 @@ export function HeroSection() {
           {/* Bio */}
           <motion.p
             variants={reduce ? undefined : fadeUp}
-            className="text-base text-slate-600 max-w-md leading-relaxed mb-10 font-normal"
+            className="text-base text-dark max-w-md leading-relaxed mb-10 font-normal"
           >
             {PERSONAL_INFO.bio}
           </motion.p>
@@ -188,19 +188,19 @@ export function HeroSection() {
           aria-hidden="true"
         >
           {/* Terminal chrome */}
-          <div className="border border-dark/10 bg-[#0A0A0A] shadow-2xl rounded-xl overflow-hidden relative">
+          <div className="border border-dark/10 bg-[#000000] shadow-2xl rounded-xl overflow-hidden relative">
 
             {/* Scanline Effect - even subtler */}
             <div className="absolute inset-0 pointer-events-none z-10 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.05)_50%)] bg-[length:100%_2px]" />
 
             {/* Title bar */}
-            <div className="flex items-center gap-1.5 px-4 py-3 bg-[#111] border-b border-white/5 relative z-20">
+            <div className="flex items-center gap-1.5 px-4 py-3 bg-[#000] border-b border-white/5 relative z-20">
               <div className="flex gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
                 <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
                 <span className="w-2.5 h-2.5 rounded-full bg-white/10" />
               </div>
-              <span className="ml-auto font-mono text-[10px] text-slate-500 tracking-[0.1em] uppercase">
+              <span className="ml-auto font-mono text-[10px] text-dark tracking-[0.1em] uppercase">
                 main.ts
               </span>
             </div>
@@ -215,7 +215,7 @@ export function HeroSection() {
                   transition={{ delay: 0.5 + i * 0.1, duration: 0.4 }}
                   className="flex gap-6"
                 >
-                  <span className="text-slate-700 w-4 shrink-0 text-right">
+                  <span className="text-dark w-4 shrink-0 text-right">
                     {i + 1}
                   </span>
                   <span className="whitespace-pre">
@@ -231,7 +231,7 @@ export function HeroSection() {
 
               {/* Blinking cursor line */}
               <div className="flex gap-6 mt-1">
-                <span className="text-slate-700 w-4 shrink-0 text-right">
+                <span className="text-dark w-4 shrink-0 text-right">
                   {CODE_LINES.length + 1}
                 </span>
                 <motion.span
@@ -243,10 +243,10 @@ export function HeroSection() {
             </div>
 
             {/* Status bar */}
-            <div className="border-t border-white/5 bg-[#111] px-6 py-2.5 flex items-center justify-between relative z-20">
+            <div className="border-t border-white/5 bg-[#000] px-6 py-2.5 flex items-center justify-between relative z-20">
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                <span className="font-mono text-[9px] text-slate-500 tracking-widest uppercase">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                <span className="font-mono text-[9px] text-dark tracking-widest uppercase">
                   Production Mode
                 </span>
               </div>
@@ -261,14 +261,14 @@ export function HeroSection() {
         initial={reduce ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 1 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-12 mt-24 pt-12 border-t border-slate-100"
+        className="grid grid-cols-2 md:grid-cols-4 gap-12 mt-24 pt-12 border-t border-dark"
       >
         {PERSONAL_INFO.stats.map((stat, i) => (
           <div key={i} className="flex flex-col">
             <span className="font-black text-3xl md:text-4xl text-dark tracking-tighter mb-1">
               {stat.value}
             </span>
-            <span className="font-mono text-[9px] font-bold tracking-[0.15em] uppercase text-slate-400">
+            <span className="font-mono text-[9px] font-bold tracking-[0.15em] uppercase text-dark">
               {stat.label}
             </span>
           </div>

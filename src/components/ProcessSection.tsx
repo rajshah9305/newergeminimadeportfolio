@@ -45,14 +45,14 @@ export function ProcessSection() {
             viewport={{ once: true, margin: "-50px" }}
             className="group relative h-full"
           >
-            <div className="h-full bg-white border border-slate-100 rounded-2xl p-8 hover:border-dark/5 transition-colors">
-              <span className="font-mono text-3xl font-black text-slate-100 group-hover:text-primary/10 transition-colors block mb-4">
+            <div className="h-full bg-white border border-dark rounded-2xl p-8 hover:border-dark/5 transition-colors">
+              <span className="font-mono text-3xl font-black text-dark group-hover:text-primary/10 transition-colors block mb-4">
                 {p.step}
               </span>
               <h3 className="font-black text-lg text-dark mb-4 tracking-tight uppercase leading-tight">
                 {p.title}
               </h3>
-              <p className="text-slate-500 text-[13px] leading-relaxed">
+              <p className="text-dark text-[13px] leading-relaxed">
                 {p.desc}
               </p>
             </div>

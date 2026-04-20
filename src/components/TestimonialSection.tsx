@@ -44,10 +44,10 @@ export function TestimonialSection() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-50px" }}
-            className="bg-white border border-slate-100 rounded-2xl p-8 flex flex-col relative overflow-hidden group hover:border-dark/5 transition-colors"
+            className="bg-white border border-dark rounded-2xl p-8 flex flex-col relative overflow-hidden group hover:border-dark/5 transition-colors"
           >
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-10 h-10 bg-slate-50 text-slate-400 flex items-center justify-center font-black rounded-lg border border-slate-100 group-hover:bg-primary group-hover:text-white transition-colors">
+              <div className="w-10 h-10 bg-white text-dark flex items-center justify-center font-black rounded-lg border border-dark group-hover:bg-primary group-hover:text-white transition-colors">
                 {t.avatar}
               </div>
               <div>
@@ -56,7 +56,7 @@ export function TestimonialSection() {
               </div>
             </div>
 
-            <p className="text-slate-500 italic leading-relaxed text-[15px] relative z-10">
+            <p className="text-dark italic leading-relaxed text-[15px] relative z-10">
               &quot;{t.quote}&quot;
             </p>
 

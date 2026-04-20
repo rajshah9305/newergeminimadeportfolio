@@ -78,11 +78,11 @@ function SecondaryCard({ skill, index }: { skill: SkillGroup; index: number }) {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-50px" }}
-      className="bg-white rounded-2xl p-8 flex flex-col justify-between border border-slate-100 hover:border-dark/5 transition-colors group"
+      className="bg-white rounded-2xl p-8 flex flex-col justify-between border border-dark hover:border-dark/5 transition-colors group"
     >
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-lg bg-slate-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+          <div className="w-10 h-10 rounded-lg bg-dark flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
             {Icon && <Icon className="w-5 h-5" />}
           </div>
           <h4 className="font-bold text-dark tracking-tight uppercase text-sm">
@@ -90,7 +90,7 @@ function SecondaryCard({ skill, index }: { skill: SkillGroup; index: number }) {
           </h4>
         </div>
         {skill.badge && (
-          <div className="px-2 py-0.5 rounded bg-slate-50 text-slate-400 text-[8px] font-black uppercase tracking-tighter border border-slate-100">
+          <div className="px-2 py-0.5 rounded bg-white text-dark text-[8px] font-black uppercase tracking-tighter border border-dark">
             {skill.badge}
           </div>
         )}
@@ -98,7 +98,7 @@ function SecondaryCard({ skill, index }: { skill: SkillGroup; index: number }) {
 
       <div className="flex flex-wrap gap-1.5">
         {skill.items.slice(0, 4).map((item, i) => (
-          <div key={i} className="px-3 py-1.5 rounded-md bg-slate-50 text-dark/60 font-bold text-[10px] uppercase tracking-wider border border-slate-100">
+          <div key={i} className="px-3 py-1.5 rounded-md bg-white text-dark/60 font-bold text-[10px] uppercase tracking-wider border border-dark">
             {item}
           </div>
         ))}

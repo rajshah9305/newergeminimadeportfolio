@@ -58,14 +58,14 @@ export function ExperienceSection() {
               key={exp.id}
               custom={idx}
               variants={reduce ? undefined : cardVariants}
-              className="group relative flex flex-col bg-white overflow-hidden rounded-2xl border border-slate-100 hover:border-dark/5 transition-colors p-8"
+              className="group relative flex flex-col bg-white overflow-hidden rounded-2xl border border-dark hover:border-dark/5 transition-colors p-8"
             >
               {/* Header row */}
               <div className="flex items-start justify-between mb-8">
-                <div className="w-10 h-10 rounded-lg bg-slate-50 flex items-center justify-center text-dark border border-slate-100 group-hover:bg-primary group-hover:text-white transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-dark border border-dark group-hover:bg-primary group-hover:text-white transition-colors">
                   <Icon className="w-5 h-5" />
                 </div>
-                <span className="font-mono text-[10px] font-bold tracking-wider px-2 py-1 bg-slate-50 text-slate-400 rounded-md border border-slate-100">
+                <span className="font-mono text-[10px] font-bold tracking-wider px-2 py-1 bg-white text-dark rounded-md border border-dark">
                   {exp.year}
                 </span>
               </div>
@@ -81,7 +81,7 @@ export function ExperienceSection() {
               </div>
 
               {/* Description */}
-              <p className="text-[14px] text-slate-500 leading-relaxed font-normal mb-8 flex-1">
+              <p className="text-[14px] text-dark leading-relaxed font-normal mb-8 flex-1">
                 {exp.desc}
               </p>
 
@@ -90,7 +90,7 @@ export function ExperienceSection() {
                 {exp.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-2 py-1 font-mono text-[9px] font-bold tracking-wider uppercase bg-slate-50 text-slate-400 border border-slate-100 rounded"
+                    className="px-2 py-1 font-mono text-[9px] font-bold tracking-wider uppercase bg-white text-dark border border-dark rounded"
                   >
                     {skill}
                   </span>

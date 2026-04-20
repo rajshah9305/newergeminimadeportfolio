@@ -16,7 +16,7 @@ const BASE =
 const PRIMARY =
   "px-6 py-4 bg-dark text-white border border-dark hover:bg-primary hover:border-primary active:scale-[0.98]";
 const SECONDARY =
-  "px-5 py-3 bg-white text-dark border border-slate-100 hover:border-dark/10 active:scale-[0.98]";
+  "px-5 py-3 bg-white text-dark border border-dark hover:border-dark/10 active:scale-[0.98]";
 
 export function BrutalistButton({
   children,

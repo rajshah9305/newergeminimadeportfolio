@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <div
       id="top"
-      className="min-h-screen bg-light text-slate-900 font-sans selection:bg-primary selection:text-white relative overflow-x-hidden"
+      className="min-h-screen bg-light text-dark font-sans selection:bg-primary selection:text-white relative overflow-x-hidden"
     >
       {/* Background elements */}
       <div className="fixed inset-0 pointer-events-none bg-grid-pattern z-0" aria-hidden="true" />
