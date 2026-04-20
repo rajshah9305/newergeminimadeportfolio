@@ -9,7 +9,7 @@ interface MarqueeProps {
 
 export function Marquee({ items, reverse = false }: MarqueeProps) {
   return (
-    <div className="w-full overflow-hidden bg-dark border-y-2 border-primary py-4 select-none relative z-10">
+    <div className="w-full overflow-hidden bg-dark border-y border-primary py-4 select-none relative z-10">
       <div className="flex whitespace-nowrap">
         <motion.div
           animate={{
