@@ -22,7 +22,7 @@ export function ScrollToTop() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={reduce ? {} : { opacity: 0, scale: 0.8, y: 12 }}
           transition={{ duration: 0.25, ease: "easeOut" as const }}
-          whileHover={reduce ? {} : { y: -3, x: -3, boxShadow: "6px 6px 0px 0px rgba(208,94,53,1)" }}
+          whileHover={reduce ? {} : { y: -3, x: -3, boxShadow: "6px 6px 0px 0px #FF4D00" }}
           whileTap={{ scale: 0.9 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Scroll back to top"

@@ -12,8 +12,8 @@
   }
 
   :root {
-    --color-primary: #E8622A;
-    --color-dark: #111111;
+    --color-primary: #FF4D00;
+    --color-dark: #000000;
     --color-light: #FFFFFF;
   }
 
@@ -24,7 +24,7 @@
 
   body {
     background: #ffffff;
-    color: #111111;
+    color: #000000;
     line-height: 1.6;
   }
 }
@@ -32,7 +32,7 @@
 @layer utilities {
   /* Outlined text */
   .text-outline {
-    -webkit-text-stroke: 2px #111111;
+    -webkit-text-stroke: 2px #000000;
     color: transparent;
   }
   .text-outline-white {
@@ -40,7 +40,7 @@
     color: transparent;
   }
   @media (min-width: 768px) {
-    .text-outline      { -webkit-text-stroke: 3px #111111; }
+    .text-outline      { -webkit-text-stroke: 3px #000000; }
     .text-outline-white{ -webkit-text-stroke: 3px #ffffff; }
   }
 
@@ -59,7 +59,7 @@
 
   /* Hero name — massive display type */
   .hero-name {
-    font-size: clamp(5rem, 16vw, 13rem);
+    font-size: clamp(3rem, 12vw, 10rem);
     font-weight: 900;
     line-height: 0.82;
     letter-spacing: -0.04em;
@@ -70,8 +70,8 @@
   .stripe-accent {
     background: repeating-linear-gradient(
       -45deg,
-      #E8622A,
-      #E8622A 2px,
+      #FF4D00,
+      #FF4D00 2px,
       transparent 2px,
       transparent 10px
     );
@@ -81,8 +81,8 @@
 /* Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #fff; }
-::-webkit-scrollbar-thumb { background: #111; border: 2px solid #fff; }
-::-webkit-scrollbar-thumb:hover { background: #E8622A; }
+::-webkit-scrollbar-thumb { background: #000; border: 2px solid #fff; }
+::-webkit-scrollbar-thumb:hover { background: #FF4D00; }
 
 /* Glitch */
 @keyframes glitch-1 {
