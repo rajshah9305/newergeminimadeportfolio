@@ -18,11 +18,44 @@ export const PERSONAL_INFO = {
   ],
 };
 
-export const SKILLS = [
-  { category: "Core Languages", items: ["TypeScript", "Python", "Rust", "Go", "SQL", "C++"] },
-  { category: "Frontend Engine", items: ["React 19", "Next.js 15", "Tailwind CSS", "Three.js", "Framer Motion", "WebGPU"] },
-  { category: "Backend & AI", items: ["FastAPI", "Node.js", "LangChain", "PyTorch", "TensorFlow", "Vector DBs (Pinecone/Weaviate)"] },
-  { category: "Systems & Infra", items: ["AWS (EKS/Lambda)", "Docker/K8s", "Terraform", "PostgreSQL", "Redis", "CI/CD Pipelines"] },
+export interface SkillGroup {
+  category: string;
+  items: string[];
+  isFeatured?: boolean;
+  featuredTitle?: string;
+  featuredDesc?: string;
+  badge?: string;
+  iconName?: "cpu" | "zap" | "activity" | "layers";
+}
+
+export const SKILLS: SkillGroup[] = [
+  {
+    category: "SYSTEM LEVEL PERFORMANCE",
+    featuredTitle: "SYSTEM LEVEL PERFORMANCE",
+    featuredDesc: "Scaling applications with Rust and Go for high-concurrency environments.",
+    items: ["Rust", "Go", "C++", "Python", "SQL", "Docker"],
+    isFeatured: true,
+    badge: "CORE ENGINE",
+    iconName: "cpu",
+  },
+  {
+    category: "FRONTEND",
+    items: ["React 19", "Next.js 15", "Framer", "Tailwind", "Three.js", "WebGPU"],
+    badge: "v19",
+    iconName: "zap",
+  },
+  {
+    category: "AI MODELING",
+    items: ["PyTorch", "OpenAI", "RAG", "LangChain", "FastAPI", "Vector DBs"],
+    badge: "PRO",
+    iconName: "activity",
+  },
+  {
+    category: "INFRASTRUCTURE",
+    items: ["AWS (EKS)", "K8s", "Terraform", "Redis", "PostgreSQL", "CI/CD"],
+    badge: "OPS",
+    iconName: "layers",
+  },
 ];
 
 export type Project = {
