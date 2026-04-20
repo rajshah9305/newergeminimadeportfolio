@@ -30,7 +30,7 @@ export function ContactSection() {
             transition={{ duration: 0.5 }}
           >
             <span className="font-mono text-[11px] font-bold tracking-[0.25em] uppercase text-primary mb-4 block">
-              // 04 — CONTACT
+              {`// 04 — CONTACT`}
             </span>
             <h2 className="text-5xl sm:text-6xl md:text-7xl font-black uppercase tracking-tighter leading-[0.88] text-white mb-6">
               Initiate
