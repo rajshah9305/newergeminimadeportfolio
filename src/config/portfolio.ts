@@ -8,7 +8,7 @@ export const PERSONAL_INFO = {
   location: "Calgary, Canada",
   coordinates: "LAT 51.0447° N / LON 114.0719° W",
   availability: "AVAILABLE / Q1—Q2",
-  version: "V.04 · 2026",
+  version: "V.04 // 2025",
   website: "https://www.rajai.org",
   stats: [
     { label: "YEARS SHIPPING", value: "8+" },
@@ -17,6 +17,24 @@ export const PERSONAL_INFO = {
     { label: "UPTIME SLA", value: "99.9%" },
   ],
 };
+
+export const NAV_LINKS = [
+  { label: "Work", href: "#work" },
+  { label: "Expertise", href: "#expertise" },
+  { label: "Experience", href: "#experience" },
+  { label: "Process", href: "#process" },
+  { label: "Contact", href: "#contact" },
+];
+
+export const MARQUEE_ITEMS = [
+  "AI INFRASTRUCTURE",
+  "FULL-STACK SYSTEMS",
+  "AGENT ORCHESTRATION",
+  "REAL-TIME RAG",
+  "EDGE DEPLOYMENT",
+  "SCALABLE BACKENDS",
+  "DESIGN ENGINEERING",
+];
 
 export interface SkillGroup {
   category: string;
@@ -183,43 +201,43 @@ export const TESTIMONIALS = [
     quote: "Raj doesn't just write code; he builds digital fortresses. His approach to AI integration is the most rigorous I've seen in a decade.",
     author: "Dr. Aris Thorne",
     role: "CTO @ Nexus AI",
-    avatar: "AT"
+    avatar: "AT",
   },
   {
     id: "t2",
     quote: "The speed at which he delivered our orchestration platform was only surpassed by the absolute stability of the system under load.",
     author: "Sarah Chen",
     role: "VP Engineering @ Elevate",
-    avatar: "SC"
+    avatar: "SC",
   },
   {
     id: "t3",
     quote: "A rare engineer who understands both the deep mathematical underpinnings of LLMs and the aesthetic demands of modern UI.",
     author: "Marcus Vane",
     role: "Lead Designer @ SciViz",
-    avatar: "MV"
-  }
+    avatar: "MV",
+  },
 ];
 
 export const PROCESS = [
   {
     step: "01",
     title: "DISCOVERY & ANALYSIS",
-    desc: "Deep-dive into system requirements, bottleneck identification, and feasibility studies for AI integration."
+    desc: "Deep-dive into system requirements, bottleneck identification, and feasibility studies for AI integration.",
   },
   {
     step: "02",
     title: "ARCHITECTURAL BLUEPRINT",
-    desc: "Designing fault-tolerant microservices, choosing the right vector databases, and defining API contracts."
+    desc: "Designing fault-tolerant microservices, choosing the right vector databases, and defining API contracts.",
   },
   {
     step: "03",
     title: "HIGH-FIDELITY DEV",
-    desc: "Clean, type-safe implementation with a focus on performance, scalability, and brutalist design principles."
+    desc: "Clean, type-safe implementation with a focus on performance, scalability, and brutalist design principles.",
   },
   {
     step: "04",
     title: "STRESS TEST & DEPLOY",
-    desc: "Rigorous load testing, CI/CD automation, and deployment to high-availability edge infrastructure."
-  }
+    desc: "Rigorous load testing, CI/CD automation, and deployment to high-availability edge infrastructure.",
+  },
 ];

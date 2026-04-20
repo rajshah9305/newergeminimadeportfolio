@@ -35,7 +35,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="bg-white text-dark py-40 md:py-56 relative overflow-hidden border-t border-slate-100 scroll-mt-20"
+      className="bg-white text-dark py-40 md:py-56 relative overflow-hidden border-t border-slate-100 scroll-mt-24"
     >
       <motion.div
         variants={reduce ? undefined : container}

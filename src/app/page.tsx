@@ -9,16 +9,7 @@ import { TestimonialSection } from "@/components/TestimonialSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
-
-const MARQUEE_ITEMS = [
-  "AI INFRASTRUCTURE",
-  "FULL-STACK SYSTEMS",
-  "AGENT ORCHESTRATION",
-  "REAL-TIME RAG",
-  "EDGE DEPLOYMENT",
-  "SCALABLE BACKENDS",
-  "DESIGN ENGINEERING"
-];
+import { MARQUEE_ITEMS } from "@/config/portfolio";
 
 function SectionDivider() {
   return (
