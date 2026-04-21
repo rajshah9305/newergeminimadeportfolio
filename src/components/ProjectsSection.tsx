@@ -45,7 +45,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               {project.number.padStart(2, "0")}
             </span>
             {project.featured && (
-              <span className="font-mono text-[9px] font-bold tracking-[0.2em] uppercase px-3 py-1.5 bg-accent text-white">
+              <span className="font-mono text-[9px] font-bold tracking-[0.2em] uppercase px-3 py-1.5 bg-highlight text-black">
                 FEATURED
               </span>
             )}
@@ -60,7 +60,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </div>
 
           {/* Title */}
-          <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-dark group-hover:text-white leading-tight mb-3 transition-colors duration-300">
+          <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-dark group-hover:text-black leading-tight mb-3 transition-colors duration-300">
             {project.title}
           </h3>
 
@@ -77,7 +77,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.links.live}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase text-dark/40 group-hover:text-white/40 hover:!text-accent transition-colors focus:outline-none"
+              className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase text-dark/40 group-hover:text-black/40 hover:!text-accent transition-colors focus:outline-none"
             >
               <ExternalLink className="w-4 h-4" aria-hidden="true" />
               Live
@@ -88,7 +88,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.links.github}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase text-dark/40 group-hover:text-white/40 hover:!text-accent transition-colors focus:outline-none"
+              className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase text-dark/40 group-hover:text-black/40 hover:!text-accent transition-colors focus:outline-none"
             >
               <Github className="w-4 h-4" aria-hidden="true" />
               Source
@@ -99,7 +99,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       {/* Right panel */}
       <div className={`flex flex-col justify-between p-8 md:p-12 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
-        <p className="text-[16px] text-dark/75 group-hover:text-white/70 leading-[1.8] mb-8 transition-colors duration-300">
+        <p className="text-[16px] text-dark/75 group-hover:text-black/70 leading-[1.8] mb-8 transition-colors duration-300">
           {project.desc}
         </p>
 
@@ -107,7 +107,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1.5 font-mono text-[10px] font-bold tracking-[0.15em] uppercase text-dark/50 group-hover:text-white/50 border border-black/20 group-hover:border-white/20 bg-transparent transition-colors duration-300"
+              className="px-3 py-1.5 font-mono text-[10px] font-bold tracking-[0.15em] uppercase text-dark/50 group-hover:text-black/50 border border-black/20 group-hover:border-black/20 bg-transparent transition-colors duration-300"
             >
               {tag}
             </span>
