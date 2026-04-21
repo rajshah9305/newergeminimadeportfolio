@@ -32,7 +32,7 @@ const itemVariants = {
  * Returns border classes for a grid item at position `idx` in a `total`-item grid
  * that reflows from 1-col (mobile) → 2-col (sm) → 4-col (lg).
  *
- * The outer wrapper already carries `border-2 border-primary`, so we only need
+ * The outer wrapper already carries `border-2 border-black`, so we only need
  * interior dividing borders.
  */
 function getGridBorderClass(idx: number, total: number): string {
@@ -40,7 +40,7 @@ function getGridBorderClass(idx: number, total: number): string {
 
   // ── Mobile (1-col): bottom border on every item except the last ──
   if (idx < total - 1) {
-    classes.push("border-b-2 border-primary");
+    classes.push("border-b-2 border-black");
   }
 
   // ── SM (2-col): right border on left column (even indices) ──
@@ -72,8 +72,8 @@ export function SkillsSection() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="expertise" className="w-full border-b-2 border-primary scroll-mt-[72px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+    <section id="expertise" className="w-full border-b-2 border-black scroll-mt-[72px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-48">
         <SectionHeader
           title="Technical Arsenal"
           subtitle="Deep expertise across the modern full-stack and AI landscape."
@@ -81,7 +81,7 @@ export function SkillsSection() {
         />
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-2 border-primary overflow-hidden"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-2 border-black overflow-hidden"
           variants={containerVariants}
           initial={reduce ? "visible" : "hidden"}
           whileInView="visible"
@@ -91,16 +91,16 @@ export function SkillsSection() {
             <motion.article
               key={idx}
               variants={itemVariants}
-              className={`flex flex-col p-8 bg-white hover:bg-primary group transition-colors duration-300 ${getGridBorderClass(idx, SKILLS.length)}`}
+              className={`flex flex-col p-8 bg-white hover:bg-accent group transition-colors duration-300 ${getGridBorderClass(idx, SKILLS.length)}`}
             >
-              <h3 className="font-mono text-[10px] font-bold text-primary mb-6 tracking-[0.22em] uppercase">
+              <h3 className="font-mono text-[10px] font-bold text-accent mb-6 tracking-[0.22em] uppercase">
                 {`// ${group.category}`}
               </h3>
               <ul className="flex flex-col gap-3.5 flex-1">
                 {group.items.map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
                     <span
-                      className="w-1.5 h-1.5 bg-primary shrink-0 rotate-45 group-hover:rotate-0 transition-transform duration-300"
+                      className="w-1.5 h-1.5 bg-accent shrink-0 rotate-45 group-hover:rotate-0 transition-transform duration-300"
                       aria-hidden="true"
                     />
                     <span className="text-[14px] font-bold text-dark group-hover:text-white transition-colors duration-300 tracking-tight">

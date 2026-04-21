@@ -109,8 +109,8 @@ void main(void) {
   float opacity = (112.0 - dist) / 256.0 * 1.6;
   opacity = clamp(opacity, 0.0, 1.0);
   float grain = random(vPosition.xy + vPosition.z) * 0.04;
-  vec3 brandOrange = vec3(1.0, 0.30, 0.0); // Slightly more vibrant orange for light mode
-  vec3 finalColor = brandOrange + grain;
+  vec3 brandAccent = vec3(0.145, 0.388, 0.922); // Slightly more vibrant blue for light mode
+  vec3 finalColor = brandAccent + grain;
   gl_FragColor = vec4(finalColor, opacity);
 }`;
 
