@@ -67,7 +67,7 @@ export function Navigation() {
           ))}
           <a
             href="#contact"
-            className="ml-2 px-6 py-2.5 bg-accent text-white font-mono text-[11px] font-black uppercase tracking-[0.2em] border-2 border-black shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all focus:outline-none"
+            className="ml-2 px-6 py-2.5 bg-accent text-black font-mono text-[11px] font-black uppercase tracking-[0.2em] border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all focus:outline-none"
           >
             Hire Me
           </a>
@@ -77,7 +77,7 @@ export function Navigation() {
         <button
           aria-expanded={mobileOpen}
           aria-label="Toggle Navigation Menu"
-          className="md:hidden p-2 text-black border-2 border-black hover:bg-accent hover:text-white transition-colors focus:outline-none"
+          className="md:hidden p-2 text-black border-2 border-black hover:bg-accent hover:text-black transition-colors focus:outline-none"
           onClick={() => setMobileOpen((v) => !v)}
         >
           <AnimatePresence mode="wait" initial={false}>
@@ -136,7 +136,7 @@ export function Navigation() {
                 { href: PERSONAL_INFO.linkedin, label: "LinkedIn", Icon: Linkedin },
               ].map(({ href, label, Icon }) => (
                 <a key={label} href={href} aria-label={label} target="_blank" rel="noreferrer"
-                  className="flex-1 flex items-center justify-center py-4 bg-white text-black border-2 border-black hover:bg-accent hover:text-white transition-colors focus:outline-none">
+                  className="flex-1 flex items-center justify-center py-4 bg-white text-black border-2 border-black hover:bg-accent hover:text-black transition-colors focus:outline-none">
                   <Icon className="w-5 h-5" />
                 </a>
               ))}

@@ -53,10 +53,10 @@ export function ContactSection() {
             {/* Email Link */}
             <a
               href={`mailto:${PERSONAL_INFO.email}`}
-              className="group flex items-center justify-between px-8 py-8 bg-accent text-white border-4 border-black hover:bg-accent hover:border-black shadow-[8px_8px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-300 focus:outline-none"
+              className="group flex items-center justify-between px-8 py-8 bg-accent text-black border-4 border-black hover:bg-accent hover:border-black shadow-[8px_8px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-300 focus:outline-none"
             >
               <div className="flex flex-col gap-1">
-                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 group-hover:text-white/70">Send Message</span>
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-black/50 group-hover:text-black/70">Send Message</span>
                 <span className="font-mono text-[14px] sm:text-[18px] font-black uppercase tracking-[0.1em]">
                   {PERSONAL_INFO.email}
                 </span>

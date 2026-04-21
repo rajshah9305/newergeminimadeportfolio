@@ -103,7 +103,7 @@ export function SkillsSection() {
                       className="w-1.5 h-1.5 bg-accent shrink-0 rotate-45 group-hover:rotate-0 transition-transform duration-300"
                       aria-hidden="true"
                     />
-                    <span className="text-[14px] font-bold text-dark group-hover:text-white transition-colors duration-300 tracking-tight">
+                    <span className="text-[14px] font-bold text-dark group-hover:text-black transition-colors duration-300 tracking-tight">
                       {item}
                     </span>
                   </li>

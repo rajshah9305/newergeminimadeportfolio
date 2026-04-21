@@ -13,8 +13,8 @@
 
   :root {
     --color-primary: #000000;
-    --color-accent: #2563eb;
-    --color-highlight: #FF4D00;
+    --color-accent: #00BFFF;
+    --color-highlight: #CCFF00;
     --color-dark: #000000;
     --color-light: #FFFFFF;
     --color-border: rgba(0, 0, 0, 0.1);
@@ -52,7 +52,7 @@
     box-shadow: 4px 4px 0px 0px #000000;
   }
   .shadow-brutalist-accent {
-    box-shadow: 4px 4px 0px 0px #2563eb;
+    box-shadow: 4px 4px 0px 0px #00BFFF;
   }
   .shadow-brutalist-lg {
     box-shadow: 8px 8px 0px 0px #000000;
@@ -84,8 +84,8 @@
   .stripe-accent {
     background: repeating-linear-gradient(
       -45deg,
-      rgba(37, 99, 235, 0.05),
-      rgba(37, 99, 235, 0.05) 2px,
+      rgba(0, 191, 255, 0.05),
+      rgba(0, 191, 255, 0.05) 2px,
       transparent 2px,
       transparent 10px
     );
@@ -95,8 +95,8 @@
 /* Scrollbar - using accent blue */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #ffffff; }
-::-webkit-scrollbar-thumb { background: #2563eb; border: 2px solid #ffffff; }
-::-webkit-scrollbar-thumb:hover { background: #1d4ed8; }
+::-webkit-scrollbar-thumb { background: #00BFFF; border: 2px solid #ffffff; }
+::-webkit-scrollbar-thumb:hover { background: #0099CC; }
 
 /* Glitch */
 @keyframes glitch-1 {

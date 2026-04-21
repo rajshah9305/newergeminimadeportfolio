@@ -9,8 +9,8 @@ import { GLSLHills } from "./GLSLHills";
 const CODE_LINES = [
   { indent: 0, tokens: [{ t: "class",       c: "text-accent font-bold" }, { t: " Engineer", c: "text-dark"   }, { t: " {",  c: "text-dark/40" }] },
   { indent: 1, tokens: [{ t: "constructor", c: "text-accent font-bold" }, { t: "() {",      c: "text-dark/40"  }] },
-  { indent: 2, tokens: [{ t: "this",        c: "text-accent"    }, { t: ".name ",    c: "text-dark"  }, { t: "=",   c: "text-accent" }, { t: ' "Raj Shah"', c: "text-blue-600" }, { t: ";", c: "text-dark/40" }] },
-  { indent: 2, tokens: [{ t: "this",        c: "text-accent"    }, { t: ".focus ",   c: "text-dark"  }, { t: "=",   c: "text-accent" }, { t: " [",          c: "text-dark/40" }, { t: '"AI"',     c: "text-blue-600" }, { t: ", ", c: "text-dark/40" }, { t: '"Systems"', c: "text-blue-600" }, { t: "];", c: "text-dark/40" }] },
+  { indent: 2, tokens: [{ t: "this",        c: "text-accent"    }, { t: ".name ",    c: "text-dark"  }, { t: "=",   c: "text-accent" }, { t: ' "Raj Shah"', c: "text-accent" }, { t: ";", c: "text-dark/40" }] },
+  { indent: 2, tokens: [{ t: "this",        c: "text-accent"    }, { t: ".focus ",   c: "text-dark"  }, { t: "=",   c: "text-accent" }, { t: " [",          c: "text-dark/40" }, { t: '"AI"',     c: "text-accent" }, { t: ", ", c: "text-dark/40" }, { t: '"Systems"', c: "text-accent" }, { t: "];", c: "text-dark/40" }] },
   { indent: 1, tokens: [{ t: "}",           c: "text-dark/40"  }] },
   { indent: 0, tokens: [] },
   { indent: 1, tokens: [{ t: "async",       c: "text-accent font-bold" }, { t: " deploy",   c: "text-dark"   }, { t: "(",   c: "text-dark/40"  }, { t: "app",         c: "text-accent" }, { t: ") {", c: "text-dark/40" }] },
@@ -75,7 +75,7 @@ export function HeroSection() {
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" aria-hidden="true" />
+              <span className="w-1.5 h-1.5 rounded-full bg-highlight animate-pulse" aria-hidden="true" />
               <span className="font-mono text-[10px] font-bold tracking-[0.22em] uppercase text-dark/40">
                 Available
               </span>
@@ -126,7 +126,7 @@ export function HeroSection() {
               </div>
 
               <div className="border-2 border-accent bg-[#FAFAFA]"
-                style={{ boxShadow: "6px 6px 0 0 #2563eb, 12px 12px 0 0 rgba(0,0,0,0.05)" }}>
+                style={{ boxShadow: "6px 6px 0 0 #00BFFF, 12px 12px 0 0 rgba(0,0,0,0.05)" }}>
 
                 {/* Titlebar */}
                 <div className="flex items-center gap-1.5 px-4 py-2.5 bg-white border-b-2 border-accent/10">

@@ -44,8 +44,8 @@ export function ExperienceSection() {
                     </span>
                     <span className={`font-mono text-[10px] font-bold tracking-[0.16em] uppercase px-3 py-1.5 border-2 ${
                       idx === 1
-                        ? "bg-accent text-white border-black"
-                        : "bg-white text-dark border-black group-hover:bg-accent group-hover:border-black group-hover:text-white transition-colors duration-300"
+                        ? "bg-highlight text-black border-black"
+                        : "bg-white text-dark border-black group-hover:bg-accent group-hover:border-black group-hover:text-black transition-colors duration-300"
                     }`}>
                       {exp.year}
                     </span>
@@ -54,8 +54,8 @@ export function ExperienceSection() {
                   {/* Icon */}
                   <div className={`w-12 h-12 flex items-center justify-center border-2 mb-6 transform group-hover:scale-110 transition-all duration-300 ${
                     idx === 1
-                      ? "bg-accent text-white border-black"
-                      : "bg-white text-dark border-black group-hover:bg-accent group-hover:border-black group-hover:text-white transition-colors duration-300"
+                      ? "bg-highlight text-black border-black"
+                      : "bg-white text-dark border-black group-hover:bg-accent group-hover:border-black group-hover:text-black transition-colors duration-300"
                   }`} aria-hidden="true">
                     <Icon className="w-5 h-5" />
                   </div>
