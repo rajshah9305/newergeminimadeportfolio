@@ -47,13 +47,13 @@
 
   /* Brutalist Shadows */
   .shadow-brutalist {
-    box-shadow: 4px 4px 0px 0px #000000;
+    box-shadow: 4px 4px 0px 0px #FF4D00;
   }
   .shadow-brutalist-orange {
     box-shadow: 4px 4px 0px 0px #FF4D00;
   }
   .shadow-brutalist-lg {
-    box-shadow: 8px 8px 0px 0px #000000;
+    box-shadow: 8px 8px 0px 0px #FF4D00;
   }
 
   /* Nav underline sweep */
@@ -93,7 +93,7 @@
 /* Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #ffffff; }
-::-webkit-scrollbar-thumb { background: #000000; border: 2px solid #ffffff; }
+::-webkit-scrollbar-thumb { background: #FF4D00; border: 2px solid #ffffff; }
 ::-webkit-scrollbar-thumb:hover { background: #FF4D00; }
 
 /* Glitch */

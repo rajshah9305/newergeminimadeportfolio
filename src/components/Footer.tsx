@@ -2,10 +2,10 @@ import { PERSONAL_INFO } from "@/config/portfolio";
 
 export function Footer() {
   return (
-    <footer className="bg-white border-t-4 border-black py-12">
+    <footer className="bg-white border-t-4 border-primary py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex items-center gap-4">
-          <div className="w-10 h-10 bg-black text-white font-black flex items-center justify-center text-[12px] tracking-widest shrink-0" aria-hidden="true">
+          <div className="w-10 h-10 bg-primary text-white font-black flex items-center justify-center text-[12px] tracking-widest shrink-0" aria-hidden="true">
             RS
           </div>
           <div className="flex flex-col">

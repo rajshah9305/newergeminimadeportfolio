@@ -34,10 +34,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: EASE_OUT_EXPO, delay: index * 0.05 }}
-      className="group grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] border-b-2 border-dark last:border-b-0 hover:bg-dark transition-colors duration-300"
+      className="group grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] border-b-2 border-primary last:border-b-0 hover:bg-primary transition-colors duration-300"
     >
       {/* Left panel */}
-      <div className={`flex flex-col justify-between p-8 md:p-12 border-b-2 lg:border-b-0 lg:border-r-2 border-dark ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+      <div className={`flex flex-col justify-between p-8 md:p-12 border-b-2 lg:border-b-0 lg:border-r-2 border-primary ${isEven ? "lg:order-1" : "lg:order-2"}`}>
         <div>
           {/* Number + featured */}
           <div className="flex items-center justify-between mb-8">
@@ -53,7 +53,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
           {/* Icon */}
           <div
-            className="w-12 h-12 bg-dark group-hover:bg-primary text-white flex items-center justify-center border-2 border-dark group-hover:border-primary mb-6 transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300"
+            className="w-12 h-12 bg-primary group-hover:bg-black text-white flex items-center justify-center border-2 border-primary group-hover:border-primary mb-6 transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300"
             aria-hidden="true"
           >
             <ProjectIcon icon={project.icon} />
@@ -107,7 +107,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1.5 font-mono text-[10px] font-bold tracking-[0.15em] uppercase text-dark/50 group-hover:text-white/50 border border-dark/20 group-hover:border-white/20 bg-transparent transition-colors duration-300"
+              className="px-3 py-1.5 font-mono text-[10px] font-bold tracking-[0.15em] uppercase text-dark/50 group-hover:text-white/50 border border-primary/20 group-hover:border-white/20 bg-transparent transition-colors duration-300"
             >
               {tag}
             </span>
@@ -120,7 +120,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             target="_blank"
             rel="noreferrer"
             aria-label={`View ${project.title}`}
-            className="w-12 h-12 bg-dark group-hover:bg-primary text-white flex items-center justify-center border-2 border-dark group-hover:border-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:translate-x-1 hover:-translate-y-1"
+            className="w-12 h-12 bg-primary group-hover:bg-black text-white flex items-center justify-center border-2 border-primary group-hover:border-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:translate-x-1 hover:-translate-y-1"
           >
             <ArrowUpRight className="w-5 h-5" aria-hidden="true" />
           </a>
@@ -132,7 +132,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export function ProjectsSection() {
   return (
-    <section id="work" className="w-full border-b-2 border-dark scroll-mt-[72px]">
+    <section id="work" className="w-full border-b-2 border-primary scroll-mt-[72px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <SectionHeader
           title="Selected Works"
@@ -140,7 +140,7 @@ export function ProjectsSection() {
           index="// 02 — WORK"
         />
 
-        <div className="border-2 border-dark overflow-hidden">
+        <div className="border-2 border-primary overflow-hidden">
           {PROJECTS.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
