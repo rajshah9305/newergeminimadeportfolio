@@ -9,7 +9,7 @@ export function ExperienceSection() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="experience" className="w-full border-b-2 border-dark scroll-mt-[72px]">
+    <section id="experience" className="w-full border-b-2 border-primary scroll-mt-[72px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <SectionHeader
           title="Experience Map"
@@ -17,7 +17,7 @@ export function ExperienceSection() {
           index="// 03 — EXPERIENCE"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 border-2 border-dark overflow-hidden bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-3 border-2 border-primary overflow-hidden bg-white">
           {EXPERIENCE.map((exp, idx) => {
             const isLast = idx === EXPERIENCE.length - 1;
             const Icon = isLast ? GraduationCap : Briefcase;
@@ -30,11 +30,11 @@ export function ExperienceSection() {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className={`group flex flex-col bg-white hover:bg-primary/[0.03] transition-colors duration-300 ${
-                  idx < EXPERIENCE.length - 1 ? "border-b-2 md:border-b-0 md:border-r-2 border-dark" : ""
+                  idx < EXPERIENCE.length - 1 ? "border-b-2 md:border-b-0 md:border-r-2 border-primary" : ""
                 }`}
               >
                 {/* Top accent */}
-                <div className={`h-1.5 w-full ${idx === 1 ? "bg-primary" : "bg-dark group-hover:bg-primary transition-colors duration-300"}`} />
+                <div className={`h-1.5 w-full ${idx === 1 ? "bg-primary" : "bg-primary group-hover:bg-primary transition-colors duration-300"}`} />
 
                 <div className="p-8 lg:p-10 flex flex-col flex-1">
                   {/* Year badge */}
@@ -45,7 +45,7 @@ export function ExperienceSection() {
                     <span className={`font-mono text-[10px] font-bold tracking-[0.16em] uppercase px-3 py-1.5 border-2 ${
                       idx === 1
                         ? "bg-primary text-white border-primary"
-                        : "bg-white text-dark border-dark group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-colors duration-300"
+                        : "bg-white text-dark border-primary group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-colors duration-300"
                     }`}>
                       {exp.year}
                     </span>
@@ -55,7 +55,7 @@ export function ExperienceSection() {
                   <div className={`w-12 h-12 flex items-center justify-center border-2 mb-6 transform group-hover:scale-110 transition-all duration-300 ${
                     idx === 1
                       ? "bg-primary text-white border-primary"
-                      : "bg-white text-dark border-dark group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-colors duration-300"
+                      : "bg-white text-dark border-primary group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-colors duration-300"
                   }`} aria-hidden="true">
                     <Icon className="w-5 h-5" />
                   </div>
@@ -68,7 +68,7 @@ export function ExperienceSection() {
                     {exp.company}
                   </p>
 
-                  <div className="h-px bg-dark/10 mb-6 transition-colors duration-300" />
+                  <div className="h-px bg-primary/10 mb-6 transition-colors duration-300" />
 
                   <p className="text-[14px] text-dark/60 leading-[1.8] flex-1 transition-colors duration-300">
                     {exp.desc}
@@ -78,7 +78,7 @@ export function ExperienceSection() {
                   <div className="flex flex-wrap gap-2.5 mt-8">
                     {exp.skills.map((skill) => (
                       <span key={skill}
-                        className="px-2.5 py-1.5 font-mono text-[10px] font-bold tracking-[0.12em] uppercase border border-dark/20 text-dark/50 transition-colors duration-300">
+                        className="px-2.5 py-1.5 font-mono text-[10px] font-bold tracking-[0.12em] uppercase border border-primary/20 text-dark/50 transition-colors duration-300">
                         {skill}
                       </span>
                     ))}

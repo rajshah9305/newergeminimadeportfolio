@@ -33,7 +33,7 @@ export function Navigation() {
       aria-label="Main Navigation"
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled ? "bg-white/95 backdrop-blur-md h-[64px] border-b-2" : "bg-white h-[80px] border-b-4"
-      } border-black`}
+      } border-primary`}
     >
       {/* Scroll progress bar */}
       <div
@@ -48,7 +48,7 @@ export function Navigation() {
         <a
           href="#top"
           aria-label="Back to top"
-          className="flex items-center justify-center w-10 h-10 bg-black text-white font-black text-[12px] tracking-widest hover:bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0"
+          className="flex items-center justify-center w-10 h-10 bg-primary text-white font-black text-[12px] tracking-widest hover:bg-black transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 shrink-0"
         >
           RS
         </a>
@@ -67,7 +67,7 @@ export function Navigation() {
           ))}
           <a
             href="#contact"
-            className="ml-2 px-6 py-2.5 bg-primary text-white font-mono text-[11px] font-black uppercase tracking-[0.2em] border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all focus:outline-none"
+            className="ml-2 px-6 py-2.5 bg-primary text-white font-mono text-[11px] font-black uppercase tracking-[0.2em] border-2 border-primary shadow-[4px_4px_0px_0px_#FF4D00] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all focus:outline-none"
           >
             Hire Me
           </a>
@@ -77,7 +77,7 @@ export function Navigation() {
         <button
           aria-expanded={mobileOpen}
           aria-label="Toggle Navigation Menu"
-          className="md:hidden p-2 text-black border-2 border-black hover:bg-black hover:text-white transition-colors focus:outline-none"
+          className="md:hidden p-2 text-black border-2 border-primary hover:bg-primary hover:text-white transition-colors focus:outline-none"
           onClick={() => setMobileOpen((v) => !v)}
         >
           <AnimatePresence mode="wait" initial={false}>
@@ -114,7 +114,7 @@ export function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? {} : { opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 w-full bg-white border-b-4 border-black flex flex-col px-6 pb-8 pt-4 md:hidden shadow-2xl"
+            className="absolute top-full left-0 w-full bg-white border-b-4 border-primary flex flex-col px-6 pb-8 pt-4 md:hidden shadow-2xl"
           >
             {NAV_LINKS.map((link, i) => (
               <motion.a
@@ -124,7 +124,7 @@ export function Navigation() {
                 initial={reduce ? {} : { opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="py-5 border-b-2 border-black/5 flex justify-between items-center font-mono text-[14px] font-bold uppercase tracking-[0.2em] text-black hover:text-primary transition-colors focus:outline-none"
+                className="py-5 border-b-2 border-primary/5 flex justify-between items-center font-mono text-[14px] font-bold uppercase tracking-[0.2em] text-black hover:text-primary transition-colors focus:outline-none"
               >
                 {link.label}
                 <ArrowRight className="w-4 h-4" />
@@ -136,7 +136,7 @@ export function Navigation() {
                 { href: PERSONAL_INFO.linkedin, label: "LinkedIn", Icon: Linkedin },
               ].map(({ href, label, Icon }) => (
                 <a key={label} href={href} aria-label={label} target="_blank" rel="noreferrer"
-                  className="flex-1 flex items-center justify-center py-4 bg-white text-black border-2 border-black hover:bg-black hover:text-white transition-colors focus:outline-none">
+                  className="flex-1 flex items-center justify-center py-4 bg-white text-black border-2 border-primary hover:bg-primary hover:text-white transition-colors focus:outline-none">
                   <Icon className="w-5 h-5" />
                 </a>
               ))}

@@ -32,7 +32,7 @@ const itemVariants = {
  * Returns border classes for a grid item at position `idx` in a `total`-item grid
  * that reflows from 1-col (mobile) → 2-col (sm) → 4-col (lg).
  *
- * The outer wrapper already carries `border-2 border-dark`, so we only need
+ * The outer wrapper already carries `border-2 border-primary`, so we only need
  * interior dividing borders.
  */
 function getGridBorderClass(idx: number, total: number): string {
@@ -40,7 +40,7 @@ function getGridBorderClass(idx: number, total: number): string {
 
   // ── Mobile (1-col): bottom border on every item except the last ──
   if (idx < total - 1) {
-    classes.push("border-b-2 border-dark");
+    classes.push("border-b-2 border-primary");
   }
 
   // ── SM (2-col): right border on left column (even indices) ──
@@ -72,7 +72,7 @@ export function SkillsSection() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="expertise" className="w-full border-b-2 border-dark scroll-mt-[72px]">
+    <section id="expertise" className="w-full border-b-2 border-primary scroll-mt-[72px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <SectionHeader
           title="Technical Arsenal"
@@ -81,7 +81,7 @@ export function SkillsSection() {
         />
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-2 border-dark overflow-hidden"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-2 border-primary overflow-hidden"
           variants={containerVariants}
           initial={reduce ? "visible" : "hidden"}
           whileInView="visible"
@@ -91,7 +91,7 @@ export function SkillsSection() {
             <motion.article
               key={idx}
               variants={itemVariants}
-              className={`flex flex-col p-8 bg-white hover:bg-dark group transition-colors duration-300 ${getGridBorderClass(idx, SKILLS.length)}`}
+              className={`flex flex-col p-8 bg-white hover:bg-primary group transition-colors duration-300 ${getGridBorderClass(idx, SKILLS.length)}`}
             >
               <h3 className="font-mono text-[10px] font-bold text-primary mb-6 tracking-[0.22em] uppercase">
                 {`// ${group.category}`}

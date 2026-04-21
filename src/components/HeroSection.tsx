@@ -125,11 +125,11 @@ export function HeroSection() {
                 </span>
               </div>
 
-              <div className="border-2 border-dark bg-[#FAFAFA]"
-                style={{ boxShadow: "6px 6px 0 0 #000000, 12px 12px 0 0 rgba(0,0,0,0.05)" }}>
+              <div className="border-2 border-primary bg-[#FAFAFA]"
+                style={{ boxShadow: "6px 6px 0 0 #FF4D00, 12px 12px 0 0 rgba(0,0,0,0.05)" }}>
 
                 {/* Titlebar */}
-                <div className="flex items-center gap-1.5 px-4 py-2.5 bg-white border-b-2 border-dark/10">
+                <div className="flex items-center gap-1.5 px-4 py-2.5 bg-white border-b-2 border-primary/10">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
@@ -169,7 +169,7 @@ export function HeroSection() {
                 </div>
 
                 {/* Status bar */}
-                <div className="border-t-2 border-dark/10 bg-white px-4 py-2 flex items-center justify-between">
+                <div className="border-t-2 border-primary/10 bg-white px-4 py-2 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                     <span className="font-mono text-[10px] text-dark/40 tracking-[0.16em] uppercase">TypeScript</span>
@@ -210,7 +210,7 @@ export function HeroSection() {
                   <div
                     key={s.label}
                     className={`flex flex-col items-center px-4 py-3 sm:px-6 sm:py-4 ${
-                      i < STATS.length - 1 ? "border-r-2 border-dark/10" : ""
+                      i < STATS.length - 1 ? "border-r-2 border-primary/10" : ""
                     }`}
                   >
                     <span className="font-black text-[1.5rem] sm:text-[2rem] leading-none tracking-tighter text-dark tabular-nums">
