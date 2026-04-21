@@ -105,11 +105,11 @@ float random(vec2 st) {
 
 void main(void) {
   float dist = length(vPosition);
-  // Adjusted opacity for light theme to ensure vibrancy without being too dark
-  float opacity = (112.0 - dist) / 256.0 * 1.6;
+  // Adjusted opacity for dark theme
+  float opacity = (112.0 - dist) / 256.0 * 1.8;
   opacity = clamp(opacity, 0.0, 1.0);
-  float grain = random(vPosition.xy + vPosition.z) * 0.04;
-  vec3 brandAccent = vec3(0.0, 0.75, 1.0); // Slightly more vibrant blue for light mode
+  float grain = random(vPosition.xy + vPosition.z) * 0.06;
+  vec3 brandAccent = vec3(0.0, 1.0, 0.58); // Neon Spring Green
   vec3 finalColor = brandAccent + grain;
   gl_FragColor = vec4(finalColor, opacity);
 }`;
@@ -172,7 +172,7 @@ export function GLSLHills({ cameraZ = 125, planeSize = 256, speed = 0.5, contain
       applySize(w, h);
     };
 
-    renderer.setClearColor(0xffffff, 0);
+    renderer.setClearColor(0x050505, 0);
     applySize(initW, initH);
     window.addEventListener("resize", resize, { passive: true });
 

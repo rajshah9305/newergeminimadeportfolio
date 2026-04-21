@@ -11,17 +11,21 @@ interface BrutalistButtonProps {
 }
 
 const BTN =
-  "inline-flex items-center justify-center gap-2 font-mono text-[11px] sm:text-[12px] font-black uppercase tracking-[0.16em] px-6 py-4 bg-black text-white border-2 border-black shadow-[4px_4px_0px_0px_#00BFFF] hover:bg-accent hover:border-accent hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-y-[2px] hover:-translate-x-[2px] active:translate-y-[4px] active:translate-x-[4px] active:shadow-none transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 cursor-pointer";
+  "inline-flex items-center justify-center gap-2 font-mono text-[11px] sm:text-[12px] font-black uppercase tracking-[0.16em] px-6 py-4 bg-accent text-primary border-2 border-accent hover:bg-white hover:border-white hover:-translate-y-[2px] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 cursor-pointer";
+
+const SECONDARY =
+  "inline-flex items-center justify-center gap-2 font-mono text-[11px] sm:text-[12px] font-black uppercase tracking-[0.16em] px-6 py-4 bg-transparent text-white border-2 border-white/20 hover:border-white hover:bg-white/5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 cursor-pointer";
 
 export function BrutalistButton({
   children,
+  primary = false,
   href,
   onClick,
   className = "",
   ariaLabel,
   download,
 }: BrutalistButtonProps) {
-  const cls = `${BTN} ${className}`;
+  const cls = `${primary ? BTN : SECONDARY} ${className}`;
 
   if (href) {
     return (

@@ -1,90 +1,86 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { Briefcase, GraduationCap } from "lucide-react";
+import { motion } from "framer-motion";
+import { Briefcase, GraduationCap, Calendar } from "lucide-react";
 import { EXPERIENCE } from "@/config/portfolio";
 import { SectionHeader } from "./SectionHeader";
 
 export function ExperienceSection() {
-  const reduce = useReducedMotion();
-
   return (
-    <section id="experience" className="w-full border-b-2 border-black scroll-mt-[72px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-48">
+    <section id="experience" className="w-full bg-primary py-32 md:py-48 scroll-mt-[72px]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
         <SectionHeader
           title="Experience Map"
-          subtitle="A timeline of delivering value through code and architecture."
-          index="// 03 — EXPERIENCE"
+          subtitle="A timeline of delivering production-ready systems and architectural excellence."
+          index="03 // TIMELINE"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 border-2 border-black overflow-hidden bg-white">
+        <div className="relative space-y-12">
+          {/* Timeline center line */}
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-[1px] bg-white/5 -translate-x-1/2 hidden md:block" />
+
           {EXPERIENCE.map((exp, idx) => {
             const isLast = idx === EXPERIENCE.length - 1;
             const Icon = isLast ? GraduationCap : Briefcase;
+            const isEven = idx % 2 === 0;
 
             return (
-              <motion.article
+              <motion.div
                 key={exp.id}
-                initial={reduce ? false : { opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`group flex flex-col bg-white hover:bg-accent/[0.03] transition-colors duration-300 ${
-                  idx < EXPERIENCE.length - 1 ? "border-b-2 md:border-b-0 md:border-r-2 border-black" : ""
+                initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-0 ${
+                  isEven ? "md:flex-row-reverse" : ""
                 }`}
               >
-                {/* Top accent */}
-                <div className={`h-1.5 w-full ${idx === 1 ? "bg-accent" : "bg-accent group-hover:bg-accent transition-colors duration-300"}`} />
+                {/* Content Side */}
+                <div className="w-full md:w-[45%]">
+                  <div className="bg-secondary p-8 rounded-3xl border border-white/5 hover:border-accent/20 transition-all duration-500 group">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="p-2.5 bg-accent/10 text-accent rounded-xl">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <div className="flex flex-col">
+                        <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors">
+                          {exp.role}
+                        </h3>
+                        <span className="font-mono text-[11px] text-accent/80 tracking-widest uppercase">
+                          {exp.company}
+                        </span>
+                      </div>
+                    </div>
 
-                <div className="p-8 lg:p-10 flex flex-col flex-1">
-                  {/* Year badge */}
-                  <div className="flex items-start justify-between mb-8">
-                    <span className="font-mono text-[10px] font-bold tracking-[0.25em] uppercase text-dark/30 transition-colors duration-300">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    <span className={`font-mono text-[10px] font-bold tracking-[0.16em] uppercase px-3 py-1.5 border-2 ${
-                      idx === 1
-                        ? "bg-highlight text-black border-black"
-                        : "bg-white text-dark border-black group-hover:bg-accent group-hover:border-black group-hover:text-black transition-colors duration-300"
-                    }`}>
+                    <p className="text-white/50 text-[14px] leading-relaxed mb-8">
+                      {exp.desc}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {exp.skills.map(skill => (
+                        <span key={skill} className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-mono tracking-widest text-white/30 uppercase">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Center point */}
+                <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-primary border-2 border-accent rounded-full -translate-x-1/2 z-10 hidden md:block shadow-[0_0_10px_#00FF94]" />
+
+                {/* Date side */}
+                <div className={`w-full md:w-[45%] flex items-center gap-4 ${
+                  isEven ? "md:justify-end" : "md:justify-start"
+                }`}>
+                  <div className="flex items-center gap-3 text-white/30 group-hover:text-white transition-colors">
+                    <Calendar className="w-4 h-4" />
+                    <span className="font-mono text-[12px] font-bold tracking-[0.2em] uppercase">
                       {exp.year}
                     </span>
                   </div>
-
-                  {/* Icon */}
-                  <div className={`w-12 h-12 flex items-center justify-center border-2 mb-6 transform group-hover:scale-110 transition-all duration-300 ${
-                    idx === 1
-                      ? "bg-highlight text-black border-black"
-                      : "bg-white text-dark border-black group-hover:bg-accent group-hover:border-black group-hover:text-black transition-colors duration-300"
-                  }`} aria-hidden="true">
-                    <Icon className="w-5 h-5" />
-                  </div>
-
-                  {/* Role */}
-                  <h3 className="text-xl font-black uppercase tracking-tight text-dark leading-tight mb-2 transition-colors duration-300">
-                    {exp.role}
-                  </h3>
-                  <p className="font-mono text-[11px] font-bold tracking-[0.18em] uppercase text-accent mb-6">
-                    {exp.company}
-                  </p>
-
-                  <div className="h-px bg-accent/10 mb-6 transition-colors duration-300" />
-
-                  <p className="text-[14px] text-dark/75 leading-[1.8] flex-1 transition-colors duration-300">
-                    {exp.desc}
-                  </p>
-
-                  {/* Skills */}
-                  <div className="flex flex-wrap gap-2.5 mt-8">
-                    {exp.skills.map((skill) => (
-                      <span key={skill}
-                        className="px-2.5 py-1.5 font-mono text-[10px] font-bold tracking-[0.12em] uppercase border border-black/20 text-dark/50 transition-colors duration-300">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
                 </div>
-              </motion.article>
+              </motion.div>
             );
           })}
         </div>

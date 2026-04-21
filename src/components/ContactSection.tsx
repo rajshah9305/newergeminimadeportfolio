@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
-import { Mail, Github, Linkedin, Copy, Check, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Mail, Github, Linkedin, Copy, Check, Send } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
 
 export function ContactSection() {
-  const reduce = useReducedMotion();
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
@@ -18,86 +17,101 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="w-full bg-white border-t-4 border-black scroll-mt-[80px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-40">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+    <section id="contact" className="w-full bg-primary py-32 md:py-48 scroll-mt-[80px] overflow-hidden relative">
+      {/* Background decoration */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[400px] bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
 
-          {/* Left — heading */}
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 30 }}
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
+        <div className="flex flex-col items-center text-center mb-20">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            className="font-mono text-[10px] font-bold tracking-[0.4em] uppercase text-accent mb-6"
           >
-            <span className="font-mono text-[11px] font-bold tracking-[0.3em] uppercase text-accent mb-6 block">
-              {`// 04 — CONTACT`}
-            </span>
-            <h2 className="text-6xl sm:text-7xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] text-black mb-8">
-              Let&apos;s <span className="text-accent">Sync</span>
-              <br />
-              Systems
-            </h2>
-            <p className="font-mono text-[14px] text-black/80 uppercase tracking-[0.2em] leading-[1.8] max-w-sm">
-              Currently open to technical leadership roles and high-impact AI engineering projects.
-            </p>
-          </motion.div>
-
-          {/* Right — actions */}
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 30 }}
+            04 // INQUIRIES
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col gap-6"
+            transition={{ delay: 0.1 }}
+            className="text-5xl sm:text-7xl md:text-8xl font-black uppercase tracking-tighter leading-none text-white mb-8"
           >
-            {/* Email Link */}
-            <a
-              href={`mailto:${PERSONAL_INFO.email}`}
-              className="group flex items-center justify-between px-8 py-8 bg-accent text-black border-4 border-black hover:bg-accent hover:border-black shadow-[8px_8px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-300 focus:outline-none"
-            >
-              <div className="flex flex-col gap-1">
-                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-black/50 group-hover:text-black/70">Send Message</span>
-                <span className="font-mono text-[14px] sm:text-[18px] font-black uppercase tracking-[0.1em]">
-                  {PERSONAL_INFO.email}
-                </span>
+            READY TO <span className="text-outline-accent">UPGRADE?</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-white/40 text-[16px] max-w-xl leading-relaxed"
+          >
+            I am currently open to new opportunities, technical partnerships, and high-impact engineering projects.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <motion.a
+            href={`mailto:${PERSONAL_INFO.email}`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="md:col-span-2 group relative p-10 bg-secondary rounded-[2.5rem] border border-white/5 hover:border-accent/30 transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[320px]"
+          >
+            <div className="relative z-10">
+              <div className="p-4 bg-accent text-primary rounded-2xl w-fit mb-8 group-hover:scale-110 transition-transform duration-500">
+                <Send className="w-6 h-6" />
               </div>
-              <Mail className="w-8 h-8 shrink-0 group-hover:scale-110 transition-transform" aria-hidden="true" />
-            </a>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Copy Button */}
-              <button
-                onClick={copyEmail}
-                className="flex items-center justify-between px-6 py-5 bg-white text-black border-4 border-black hover:bg-accent hover:border-black hover:text-white transition-all duration-300 focus:outline-none group shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
-              >
-                <span className="font-mono text-[11px] font-black uppercase tracking-[0.2em]">
-                  {copied ? "Copied!" : "Copy Email"}
-                </span>
-                {copied ? <Check className="w-5 h-5 shrink-0 text-white" /> : <Copy className="w-5 h-5 shrink-0" />}
-              </button>
-
-              {/* GitHub Link */}
-              <a
-                href={PERSONAL_INFO.github}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-between px-6 py-5 bg-white text-black border-4 border-black hover:bg-accent hover:text-white transition-all duration-300 focus:outline-none group shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
-              >
-                <span className="font-mono text-[11px] font-black uppercase tracking-[0.2em]">View GitHub</span>
-                <Github className="w-5 h-5" />
-              </a>
+              <h3 className="text-3xl font-bold text-white mb-2">Direct Contact</h3>
+              <p className="text-white/40 font-mono tracking-widest uppercase text-[12px]">Initialize connection via email</p>
             </div>
-
-            {/* Social Links */}
-            <div className="flex items-center gap-4 pt-4">
-              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-black/30">Connect:</span>
-              <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer"
-                 className="text-black hover:text-accent transition-colors font-mono text-[12px] font-black uppercase tracking-[0.2em] flex items-center gap-2">
-                LinkedIn <ArrowRight className="w-3 h-3" />
-              </a>
+            <div className="relative z-10 flex items-center justify-between">
+              <span className="text-xl md:text-2xl font-bold text-white group-hover:text-accent transition-colors">
+                {PERSONAL_INFO.email}
+              </span>
+              <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-500">
+                <Check className="w-5 h-5" />
+              </div>
             </div>
-          </motion.div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2" />
+          </motion.a>
 
+          <div className="flex flex-col gap-6">
+            <motion.button
+              onClick={copyEmail}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="group flex-1 p-8 bg-secondary rounded-[2.5rem] border border-white/5 hover:border-white/20 transition-all flex flex-col items-center justify-center text-center"
+            >
+              <div className="p-3 bg-white/5 rounded-xl mb-4 group-hover:bg-white/10 transition-colors">
+                {copied ? <Check className="w-5 h-5 text-accent" /> : <Copy className="w-5 h-5 text-white/60" />}
+              </div>
+              <span className="font-mono text-[10px] font-bold tracking-widest uppercase text-white/40 group-hover:text-white transition-colors">
+                {copied ? "Address Copied" : "Copy Address"}
+              </span>
+            </motion.button>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="flex gap-6 h-full"
+            >
+              <a href={PERSONAL_INFO.github} className="flex-1 flex flex-col items-center justify-center p-8 bg-secondary rounded-[2.5rem] border border-white/5 hover:border-white/20 transition-all group">
+                <Github className="w-6 h-6 text-white/60 group-hover:text-white mb-3" />
+                <span className="font-mono text-[9px] font-bold tracking-widest uppercase text-white/20 group-hover:text-white/40">GitHub</span>
+              </a>
+              <a href={PERSONAL_INFO.linkedin} className="flex-1 flex flex-col items-center justify-center p-8 bg-secondary rounded-[2.5rem] border border-white/5 hover:border-white/20 transition-all group">
+                <Linkedin className="w-6 h-6 text-white/60 group-hover:text-white mb-3" />
+                <span className="font-mono text-[9px] font-bold tracking-widest uppercase text-white/20 group-hover:text-white/40">LinkedIn</span>
+              </a>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

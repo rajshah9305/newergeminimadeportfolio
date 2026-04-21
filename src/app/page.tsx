@@ -11,15 +11,13 @@ export default function Home() {
   return (
     <div
       id="top"
-      className="min-h-screen bg-white text-dark font-sans selection:bg-accent selection:text-black relative overflow-x-hidden"
+      className="min-h-screen bg-primary text-white font-sans selection:bg-accent selection:text-primary relative overflow-x-hidden"
     >
       <Navigation />
 
-      <main className="relative z-10 pt-[72px]">
-        {/* HeroSection owns the GLSLHills canvas — scoped to page 1 only */}
+      <main className="relative z-10">
         <HeroSection />
-        {/* Solid white below — hills cannot bleed through */}
-        <div className="relative bg-white">
+        <div className="relative bg-primary">
           <SkillsSection />
           <ProjectsSection />
           <ExperienceSection />
