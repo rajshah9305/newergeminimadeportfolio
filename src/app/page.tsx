@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div
       id="top"
-      className="min-h-screen bg-white text-dark font-sans selection:bg-primary selection:text-white relative overflow-x-hidden"
+      className="min-h-screen bg-white text-dark font-sans selection:bg-accent selection:text-white relative overflow-x-hidden"
     >
       <Navigation />
 

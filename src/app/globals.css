@@ -12,7 +12,9 @@
   }
 
   :root {
-    --color-primary: #FF4D00;
+    --color-primary: #000000;
+    --color-accent: #2563eb;
+    --color-highlight: #FF4D00;
     --color-dark: #000000;
     --color-light: #FFFFFF;
     --color-border: rgba(0, 0, 0, 0.1);
@@ -45,15 +47,15 @@
     .text-outline-white{ -webkit-text-stroke: 2px #ffffff; }
   }
 
-  /* Brutalist Shadows */
+  /* Brutalist Shadows - Now using black or accent blue */
   .shadow-brutalist {
-    box-shadow: 4px 4px 0px 0px #FF4D00;
+    box-shadow: 4px 4px 0px 0px #000000;
   }
-  .shadow-brutalist-orange {
-    box-shadow: 4px 4px 0px 0px #FF4D00;
+  .shadow-brutalist-accent {
+    box-shadow: 4px 4px 0px 0px #2563eb;
   }
   .shadow-brutalist-lg {
-    box-shadow: 8px 8px 0px 0px #FF4D00;
+    box-shadow: 8px 8px 0px 0px #000000;
   }
 
   /* Nav underline sweep */
@@ -63,7 +65,7 @@
     position: absolute;
     bottom: -3px; left: 0;
     width: 0; height: 2px;
-    background: var(--nav-underline, var(--color-primary));
+    background: var(--nav-underline, var(--color-accent));
     transition: width 0.22s ease;
   }
   .nav-link:hover::after,
@@ -78,23 +80,23 @@
     text-transform: uppercase;
   }
 
-  /* Diagonal accent stripe - more subtle for light mode */
+  /* Diagonal accent stripe - using accent blue */
   .stripe-accent {
     background: repeating-linear-gradient(
       -45deg,
-      rgba(255, 77, 0, 0.1),
-      rgba(255, 77, 0, 0.1) 2px,
+      rgba(37, 99, 235, 0.05),
+      rgba(37, 99, 235, 0.05) 2px,
       transparent 2px,
       transparent 10px
     );
   }
 }
 
-/* Scrollbar */
+/* Scrollbar - using accent blue */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #ffffff; }
-::-webkit-scrollbar-thumb { background: #FF4D00; border: 2px solid #ffffff; }
-::-webkit-scrollbar-thumb:hover { background: #FF4D00; }
+::-webkit-scrollbar-thumb { background: #2563eb; border: 2px solid #ffffff; }
+::-webkit-scrollbar-thumb:hover { background: #1d4ed8; }
 
 /* Glitch */
 @keyframes glitch-1 {

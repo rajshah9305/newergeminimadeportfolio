@@ -7,14 +7,14 @@ import { Marquee } from "./Marquee";
 import { GLSLHills } from "./GLSLHills";
 
 const CODE_LINES = [
-  { indent: 0, tokens: [{ t: "class",       c: "text-primary font-bold" }, { t: " Engineer", c: "text-dark"   }, { t: " {",  c: "text-dark/40" }] },
-  { indent: 1, tokens: [{ t: "constructor", c: "text-primary font-bold" }, { t: "() {",      c: "text-dark/40"  }] },
-  { indent: 2, tokens: [{ t: "this",        c: "text-primary"    }, { t: ".name ",    c: "text-dark"  }, { t: "=",   c: "text-primary" }, { t: ' "Raj Shah"', c: "text-blue-600" }, { t: ";", c: "text-dark/40" }] },
-  { indent: 2, tokens: [{ t: "this",        c: "text-primary"    }, { t: ".focus ",   c: "text-dark"  }, { t: "=",   c: "text-primary" }, { t: " [",          c: "text-dark/40" }, { t: '"AI"',     c: "text-blue-600" }, { t: ", ", c: "text-dark/40" }, { t: '"Systems"', c: "text-blue-600" }, { t: "];", c: "text-dark/40" }] },
+  { indent: 0, tokens: [{ t: "class",       c: "text-accent font-bold" }, { t: " Engineer", c: "text-dark"   }, { t: " {",  c: "text-dark/40" }] },
+  { indent: 1, tokens: [{ t: "constructor", c: "text-accent font-bold" }, { t: "() {",      c: "text-dark/40"  }] },
+  { indent: 2, tokens: [{ t: "this",        c: "text-accent"    }, { t: ".name ",    c: "text-dark"  }, { t: "=",   c: "text-accent" }, { t: ' "Raj Shah"', c: "text-blue-600" }, { t: ";", c: "text-dark/40" }] },
+  { indent: 2, tokens: [{ t: "this",        c: "text-accent"    }, { t: ".focus ",   c: "text-dark"  }, { t: "=",   c: "text-accent" }, { t: " [",          c: "text-dark/40" }, { t: '"AI"',     c: "text-blue-600" }, { t: ", ", c: "text-dark/40" }, { t: '"Systems"', c: "text-blue-600" }, { t: "];", c: "text-dark/40" }] },
   { indent: 1, tokens: [{ t: "}",           c: "text-dark/40"  }] },
   { indent: 0, tokens: [] },
-  { indent: 1, tokens: [{ t: "async",       c: "text-primary font-bold" }, { t: " deploy",   c: "text-dark"   }, { t: "(",   c: "text-dark/40"  }, { t: "app",         c: "text-orange-600" }, { t: ") {", c: "text-dark/40" }] },
-  { indent: 2, tokens: [{ t: "await",       c: "text-primary font-bold" }, { t: " app",      c: "text-dark"   }, { t: ".",   c: "text-dark/40"  }, { t: "scale",       c: "text-primary" }, { t: "({ edge: ", c: "text-dark/40" }, { t: "true", c: "text-primary" }, { t: " });", c: "text-dark/40" }] },
+  { indent: 1, tokens: [{ t: "async",       c: "text-accent font-bold" }, { t: " deploy",   c: "text-dark"   }, { t: "(",   c: "text-dark/40"  }, { t: "app",         c: "text-accent" }, { t: ") {", c: "text-dark/40" }] },
+  { indent: 2, tokens: [{ t: "await",       c: "text-accent font-bold" }, { t: " app",      c: "text-dark"   }, { t: ".",   c: "text-dark/40"  }, { t: "scale",       c: "text-accent" }, { t: "({ edge: ", c: "text-dark/40" }, { t: "true", c: "text-accent" }, { t: " });", c: "text-dark/40" }] },
 ];
 
 const STATS = [
@@ -69,13 +69,13 @@ export function HeroSection() {
           {/* ── ROW 1: top meta bar ── */}
           <div className="flex items-center justify-between px-6 sm:px-10 lg:px-16 pt-10 pb-0">
             <div className="flex items-center gap-3">
-              <span className="inline-block w-2 h-2 bg-primary" aria-hidden="true" />
+              <span className="inline-block w-2 h-2 bg-accent" aria-hidden="true" />
               <span className="font-mono text-[10px] font-bold tracking-[0.28em] uppercase text-dark/40">
                 AI &amp; Full-Stack Engineer
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" aria-hidden="true" />
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" aria-hidden="true" />
               <span className="font-mono text-[10px] font-bold tracking-[0.22em] uppercase text-dark/40">
                 Available
               </span>
@@ -105,9 +105,9 @@ export function HeroSection() {
                 </span>
               </h1>
 
-              {/* Orange rule under name */}
+              {/* Accent rule under name */}
               <div className="flex items-center gap-3 mt-5">
-                <div className="h-[3px] bg-primary" style={{ width: "clamp(3rem, 8vw, 7rem)" }} />
+                <div className="h-[3px] bg-accent" style={{ width: "clamp(3rem, 8vw, 7rem)" }} />
                 <div className="h-[3px] bg-dark/10 flex-1" />
               </div>
             </div>
@@ -125,11 +125,11 @@ export function HeroSection() {
                 </span>
               </div>
 
-              <div className="border-2 border-primary bg-[#FAFAFA]"
-                style={{ boxShadow: "6px 6px 0 0 #FF4D00, 12px 12px 0 0 rgba(0,0,0,0.05)" }}>
+              <div className="border-2 border-accent bg-[#FAFAFA]"
+                style={{ boxShadow: "6px 6px 0 0 #2563eb, 12px 12px 0 0 rgba(0,0,0,0.05)" }}>
 
                 {/* Titlebar */}
-                <div className="flex items-center gap-1.5 px-4 py-2.5 bg-white border-b-2 border-primary/10">
+                <div className="flex items-center gap-1.5 px-4 py-2.5 bg-white border-b-2 border-accent/10">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
@@ -164,19 +164,19 @@ export function HeroSection() {
                     <span className="text-dark/20 w-4 shrink-0 text-right text-[11px] leading-[1.85]">
                       {CODE_LINES.length + 1}
                     </span>
-                    <span className="cursor-blink inline-block w-[6px] h-[13px] bg-primary align-middle mt-[5px]" />
+                    <span className="cursor-blink inline-block w-[6px] h-[13px] bg-accent align-middle mt-[5px]" />
                   </div>
                 </div>
 
                 {/* Status bar */}
-                <div className="border-t-2 border-primary/10 bg-white px-4 py-2 flex items-center justify-between">
+                <div className="border-t-2 border-accent/10 bg-white px-4 py-2 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                     <span className="font-mono text-[10px] text-dark/40 tracking-[0.16em] uppercase">TypeScript</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-[10px] text-dark/20">UTF-8</span>
-                    <span className="font-mono text-[10px] text-primary font-bold tracking-[0.12em]">● LIVE</span>
+                    <span className="font-mono text-[10px] text-accent font-bold tracking-[0.12em]">● LIVE</span>
                   </div>
                 </div>
               </div>
@@ -189,7 +189,7 @@ export function HeroSection() {
 
               {/* Bio + CTAs */}
               <div className="flex flex-col gap-6 max-w-[480px]">
-                <p className="text-[14px] sm:text-[15px] text-dark/55 leading-[1.85]">
+                <p className="text-[14px] sm:text-[15px] text-dark/70 leading-[1.85]">
                   {PERSONAL_INFO.bio}
                 </p>
                 <div className="flex flex-wrap gap-3">
@@ -210,7 +210,7 @@ export function HeroSection() {
                   <div
                     key={s.label}
                     className={`flex flex-col items-center px-4 py-3 sm:px-6 sm:py-4 ${
-                      i < STATS.length - 1 ? "border-r-2 border-primary/10" : ""
+                      i < STATS.length - 1 ? "border-r-2 border-accent/10" : ""
                     }`}
                   >
                     <span className="font-black text-[1.5rem] sm:text-[2rem] leading-none tracking-tighter text-dark tabular-nums">
@@ -234,7 +234,7 @@ export function HeroSection() {
           aria-label="Scroll to expertise"
           className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 group focus:outline-none"
         >
-          <span className="font-mono text-[8px] font-bold tracking-[0.3em] uppercase text-dark/25 group-hover:text-primary transition-colors">
+          <span className="font-mono text-[8px] font-bold tracking-[0.3em] uppercase text-dark/25 group-hover:text-accent transition-colors">
             scroll
           </span>
           <div className="w-px h-8 bg-gradient-to-b from-dark/20 to-transparent animate-bob" />
