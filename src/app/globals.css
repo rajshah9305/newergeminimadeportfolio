@@ -13,7 +13,7 @@
 
   :root {
     --color-primary: #000000;
-    --color-accent: #00BFFF;
+    --color-accent: #FF6B00;
     --color-highlight: #CCFF00;
     --color-dark: #000000;
     --color-light: #FFFFFF;
@@ -47,12 +47,12 @@
     .text-outline-white{ -webkit-text-stroke: 2px #ffffff; }
   }
 
-  /* Brutalist Shadows - Now using black or accent blue */
+  /* Brutalist Shadows - Now using black or accent orange */
   .shadow-brutalist {
     box-shadow: 4px 4px 0px 0px #000000;
   }
   .shadow-brutalist-accent {
-    box-shadow: 4px 4px 0px 0px #00BFFF;
+    box-shadow: 4px 4px 0px 0px #FF6B00;
   }
   .shadow-brutalist-lg {
     box-shadow: 8px 8px 0px 0px #000000;
@@ -80,23 +80,23 @@
     text-transform: uppercase;
   }
 
-  /* Diagonal accent stripe - using accent blue */
+  /* Diagonal accent stripe - using accent orange */
   .stripe-accent {
     background: repeating-linear-gradient(
       -45deg,
-      rgba(0, 191, 255, 0.05),
-      rgba(0, 191, 255, 0.05) 2px,
+      rgba(255, 107, 0, 0.05),
+      rgba(255, 107, 0, 0.05) 2px,
       transparent 2px,
       transparent 10px
     );
   }
 }
 
-/* Scrollbar - using accent blue */
+/* Scrollbar - using accent orange */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #ffffff; }
-::-webkit-scrollbar-thumb { background: #00BFFF; border: 2px solid #ffffff; }
-::-webkit-scrollbar-thumb:hover { background: #0099CC; }
+::-webkit-scrollbar-thumb { background: #FF6B00; border: 2px solid #ffffff; }
+::-webkit-scrollbar-thumb:hover { background: #E66000; }
 
 /* Glitch */
 @keyframes glitch-1 {
