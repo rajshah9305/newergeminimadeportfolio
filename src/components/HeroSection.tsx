@@ -126,7 +126,7 @@ export function HeroSection() {
               </div>
 
               <div className="border-2 border-accent bg-[#FAFAFA]"
-                style={{ boxShadow: "6px 6px 0 0 #00BFFF, 12px 12px 0 0 rgba(0,0,0,0.05)" }}>
+                style={{ boxShadow: "6px 6px 0 0 #FF6B00, 12px 12px 0 0 rgba(0,0,0,0.05)" }}>
 
                 {/* Titlebar */}
                 <div className="flex items-center gap-1.5 px-4 py-2.5 bg-white border-b-2 border-accent/10">
