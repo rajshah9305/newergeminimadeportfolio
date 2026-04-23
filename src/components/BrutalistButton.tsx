@@ -1,4 +1,7 @@
+"use client";
+
 import { ReactNode } from "react";
+import { motion } from "framer-motion";
 
 interface BrutalistButtonProps {
   children: ReactNode;
@@ -10,8 +13,8 @@ interface BrutalistButtonProps {
   download?: string | boolean;
 }
 
-const BTN =
-  "inline-flex items-center justify-center gap-2 font-mono text-[11px] sm:text-[12px] font-black uppercase tracking-[0.16em] px-6 py-4 bg-black text-white border-2 border-black shadow-[4px_4px_0px_0px_#FF6B00] hover:bg-accent hover:border-accent hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-y-[2px] hover:-translate-x-[2px] active:translate-y-[4px] active:translate-x-[4px] active:shadow-none transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 cursor-pointer";
+const BTN_BASE =
+  "inline-flex items-center justify-center gap-2 font-mono text-[11px] sm:text-[12px] font-black uppercase tracking-[0.2em] px-8 py-5 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2";
 
 export function BrutalistButton({
   children,
@@ -20,8 +23,23 @@ export function BrutalistButton({
   className = "",
   ariaLabel,
   download,
+  primary = false,
 }: BrutalistButtonProps) {
-  const cls = `${BTN} ${className}`;
+  const colorClasses = primary
+    ? "bg-black text-white border-2 border-black shadow-[4px_4px_0px_0px_#FF6B00] hover:bg-accent hover:border-accent hover:shadow-[6px_6px_0px_0px_#000000]"
+    : "bg-white text-black border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:bg-accent hover:text-black hover:border-black hover:shadow-[6px_6px_0px_0px_#FF6B00]";
+
+  const content = (
+    <motion.span
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98, x: 2, y: 2 }}
+      className="flex items-center gap-2"
+    >
+      {children}
+    </motion.span>
+  );
+
+  const cls = `${BTN_BASE} ${colorClasses} ${className}`;
 
   if (href) {
     return (
@@ -33,14 +51,14 @@ export function BrutalistButton({
         rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
         className={cls}
       >
-        {children}
+        {content}
       </a>
     );
   }
 
   return (
     <button type="button" onClick={onClick} aria-label={ariaLabel} className={cls}>
-      {children}
+      {content}
     </button>
   );
 }
