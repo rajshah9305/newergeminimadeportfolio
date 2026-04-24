@@ -1,27 +1,17 @@
 "use client";
 
-import { Github, Mail } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { Mail, Github } from "lucide-react";
 import { PERSONAL_INFO } from "@/config/portfolio";
-import { BrutalistButton } from "./BrutalistButton";
-import { Marquee } from "./Marquee";
 import { GLSLHills } from "./GLSLHills";
-
-const CODE_LINES = [
-  { indent: 0, tokens: [{ t: "class",       c: "text-accent font-bold" }, { t: " Engineer", c: "text-dark"   }, { t: " {",  c: "text-dark/40" }] },
-  { indent: 1, tokens: [{ t: "constructor", c: "text-accent font-bold" }, { t: "() {",      c: "text-dark/40"  }] },
-  { indent: 2, tokens: [{ t: "this",        c: "text-accent"    }, { t: ".name ",    c: "text-dark"  }, { t: "=",   c: "text-accent" }, { t: ' "Raj Shah"', c: "text-accent" }, { t: ";", c: "text-dark/40" }] },
-  { indent: 2, tokens: [{ t: "this",        c: "text-accent"    }, { t: ".focus ",   c: "text-dark"  }, { t: "=",   c: "text-accent" }, { t: " [",          c: "text-dark/40" }, { t: '"AI"',     c: "text-accent" }, { t: ", ", c: "text-dark/40" }, { t: '"Systems"', c: "text-accent" }, { t: "];", c: "text-dark/40" }] },
-  { indent: 1, tokens: [{ t: "}",           c: "text-dark/40"  }] },
-  { indent: 0, tokens: [] },
-  { indent: 1, tokens: [{ t: "async",       c: "text-accent font-bold" }, { t: " deploy",   c: "text-dark"   }, { t: "(",   c: "text-dark/40"  }, { t: "app",         c: "text-accent" }, { t: ") {", c: "text-dark/40" }] },
-  { indent: 2, tokens: [{ t: "await",       c: "text-accent font-bold" }, { t: " app",      c: "text-dark"   }, { t: ".",   c: "text-dark/40"  }, { t: "scale",       c: "text-accent" }, { t: "({ edge: ", c: "text-dark/40" }, { t: "true", c: "text-accent" }, { t: " });", c: "text-dark/40" }] },
-];
+import { Marquee } from "./Marquee";
+import { BrutalistButton } from "./BrutalistButton";
+import { useEffect, useState } from "react";
 
 const STATS = [
-  { value: "8+",    label: "Yrs" },
-  { value: "40+",   label: "Systems" },
-  { value: "10K+",  label: "AI/Day" },
-  { value: "99.9%", label: "Uptime" },
+  { label: "AI Models", value: "12+" },
+  { label: "Systems", value: "8" },
+  { label: "Uptime", value: "99.9%" },
 ];
 
 const MARQUEE_ITEMS = [
@@ -29,7 +19,32 @@ const MARQUEE_ITEMS = [
   "TypeScript", "LangChain", "AWS", "PostgreSQL", "Rust",
 ];
 
+const CODE_LINES = [
+  { indent: 0, tokens: [{ t: "class", c: "text-accent" }, { t: " AI_Engineer ", c: "text-dark" }, { t: "{", c: "text-dark/40" }] },
+  { indent: 1, tokens: [{ t: "readonly ", c: "text-accent" }, { t: "name", c: "text-dark" }, { t: " = ", c: "text-dark/40" }, { t: "'Raj Shah'", c: "text-highlight bg-black/5" }, { t: ";", c: "text-dark/40" }] },
+  { indent: 1, tokens: [{ t: "status", c: "text-dark" }, { t: " = ", c: "text-dark/40" }, { t: "'Building...'", c: "text-highlight bg-black/5" }, { t: ";", c: "text-dark/40" }] },
+  { indent: 0, tokens: [] },
+  { indent: 1, tokens: [{ t: "async ", c: "text-accent" }, { t: "optimize", c: "text-dark" }, { t: "(", c: "text-dark/40" }, { t: "goal", c: "text-dark/60" }, { t: ") {", c: "text-dark/40" }] },
+  { indent: 2, tokens: [{ t: "return ", c: "text-accent" }, { t: "await ", c: "text-accent" }, { t: "deploy", c: "text-dark" }, { t: "(", c: "text-dark/40" }, { t: "goal", c: "text-dark/60" }, { t: ");", c: "text-dark/40" }] },
+  { indent: 1, tokens: [{ t: "}", c: "text-dark/40" }] },
+  { indent: 0, tokens: [{ t: "}", c: "text-dark/40" }] },
+];
+
 export function HeroSection() {
+  const reduce = useReducedMotion();
+  const [typedLines, setTypedLines] = useState<number>(0);
+
+  useEffect(() => {
+    if (reduce) {
+      setTypedLines(CODE_LINES.length);
+      return;
+    }
+    const interval = setInterval(() => {
+      setTypedLines((prev) => (prev < CODE_LINES.length ? prev + 1 : prev));
+    }, 200);
+    return () => clearInterval(interval);
+  }, [reduce]);
+
   return (
     <>
       <section
@@ -63,7 +78,7 @@ export function HeroSection() {
         {/* ══════════════════════════════════════════
             LAYOUT: 3-row stack
         ══════════════════════════════════════════ */}
-        <div className="relative z-10 w-full h-full flex flex-col"
+        <div className="relative z-10 w-full h-full flex flex-col max-w-[1920px] mx-auto"
           style={{ minHeight: "calc(100vh - 72px)" }}>
 
           {/* ── ROW 1: top meta bar ── */}
@@ -93,16 +108,20 @@ export function HeroSection() {
                 aria-label={PERSONAL_INFO.name}
               >
                 {/* RAJ — solid fill */}
-                <span className="block text-dark leading-[0.82]">
+                <motion.span
+                  whileHover={{ x: 10, skewX: -5 }}
+                  className="block text-dark leading-[0.82] cursor-default transition-all duration-300 hover:text-accent"
+                >
                   RAJ
-                </span>
+                </motion.span>
                 {/* SHAH — outline, offset right for asymmetry */}
-                <span
-                  className="block text-outline leading-[0.82]"
+                <motion.span
+                  whileHover={{ x: -10, skewX: 5 }}
+                  className="block text-outline leading-[0.82] cursor-default transition-all duration-300 hover:text-dark"
                   style={{ paddingLeft: "clamp(1rem, 4vw, 5rem)" }}
                 >
                   SHAH
-                </span>
+                </motion.span>
               </h1>
 
               {/* Accent rule under name */}
@@ -141,9 +160,14 @@ export function HeroSection() {
                 </div>
 
                 {/* Code body */}
-                <div className="px-4 pt-4 pb-3 font-mono text-[12.5px] leading-[1.85] select-none text-dark">
-                  {CODE_LINES.map((line, i) => (
-                    <div key={i} className="flex gap-3.5">
+                <div className="px-4 pt-4 pb-3 font-mono text-[12.5px] leading-[1.85] select-none text-dark h-[180px]">
+                  {CODE_LINES.slice(0, typedLines).map((line, i) => (
+                    <motion.div
+                      initial={{ opacity: 0, x: -5 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      key={i}
+                      className="flex gap-3.5"
+                    >
                       <span className="text-dark/20 w-4 shrink-0 text-right text-[11px] leading-[1.85] select-none">
                         {i + 1}
                       </span>
@@ -157,15 +181,17 @@ export function HeroSection() {
                           </>
                         )}
                       </span>
-                    </div>
+                    </motion.div>
                   ))}
                   {/* cursor */}
-                  <div className="flex gap-3.5">
-                    <span className="text-dark/20 w-4 shrink-0 text-right text-[11px] leading-[1.85]">
-                      {CODE_LINES.length + 1}
-                    </span>
-                    <span className="cursor-blink inline-block w-[6px] h-[13px] bg-accent align-middle mt-[5px]" />
-                  </div>
+                  {typedLines < CODE_LINES.length + 1 && (
+                    <div className="flex gap-3.5">
+                      <span className="text-dark/20 w-4 shrink-0 text-right text-[11px] leading-[1.85]">
+                        {typedLines + 1}
+                      </span>
+                      <span className="cursor-blink inline-block w-[6px] h-[13px] bg-accent align-middle mt-[5px]" />
+                    </div>
+                  )}
                 </div>
 
                 {/* Status bar */}
