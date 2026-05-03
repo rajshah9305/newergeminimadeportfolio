@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 interface GLSLHillsProps {
@@ -76,23 +76,6 @@ float cnoise(vec3 P) {
   vec2 n_yz = mix(n_z.xy, n_z.zw, fade_xyz.y);
   float n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x);
   return 2.2 * n_xyz;
-}
-
-void main(void) {
-  vec3 updatePosition = (rotateMatrixX(radians(90.0)) * vec4(position, 1.0)).xyz;
-  float responsiveX = updatePosition.x / (112.0 * min(1.0, uAspect * 0.8));
-  float sin1 = sin(radians(responsiveX * 90.0));
-  vec3 noisePosition = updatePosition + vec3(0.0, 0.0, time * -30.0);
-  float noise1 = cnoise(noisePosition * 0.08);
-  float noise2 = cnoise(noisePosition * 0.06);
-  float noise3 = cnoise(noisePosition * 0.4);
-  vec3 lastPosition = updatePosition + vec3(
-    0.0,
-    noise1 * sin1 * 12.0 + noise2 * sin1 * 12.0 + noise3 * (abs(sin1) * 3.0 + 0.5) + pow(sin1, 2.0) * 45.0,
-    0.0
-  );
-  vPosition = lastPosition;
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(lastPosition, 1.0);
 }`;
 
 const FRAGMENT_SHADER = `precision highp float;
@@ -116,8 +99,22 @@ void main(void) {
 
 export function GLSLHills({ cameraZ = 125, planeSize = 256, speed = 0.5, contained = false }: GLSLHillsProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isWebGLSupported, setIsWebGLSupported] = useState<boolean | null>(null);
 
   useEffect(() => {
+    // Check for WebGL support
+    try {
+      const canvas = document.createElement("canvas");
+      setIsWebGLSupported(
+        !!(window.WebGLRenderingContext && (canvas.getContext("webgl") || canvas.getContext("experimental-webgl")))
+      );
+    } catch (e) {
+      setIsWebGLSupported(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isWebGLSupported === false) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -129,7 +126,15 @@ export function GLSLHills({ cameraZ = 125, planeSize = 256, speed = 0.5, contain
       return { w: window.innerWidth, h: window.innerHeight };
     };
 
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true });
+    let renderer: THREE.WebGLRenderer | null = null;
+    try {
+        renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true });
+    } catch (e) {
+        console.error("WebGL initialization failed", e);
+        setIsWebGLSupported(false);
+        return;
+    }
+
     const scene = new THREE.Scene();
     const { w: initW, h: initH } = getSize();
     const camera = new THREE.PerspectiveCamera(45, initW / initH, 1, 10000);
@@ -140,15 +145,14 @@ export function GLSLHills({ cameraZ = 125, planeSize = 256, speed = 0.5, contain
       uAspect: { type: "f", value: initW / initH },
     };
 
-    const mesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(planeSize, planeSize, planeSize, planeSize),
-      new THREE.RawShaderMaterial({
-        uniforms,
-        vertexShader: VERTEX_SHADER,
-        fragmentShader: FRAGMENT_SHADER,
-        transparent: true,
-      })
-    );
+    const geometry = new THREE.PlaneGeometry(planeSize, planeSize, planeSize, planeSize);
+    const material = new THREE.RawShaderMaterial({
+      uniforms,
+      vertexShader: VERTEX_SHADER,
+      fragmentShader: FRAGMENT_SHADER,
+      transparent: true,
+    });
+    const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
     const applySize = (w: number, h: number) => {
@@ -163,8 +167,8 @@ export function GLSLHills({ cameraZ = 125, planeSize = 256, speed = 0.5, contain
         camera.lookAt(new THREE.Vector3(0, 28, 0));
       }
       camera.updateProjectionMatrix();
-      renderer.setSize(w, h);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer?.setSize(w, h);
+      renderer?.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     };
 
     const resize = () => {
@@ -179,7 +183,7 @@ export function GLSLHills({ cameraZ = 125, planeSize = 256, speed = 0.5, contain
     let rafId: number;
     const loop = () => {
       uniforms.time.value += clock.getDelta() * speed;
-      renderer.render(scene, camera);
+      renderer?.render(scene, camera);
       rafId = requestAnimationFrame(loop);
     };
     loop();
@@ -187,11 +191,29 @@ export function GLSLHills({ cameraZ = 125, planeSize = 256, speed = 0.5, contain
     return () => {
       cancelAnimationFrame(rafId);
       window.removeEventListener("resize", resize);
-      renderer.dispose();
-      mesh.geometry.dispose();
-      (mesh.material as THREE.Material).dispose();
+      renderer?.dispose();
+      geometry.dispose();
+      material.dispose();
     };
-  }, [cameraZ, planeSize, speed, contained]);
+  }, [cameraZ, planeSize, speed, contained, isWebGLSupported]);
+
+  if (isWebGLSupported === false) {
+    return (
+      <div
+        aria-hidden="true"
+        className="stripe-accent"
+        style={{
+          position: contained ? "absolute" : "fixed",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          pointerEvents: "none",
+          zIndex: 0,
+          background: "linear-gradient(to bottom, transparent, rgba(255, 107, 0, 0.05), transparent)",
+        }}
+      />
+    );
+  }
 
   return (
     <canvas
@@ -205,6 +227,8 @@ export function GLSLHills({ cameraZ = 125, planeSize = 256, speed = 0.5, contain
         pointerEvents: "none",
         zIndex: 0,
         display: "block",
+        opacity: isWebGLSupported === null ? 0 : 1,
+        transition: "opacity 1s ease",
       }}
     />
   );

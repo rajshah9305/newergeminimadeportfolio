@@ -14,7 +14,7 @@ interface BrutalistButtonProps {
 }
 
 const BTN_BASE =
-  "inline-flex items-center justify-center gap-2 font-mono text-[11px] sm:text-[12px] font-black uppercase tracking-[0.2em] px-8 py-5 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2";
+  "inline-flex items-center flex-wrap justify-center gap-2 font-mono text-[11px] sm:text-[12px] font-black uppercase tracking-[0.2em] px-8 py-5 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2";
 
 export function BrutalistButton({
   children,

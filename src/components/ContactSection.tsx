@@ -68,12 +68,13 @@ export function ContactSection() {
               {/* Copy Button */}
               <button
                 onClick={copyEmail}
-                className="flex items-center justify-between px-6 py-5 bg-white text-black border-4 border-black hover:bg-accent hover:border-black hover:text-white transition-all duration-300 focus:outline-none group shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
+                className="flex items-center justify-between px-6 py-5 bg-white text-black border-4 border-black hover:bg-accent border-black hover:text-black transition-all duration-300 focus:outline-none group shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
+                aria-label={copied ? "Email address copied to clipboard" : "Copy email address to clipboard"}
               >
                 <span className="font-mono text-[11px] font-black uppercase tracking-[0.2em]">
                   {copied ? "Copied!" : "Copy Email"}
                 </span>
-                {copied ? <Check className="w-5 h-5 shrink-0 text-white" /> : <Copy className="w-5 h-5 shrink-0" />}
+                {copied ? <Check className="w-5 h-5 shrink-0" /> : <Copy className="w-5 h-5 shrink-0" />}
               </button>
 
               {/* GitHub Link */}
@@ -81,7 +82,8 @@ export function ContactSection() {
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-between px-6 py-5 bg-white text-black border-4 border-black hover:bg-accent hover:text-white transition-all duration-300 focus:outline-none group shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
+                aria-label={`View ${PERSONAL_INFO.name}'s GitHub profile`}
+                className="flex items-center justify-between px-6 py-5 bg-white text-black border-4 border-black hover:bg-accent hover:text-black transition-all duration-300 focus:outline-none group shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
               >
                 <span className="font-mono text-[11px] font-black uppercase tracking-[0.2em]">View GitHub</span>
                 <Github className="w-5 h-5" />
@@ -91,7 +93,7 @@ export function ContactSection() {
             {/* Social Links */}
             <div className="flex items-center gap-4 pt-4">
               <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-black/30">Connect:</span>
-              <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer"
+              <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer" aria-label={`View ${PERSONAL_INFO.name}'s LinkedIn profile`}
                  className="text-black hover:text-accent transition-colors font-mono text-[12px] font-black uppercase tracking-[0.2em] flex items-center gap-2">
                 LinkedIn <ArrowRight className="w-3 h-3" />
               </a>
