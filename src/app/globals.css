@@ -89,7 +89,7 @@
 
   /* Hero name — massive display type */
   .hero-name {
-    font-size: clamp(3rem, 12vw, 10rem);
+    font-size: clamp(2.5rem, 12vw, 10rem);
     font-weight: 900;
     line-height: 0.82;
     letter-spacing: -0.04em;

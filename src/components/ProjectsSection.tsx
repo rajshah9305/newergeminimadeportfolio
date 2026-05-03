@@ -78,6 +78,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.links.live}
               target="_blank"
               rel="noreferrer"
+              aria-label={`View live site for ${project.title}`}
               className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase text-dark/40 hover:text-accent transition-colors focus:outline-none"
             >
               <ExternalLink className="w-4 h-4" aria-hidden="true" />
@@ -89,6 +90,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.links.github}
               target="_blank"
               rel="noreferrer"
+              aria-label={`View source code for ${project.title} on GitHub`}
               className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase text-dark/40 hover:text-accent transition-colors focus:outline-none"
             >
               <Github className="w-4 h-4" aria-hidden="true" />
@@ -127,7 +129,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             href={project.links.live ?? project.links.github ?? "#"}
             target="_blank"
             rel="noreferrer"
-            aria-label={`View ${project.title}`}
+            aria-label={`View more details about ${project.title}`}
             className="w-14 h-14 bg-black text-white flex items-center justify-center border-2 border-black transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 hover:bg-accent hover:border-accent hover:translate-x-1 hover:-translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none"
           >
             <ArrowUpRight className="w-6 h-6" aria-hidden="true" />
@@ -155,7 +157,7 @@ export function ProjectsSection() {
         </div>
 
         <div className="mt-16 flex justify-center">
-          <BrutalistButton href={PERSONAL_INFO.github}>
+          <BrutalistButton href={PERSONAL_INFO.github} ariaLabel={`Explore all repositories of ${PERSONAL_INFO.name} on GitHub`}>
             <Github className="w-4 h-4" aria-hidden="true" />
             Explore All Repositories
           </BrutalistButton>

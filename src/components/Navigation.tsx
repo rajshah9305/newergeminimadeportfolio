@@ -76,7 +76,8 @@ export function Navigation() {
         {/* Mobile toggle */}
         <button
           aria-expanded={mobileOpen}
-          aria-label="Toggle Navigation Menu"
+          aria-controls="mobile-menu"
+          aria-label={mobileOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
           className="md:hidden p-2 text-black border-2 border-black hover:bg-accent hover:text-black transition-colors focus:outline-none"
           onClick={() => setMobileOpen((v) => !v)}
         >
@@ -110,6 +111,7 @@ export function Navigation() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            id="mobile-menu"
             initial={reduce ? {} : { opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? {} : { opacity: 0, y: -10 }}
@@ -135,7 +137,7 @@ export function Navigation() {
                 { href: PERSONAL_INFO.github,   label: "GitHub",   Icon: Github },
                 { href: PERSONAL_INFO.linkedin, label: "LinkedIn", Icon: Linkedin },
               ].map(({ href, label, Icon }) => (
-                <a key={label} href={href} aria-label={label} target="_blank" rel="noreferrer"
+                <a key={label} href={href} aria-label={`View ${PERSONAL_INFO.name}'s ${label} profile`} target="_blank" rel="noreferrer"
                   className="flex-1 flex items-center justify-center py-4 bg-white text-black border-2 border-black hover:bg-accent hover:text-black transition-colors focus:outline-none">
                   <Icon className="w-5 h-5" />
                 </a>
